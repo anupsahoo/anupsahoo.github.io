@@ -1,30 +1,5 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Anup Sahoo, QA Lead Engineer</title>
-	</head>
-	<body>
-		<nav>
-    		<ul>
-        		<li><a href="/">Home</a></li>
-        		<li><a href="/cv">CV</a></li>
-        		<li><a href="/LearnPython ">Learn Python</a></li>
-          		<li><a href="/Learn_Automation">Learn Automation</a></li>
-        		<li><a href="/Learn_Automation_Infrastructure">Learn Automation Infrastructure</a></li>
-        		<li><a href="/InterviewQuestions">Interview Questions</a></li>
-    		</ul>
-		</nav>
-		<div class="container">
-    		<div class="blurb">
-        		<h1>Hi there, I'm Anup!</h1>
-				<p>I'm best known as the horrible QA <a href="/about">Read more about my life...</a></p>
-    		</div><!-- /.blurb -->
-		</div><!-- /.container -->
-		<footer>
-    		<ul>
-        		<li><a href="mailto:anup.aksahoo@gmail.com">email</a></li>
-        		<li><a href="https://anupsahoo.github.io/">https://github.com/anupsahoo/</a></li>
-			</ul>
-		</footer>
-	</body>
-</html>
+hankquinlan.github.io
+=====================
+This is demo data created by [Jonathan McGlone](http://jmcglone.com) and used in a [step-by-step beginners guide](http://jmcglone.com/guides/github-pages) to creating and hosting a personal website using GitHub and Jekyll. You can view the demo data at <http://hankquinlan.github.io> and read the guide at <http://jmcglone.com/guides/github-pages>. 
+
+Users are free to copy and re-use any and all of the code contained here without contacting me.
