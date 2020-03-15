@@ -33,10 +33,11 @@ an integer value can be. Example :
 >
 >><class 'int'>
 
+
 ### Float :
 
-This value is represented by float class. It is a real number with floating 
-point representation. It is specified by a decimal point. Example :
+ This value is represented by float class. It is a real number with floating 
+ point representation. It is specified by a decimal point. Example :
 
 >> a = 5.6
 >
