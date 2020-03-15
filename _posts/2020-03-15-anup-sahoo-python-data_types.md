@@ -21,20 +21,23 @@ Numeric data type that represent the data which has numeric value. Numeric value
 integer, floating number or complex numbers. 
 
 ### Integers: 
+
 This value is represented by int class. It contains positive or negative 
 whole numbers (without fraction or decimal). In Python there is no limit to how long 
-an integer value can be.
-Example : 
+an integer value can be. Example : 
+
 >> a = 5
 >
 >> type(a)
 > 
 >
 >><class 'int'>
+
 ### Float :
+
 This value is represented by float class. It is a real number with floating 
-point representation. It is specified by a decimal point. 
-Example :
+point representation. It is specified by a decimal point. Example :
+
 >> a = 5.6
 >
 >> type(a)
@@ -42,9 +45,12 @@ Example :
 >> <class 'float'>
 
 ### Complex Numbers :
+
  Complex number is represented by complex class& specified as (real part) + 
- (imaginary part)j. For example – 2+3j
+ (imaginary part)j. For example : 
+ 
 Example : 
+
 >> a = 5.6+4j
 >
 >> type(a)
