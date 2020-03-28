@@ -20,7 +20,7 @@ are actually classes and variables are instance (object) of these classes. Below
 Numeric data type that represent the data which has numeric value. Numeric value can be 
 integer, floating number or complex numbers. 
 
-### Integers: 
+#### Integers: 
 
 This value is represented by int class. It contains positive or negative 
 whole numbers (without fraction or decimal). In Python there is no limit to how long 
@@ -34,7 +34,7 @@ an integer value can be. Example :
 >><class 'int'>
 
 
-### Float :
+#### Float :
 
  This value is represented by float class. It is a real number with floating 
  point representation. It is specified by a decimal point. Example :
@@ -45,7 +45,7 @@ an integer value can be. Example :
 
 >> <class 'float'>
 
-### Complex Numbers :
+#### Complex Numbers :
 
  Complex number is represented by complex class& specified as (real part) + 
  (imaginary part)j. For example : 
@@ -58,7 +58,11 @@ Example :
 >
 >><class 'complex'>
  
+## Sequence Type
 
+## Boolean
+## Set
+## Dictionary
 
 
 
