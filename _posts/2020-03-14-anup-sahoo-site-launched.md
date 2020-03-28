@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Anup Sahoo, QA Lead Engineer, Launches Site"
+title: "About Python and Its Installation"
 date: 2020-03-14
 ---
 
