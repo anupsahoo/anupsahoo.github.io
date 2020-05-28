@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Choosing Tests Strategy "
-date: 2020-03-28
+date: 2020-04-28
 ---
 # What is Test Strategy?
 A Test strategy describes the testing approach of the software development cycle by
