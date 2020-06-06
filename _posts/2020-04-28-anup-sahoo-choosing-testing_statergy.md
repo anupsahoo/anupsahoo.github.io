@@ -5,118 +5,54 @@ date: 2020-04-28
 category: testing
 
 ---
-# What is Test Strategy?
-A Test strategy describes the testing approach of the software development cycle by
-providing the generic test entry criteria & exit criteria for each level and the relationship
-among the levels from a Quality Assurance perspective.
-
-## What is the Objective of Test Strategy?
-
-To understand overall target by managing the Product & Project risk. Here, We
-mentioned the different levels of test strategies and high-level activities associated with
-it to serve you well for the long term.
-## How many types of Test Strategies and where to use?
-Our Test Strategies are broadly categorized under the following:
-
-• Analytical Strategies
-
-• Model-Based Strategies
-
-• Methodical Strategies
-
-• Process/Standard Compliant Strategies
-
-• Reactive Strategies
-
-• Consultative Strategies
-
-• Regression Averse Strategies 
-
-## Analytical Strategy:
-It is a Risk based testing. At this level of testing, Test team analyses the test basis to
-identify the test conditions to cover.
-Derive the test conditions from the requirements Design the tests and implement to
-cover the conditions Execute the tests based on the priority of requirement covered by
-each test to determine the order in which the tests will be run. Test results will be
-reported in terms of requirement status as follows:
-• Requirement tested and passed
-
-• Requirement tested and failed
-
-• Requirement not yet fully tested.
-
-• Requirement testing blocked.
-
-## Model Based Strategy:
-At this level, Test team develops a Model of a system environment like input
-conditions to which system is subjected and How the system should behave? Test team
-also develops model for ideal, expected & minimum throughput rates, response time
-and resource allocation by considering the current product environment Hardware,
-Software, Data Capacity, Network and Infrastructure.
-It can be used for testing Operational Profiling such as to test the performance of a fast
-growing mobile device application.
-## Methodical Strategies:
-These strategies are Quality Characteristic Based. At this level of testing, the Test team
-uses a Predetermined set of test conditions such as a Quality Standard,
-Checklist/Collection of Generalised and logical test conditions which subject to a
-particular Domain type of testing/ Application testing. Test team uses the set of test
-conditions from one iteration to next or from release to next.
-It can be used to test the Maintenance of a simple, stable e-commerce website by using
-the checklist that identifies the key functions, attributes and link for each page.
-
-## Process/Standard Compliant Strategies:
-At this level of testing, Test team follows a set of process should address
-Documentation, Proper Identification, Use of Test Basis & Test Oracle(s) and an
-organization of Test Team defined by a standard committee or other panel of experts.
-It can be used to test the projects following Scrum Agile Management Techniques by
-analyses the user stories that describe particular features, estimates the test effort as
-part of the planning process for the iteration, identify the test conditions for each user 
-story and finally execute the test & report the status of each story during the time of
-execution.
-## Reactive Strategies:
-At this level of testing, Test team wait to design and implement tests until the software is
-received and reacted to an actual system under test. Testers periodically report results
-of the testing session to the Test Manager.
-It can be used for Defect Based Attacks such as an exploratory testing on Menu based
-application. In this, A set of test charters including features, menu selections and
-screens to be developed respectively. Each tester is assigned to a set of test charters to
-structure their exploratory testing sessions by using the charters.
-## Consultative Strategies:
-At this level, Test team relies on the Input of one or more key stake holders to
-Determine the test conditions to cover. It can be used as User -Directed testing such as
-to test the outsourcing compatibility for Web Based Applications, Company will provide
-the list of browser versions, Anti-Malware software, Operating System connection types
-and other configurations to test service provider that they want to evaluate against the
-application. The testing service provider can use these techniques such as Pairwise
-Testing for high priority options and Equivalence Partitioning for low priority options to
-generate the tests.
-## Regression- Aversion Testing Strategies:
-At this level of testing, Test team uses various techniques to manage the Risk of
-Regression especially Functional and/or Non-Functional Regression test automation at
-one or more levels.
-It can be used as Extensive Automation by using GUI based test
-automation tool to automate The typical and exception use cases for Web
-Based Applications. Those tests are then executed at any time the
-application is modified.
-## How To Choose?
-The selection of specific test strategy should be appropriate to an organization Needs
-and Means. Different test strategies are suitable for different organizations and projects.
-Test strategy also differs from the various development models. An organization may
-tailor test strategies to make it suitable for a particular operation and project.
-## What are the Advantages?
-The test Strategy also describe the following.:
-
-• Test Strategy should define the testing tools like Test Management, Defect
-Management Systems and Automated Test Tools.
-
-• Test Strategy identify the data that will be recorded, Test Measurement and Test
-Control. The data will be reported to show the progress of testing.
-
-• Test Strategy also describe the Integration procedures, Test specification
-techniques, independence of testing, mandatory and optional standards,
-configuration management approach and reusability of software and test work
-products.
-
-`Note: While designing Test Strategy one should be consider the required test
-environment`
-
+# What is a test strategy?
+A test strategy is a plan that defines the approach for testing in a software development cycle. In this case, Quality Assurance is a primary perspective for ensuring an impeccable test strategy. A strategist provides generic test entry & exit criteria for every level. The relationships between the levels is also an important parameter. 
+Test Strategy: What is The Primary Objective?
+The objective of a test strategy is to have a firm hold at the grasping of the end goal, simultaneously, managing the project risk and the product. For the test strategy to serve for the long haul, it’s important to perform the necessary activities for each level. 
+Different Types of Test Strategies and Their Areas of Application
+As discussed above, there are different levels of test strategies. Here, we have composed a list of various test strategy levels and what each represents. Additionally, we have also mentioned the areas of application for each level. So, let’s dive in. 
+The different types of strategies include:
+#### Analytical Strategies
+#### Model-Based Strategies
+#### Methodical Strategies
+#### Process/Standard Compliant Strategies
+#### Reactive Strategies
+#### Consultative Strategies
+#### Regression Averse Strategies 
+Now, let’s dive into the details of every level. 
+### Analytical Strategy
+The foremost task the team has to accomplish at this level is to identify the various test conditions they have to cover. This level is basically about risk-based testing. The three primary processes include: 
+Deriving test conditions from the requirements
+Designing and implementation of tests for covering test conditions
+Execution of tests in an order
+Each test covers certain requirements priority which decides the test sequence. 
+The requirement statuses include:
+**Requirement tested and passed**
+**Requirement tested and failed**
+**Requirement not yet fully tested.**
+**Requirement testing blocked.**
+### Model-Based Strategy
+At this level, the team determines how the system should behave and check the input conditions to which it’s subjected to. Using these two criteria, a model-based strategy involves developing a model of the system environment. There are various throughput rates, resource allocations, and response times a team has to consider for developing a model. These are, ideal, expected, as well as minimum throughput rates. To decide these parameters the teams have to consider the present product environment, Data Capacity, Software, Hardware, Network, and Infrastructure.
+One can also use this strategy for Operational profiling, for instance, testing the performance of a mobile app with a high growth rate. 
+### Methodological Strategies
+This set of strategies is based on Quality Characteristics. The test team makes use of a predetermined set of test conditions, for instance, quality standard, a checklist, or a collection of generalized and logical test conditions subject to a particular domain type of testing or application testing. 
+You can use these strategies for testing the maintenance of ecommerce websites. Of course, you have to use the checklist for identifying links, attributes, and key functions for different pages. 
+### Process/Standard Compliant Strategies:
+The testing team focuses on addressing the following aspects at this level.
+**Documentation**
+**Proper Identification**
+**Use of Test Basis & Test Oracle**
+**Organizing the Test Team**
+If you’re working on an agile framework, you can follow Scrum Agile Management Techniques for testing the projects. The first step is to analyze user stories that provide an idea of specific features. After that comes estimating test efforts, identifying test conditions for each user story. The execution of tests is the final step followed by reporting the status of each story from time to time. 
+### Reactive Strategies
+At this level, teams wait till the system under test receives the software. Only after that, they can carry out the designing and implementation of the tests. Testers keep on reporting the result of the testing session to the Test Manager from time to time. 
+Defect Based Attacks are one of the key areas of reactive strategies. This includes exploratory testing on Menu based application. This level also comprises test characters containing the development of screens, menu selections, and features. It marks the structuring of testers’ exploratory testing sessions with the help of the charters. Every tester is responsible for a set of test charters. 
+Regression- Aversion Testing Strategies
+Functional and/or Non-Functional Regression test automation has risks at different levels. So, this level is all about using various useful techniques to manage this risk. Testers can also use it as Extensive Automation by using GUI based test automation tool. This is for automating The typical and exception use cases for Web-Based Applications. The execution of these tests occurs any time the application undergoes a modification.
+### How To Choose?
+Depending on the requirements, development models, and the means of a firm, the team members concerned can select a specific test strategy. Every company can modify test strategies depending on the suitability of a subject or operation. 
+### What are the Advantages?
+#### Here are some striking advantages of test strategies.
+A test strategy provides a description of a wide array of Integration procedures, independence of testing, Test specification techniques, configuration management approach, mandatory and optional standards, and reusability of software and test work products.
+Test strategy identifies the test control, test management, and the data meant for recording. This data reports the progress of testing.
+A test strategy also defines testing tools such as Defect Management Systems, Test Management, and Automated Test Tools.
