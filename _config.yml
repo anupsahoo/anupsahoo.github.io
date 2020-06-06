@@ -1,3 +1,52 @@
-name: Anup Sahoo, QA Lead Engineer
+title:              Anup Sahoo
+email:              your-email@example.com
+description:        QA Lead Engineer
+author:             Anup Sahoo
+baseurl:            "/"
+url:                ""
+
+
+
+### Site Navigations
+navigations: 
+ - title: "Home"
+   url: "/"
+ - title: "About"
+   url: "/about"
+ - title: "Blog"
+   url: "/blog"
+   child:
+   - cat: "PMP Tips & Tricks"
+     url: "/blog/categories/pmp"
+   - cat: "Learning Python"
+     url: "/blog/categories/python"
+   - cat: "Testing Concepts"
+     url: "/blog/categories/testing"
+   - cat: "Test Automation"
+     url: "/blog/categories/automation"
+   - cat: "Hands on CI-CD "
+     url: "/blog/categories/ci-cd"
+   - cat: "For LifeHackers"
+     url: "/blog/categories/lifeHackers"
+   - cat: "archives"
+     url: "/blog/categories/all"
+
+
+# Social Profiles
+twitter_username:   anup
+github_username:    anup
+facebook_username:  anup
+linkedin_username:  anup
+
+# Add your google-analytics ID here to activate google analytics
+google_analytics:   UA-168645855-1 
+
+# Build settings
 markdown: kramdown
-permalink: /blog/:year/:month/:day/:title
+highlighter: rouge
+paginate:           5
+paginate_path:      "/posts/page:num/"
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap ## Uncomment this line to silently generate a sitemaps.org compliant sitemap for your Jekyll site

@@ -1,0 +1,38 @@
+---
+layout: page
+permalink: /blog/categories/all/
+title: Archive
+---
+
+{% for category in site.categories %}
+{% capture category_name %}{{ category | first }}{% endcapture %}
+<div id="#{{ category_name | slugize }}"></div>
+<h2 class="category-head mb-3 text-capitalize"><a href="{{ site.baseurl }}/blog/categories/{{ category_name }}">{{ category_name }}</a></h2>
+<a name="{{ category_name | slugize }}"></a>
+{% for post in site.categories[category_name] %}
+<article class="post-preview">
+    <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
+      <h5 >{{ post.title }}</h5>
+      {% if post.subtitle %}
+      <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+      {% else %}
+      <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
+      {% endif %}
+    </a>
+    <p class="post-meta">Posted by
+      {% if post.author %}
+      {{ post.author }}
+      {% else %}
+      {{ site.author }}
+      {% endif %}
+      on {{ post.date | date: '%B %d, %Y' }} &middot; {% include read_time.html content=post.content %}
+    </p>
+  </article>
+{% endfor %}
+{% endfor %}
+
+
+
+
+
+

@@ -1,34 +1,21 @@
 <!DOCTYPE html>
+
 <html>
-  <head>
-    <title>{{ page.title }}</title>
-    
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
-  
-  </head>
 
+{% include head.html %}
 
-  <body>
-    <nav>
-<ul>
-<li><a href="/">Home</a></li>
-<li><a href="/about">About</a></li>
-<li><a href="/cv">CV</a></li>
-<li><a href="/blog">Blog</a></li>
-</ul>
-    </nav>
-<div class="container">
+<body>
+
+  {% include navbar.html %}
 
   {{ content }}
 
-</div>
-  
-  <footer>
-   <ul>
-   <li><a href="mailto:anupsahoo@gmail.com">Email</a></li>
-   <li><a href="https://www.linkedin.com/in/anupsahoo1">LinkedIn</a></li>
-   <li><a href="https://github.com/anupsahoo">Github</a></li>
+  {% include footer.html %}
 
-   </ul>
-  </footer>
-  </body>
+  {% include scripts.html %}
+
+  {% include google-analytics.html %}
+
+</body>
+
+</html>
