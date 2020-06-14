@@ -1,8 +1,11 @@
 ---
 layout: post
-title: "Data Types In python "
-date: 2020-03-15
+title: "Data types in python"
+subtitle: ""
+date: 2020-06-03 23:45:13 -0400
+category: python
 ---
+### Basic data types in python
 
 
 Data types are data items that represents the type of value that tells what operations 
