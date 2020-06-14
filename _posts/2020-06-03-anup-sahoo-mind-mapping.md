@@ -1,13 +1,10 @@
 ---
 layout: post
-title: "An Introduction to Mind Mapping"
+title: "An effective way to use Mind Mapping for Project Management "
 subtitle: ""
 date: 2020-06-03 23:45:13 -0400
 category: pmp
 ---
-
-# An effective way to use Mind Mapping for Project Management   
-
  
 It refers to the technique of graphical formation which focuses on the main concepts of the basic idea of the given 
 topic. It requires the exact image of the things that we have in our minds and going along with the specific ideas of

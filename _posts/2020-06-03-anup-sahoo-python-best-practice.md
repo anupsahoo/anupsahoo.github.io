@@ -5,7 +5,6 @@ subtitle: ""
 date: 2020-06-03 23:45:13 -0400
 category: python
 ---
-#### Top 10 Mistakes that python programmers make
 Python is known to have a simple syntax and uncomplicated semantics and applicability globally. Despite this fact, 
 there is some widespread mistake that a python developer makes. Let us take you through some prevalent errors.
 ##### Errors

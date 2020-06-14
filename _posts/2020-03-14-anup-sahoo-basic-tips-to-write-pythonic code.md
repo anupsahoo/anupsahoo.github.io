@@ -6,8 +6,6 @@ date: 2020-06-03 23:45:13 -0400
 category: python
 ---
 
-### Basic Tips to write Pythonic code
-
 Most people give a lot of advice about how to go about writing a Python code in the best way. 
 If you have been a developer for quite a while now, you would be acquainted with the industry's 
 best practices. First, we must look at what points to consider and what to avoid while writing 
