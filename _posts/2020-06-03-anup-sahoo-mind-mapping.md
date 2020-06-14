@@ -6,11 +6,8 @@ date: 2020-06-03 23:45:13 -0400
 category: pmp
 ---
 
-# An effective way to use Mind Mapping for Project Management 
+# An effective way to use Mind Mapping for Project Management   
 
-  
-
-## An Introduction to Mind Mapping
  
 It refers to the technique of graphical formation which focuses on the main concepts of the basic idea of the given 
 topic. It requires the exact image of the things that we have in our minds and going along with the specific ideas of
@@ -64,10 +61,9 @@ As when we draw a proper structure in our mins, then we will be able to keep a c
 The organizing as well as the progress of the project will bring a great effect in clear consideration. 
 It will be easier for remembering and grasping the topics about the project. 
 
- #### Informative and Brief
+#### Informative and Brief
 Mind Mapping is the best solution for every query of the project. It helps in understanding and bringing good 
-and perfect project maintenance. While going around in Mind Mapping, people also learns and gets the full information
- about the work which they are in with. The structure as well as pictures give a good form of receptive to the person.
+and perfect project maintenance. While going around in Mind Mapping, people also learns and gets the full information about the work which they are in with. The structure as well as pictures give a good form of receptive to the person.
   It will also increase the learning capacity of them by remembering the topics for more time. 
 
 ##### Disadvantages of Linear Note Taking 
@@ -80,7 +76,7 @@ with full concentration uses many grammar forms, the structure of the sentence, 
  of information are missed as we believe in noting instead of taking the information for it. It will make our mind 
  bore as well as will lose creativity mindset.     
  
- ####  Loosing of time management 
+####  Loosing of time management 
  
 When you will be fully busy in thinking of the grammar, creations along with many other things on it, then there 
 will be a great issue of managing the time. It in actual requires adjusting of the timeline, proper processing and 
