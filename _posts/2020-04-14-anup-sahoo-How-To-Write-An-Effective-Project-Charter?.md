@@ -67,6 +67,7 @@ To prepare an effective project charter you need to have all the information reg
 The following are some of those tools that can help you gather all relevant inputs about the project. 
 
 **Expert Judgement**
+
 Different groups and individuals in the organization have knowledge and expertise in different areas. 
 For the purpose of a project charter, you need to identify individuals or groups who can provide you inputs on the strategies of the organization and its benefits management.
 Besides, you also need a technical expert who can impart the necessary technical knowledge of the proposed project. 
@@ -97,6 +98,10 @@ resource and other requirements, milestones, success parameters, and any other r
 #### How to write an effective Project Charter?
 Having understood the purpose of a project charter and tools and techniques helpful in writing an effective 
 project charter, we are now better prepared to write an effective project charter.
+
+**Important Steps to Write an Effective Project Charter**
+
+![projectcharter](/assets/images/think.png)
 
 Many organizations have templates to write the project charters. If you don’t have any such template you can 
 follow these simple steps to prepare the charter.
@@ -135,7 +140,9 @@ You have to specify the boundary of the project here and categorically define th
 For example, the Project, “Procurement of New High-Speed Filling Machine for Fruit Beverages” may have 
 the scope of identifying the machine, selecting the vendor, rate negotiations, and getting the machine delivered 
 at the site. However, you can exclude the ‘Installation and Commissioning’ of the machine from the scope of the project.
-Anticipated Risks and Limitations
+** Anticipated Risks and Limitations**
+
+![riskmanagement](/assets/images/think.png)
 
 You must envisage the risks and the limitations and should have plans to analyze and mitigate them during the course of 
 project execution.
