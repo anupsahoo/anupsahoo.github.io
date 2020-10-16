@@ -1,11 +1,11 @@
 ---
 layout: page
 title: Testing Concepts
-permalink: /blog/categories/testing/
+permalink: /blog/categories/qa/
 ---
 
 
-{% for post in site.categories.testing %}
+{% for post in site.categories.qa %}
 
 <article class="post-preview">
   <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">

@@ -38,8 +38,6 @@ So, there are essentially two questions in this query.
 Well, you can execute a project without a project charter but then you may not be able to fulfill some of the most important 
 and basic requirements of the project. 
 
-![projectmanagement](assets/images/chart.png)
-
 A project charter is a highly useful document. It has different uses at different stages of the project.
 * First and foremost is that the project charter is the basic document for the project proposal. 
 If you intend to initiate a project to achieve a certain objective, 
@@ -110,7 +108,8 @@ The project name should be such that it clearly defines the basic goal of the pr
 “Procurement of New Machine” will be too vague a project name. Instead, “Procurement of New High-Speed 
 Filling Machine for Fruit Beverages” gives a good sense of the goal of the project to be executed.
 
-** Description of the Project**
+***Description of the Project***
+
 5 Ws and 1 H is the most basic and universal way to describe any process. It means that you need to answer 
 the **What, Why, Where, When, Who (5Ws) and How (1 H)** related to the project.
 So, in this section, you essentially need to ask and answer some of the following questions,
@@ -157,7 +156,7 @@ Include the names/positions of each and every stakeholder. They may be employees
 other departments, or representatives of the clients or the suppliers’ organization. This is framed after first 
 analyzing the requirement and subsequently fixing the accountability of each stakeholder. 
 
-####Summing It Up
+#### Summing It Up
 So, this is how you can write an effective project charter for any of the projects using effective tools and techniques explained above. By following these steps you will be able to clearly define the fundamental elements of a project charter mentioned at the very beginning of the article i.e. SOP or Scope, Objective and People of the project.
 It will also fulfill all the purposes of writing a project charter as mentioned earlier in the article i.e.,
 Consolidating all the information required for initiating the proposal of the project,
