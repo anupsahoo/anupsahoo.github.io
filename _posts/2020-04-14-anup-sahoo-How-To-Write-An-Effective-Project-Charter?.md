@@ -101,8 +101,6 @@ project charter, we are now better prepared to write an effective project charte
 
 **Important Steps to Write an Effective Project Charter**
 
-![projectcharter](/assets/images/think.png)
-
 Many organizations have templates to write the project charters. If you don’t have any such template you can 
 follow these simple steps to prepare the charter.
 Remember to include as much information in the charter as demanded by the project. However, the amount of 
@@ -142,15 +140,13 @@ the scope of identifying the machine, selecting the vendor, rate negotiations, a
 at the site. However, you can exclude the ‘Installation and Commissioning’ of the machine from the scope of the project.
 ** Anticipated Risks and Limitations**
 
-![riskmanagement](/assets/images/think.png)
-
 You must envisage the risks and the limitations and should have plans to analyze and mitigate them during the course of 
 project execution.
 **Timelines to Achieve Intermediate and Final Goals**
+
 As mentioned above, the deliverables or goals in any project should be SMART. The “T” in the acronym stands for 
 “Timebound”. So, all the different activities in the project should have a planned start and end dates with a special
- focus on the project completion date. This becomes the basis for preparing the Gantt Chart and tracking the progress
-  of the project after approval.
+ focus on the project completion date. This becomes the basis for preparing the Gantt Chart and tracking the progress   of the project after approval.
 **Roles and Responsibilities**
 This is one of the most important parts of any project charter and the single most important factor in the timely 
 execution of the project. Defining the roles of each member in the project keeps them aware of their respective 
