@@ -2,7 +2,7 @@
 layout: post
 title: "Choosing Tests Strategy "
 date: 2020-04-28
-category: QA
+category: qa
 
 ---
 ### What is a test strategy?
