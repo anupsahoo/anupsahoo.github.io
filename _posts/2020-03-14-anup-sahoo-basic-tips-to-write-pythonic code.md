@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Basic Tips to write Pythonic code"
+title: "Basic Tips to write Pythonic code "
 subtitle: ""
 date: 2020-06-03 23:45:13 -0400
 category: python
