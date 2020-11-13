@@ -1,7 +1,8 @@
 // Global styling for this template
 body {
-  font-size: 20px;
+  font-size: 18px;
   color: $gray-900;
+  text-align:justify;
   @include serif-font;
 }
 
@@ -22,11 +23,13 @@ h5,
 h6 {
   font-weight: 800;
   @include sans-serif-font;
+  text-align:justify;
 }
 
 a {
   color: $gray-900;
   @include transition-all;
+  text-align:justify;
   &:focus,
   &:hover {
     color: $primary;
@@ -36,16 +39,18 @@ a {
 blockquote {
   font-style: italic;
   color: $gray-600;
+  text-align:justify;
 }
 
 .section-heading {
-  font-size: 36px;
+  font-size: 24px;
   font-weight: 700;
   margin-top: 60px;
+  text-align:justify;
 }
 
 .caption {
-  font-size: 14px;
+  font-size: 12px;
   font-style: italic;
   display: block;
   margin: 0;
@@ -53,6 +58,7 @@ blockquote {
   text-align: center;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
+  text-align:justify;
 }
 
 ::-moz-selection {

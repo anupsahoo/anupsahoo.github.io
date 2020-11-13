@@ -8,13 +8,13 @@
       color: $primary;
     }
     > .post-title {
-      font-size: 30px;
-      margin-top: 30px;
+      font-size: 20px;
+      margin-top: 20px;
       margin-bottom: 10px;
     }
     > .post-subtitle {
       font-weight: 300;
-      margin: 0 0 10px;
+      margin: 0 0 8px;
     }
   }
   > .post-meta {
@@ -35,7 +35,7 @@
   @media only screen and (min-width: 768px) {
     > a {
       > .post-title {
-        font-size: 36px;
+        font-size: 24px;
       }
     }
   }
