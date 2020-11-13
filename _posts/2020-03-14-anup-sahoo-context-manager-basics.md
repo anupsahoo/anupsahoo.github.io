@@ -12,7 +12,7 @@ The most frequently used example of context managers is the statement of with.
 Suppose you have two similar operations with a block of code in between that you would 
 like to execute as a pair. Context managers allow you to do that directly. For instance:
 
-```
+```python
 with open('some_file', 'w') as opened_file:
     opened_file.write('Hello World!')
 ```
@@ -20,7 +20,7 @@ with open('some_file', 'w') as opened_file:
 The code above opens the file, writes some details to the file and then closes it. If an error occurs 
 when the data is being written to the register, it will attempt to close it. The code given above is equivalent to:
 
-```
+```python
 file = open('some_file', 'w')
 try:
     file.write('Hello World!')
@@ -40,7 +40,7 @@ what is happening behind the scenes.
 At the very least a context manager has an__ enter__ and __exit__ method defined. 
 Let’s make our own file-opening Context Manager and learn the basics.
 
-```
+```python
 class File(object):
     def __init__(self, file_name, method):
         self.file_obj = open(file_name, method)        
@@ -53,7 +53,8 @@ class File(object):
 We can only use our new class in a sentence by 
 specifying the methods of entering and exiting. We're going to try:        
         
-``` with File('demo.txt', 'w') as opened_file: 
+```python
+with File('demo.txt', 'w') as opened_file: 
     opened_file.write('Hello World!')
 ```
   
@@ -78,7 +79,7 @@ further steps are required. In our situation, we pay no attention to them at all
 What if an exception is created by our file object? We may be trying to access a 
 method that is not supported by the file object. For example: 
 
-```
+```python
 with File('demo.txt', 'w') as opened_file:
     opened_file.undefined_function('Hello World!')
 ```
@@ -95,7 +96,7 @@ the method returns none). Therefore, the exception is posed in the statement:
  
 Let's try to tackle the exit process exception:
     
-```
+```python
 class File(object):`   
     `def __init__(self, file_name, method):`   
         self.file_obj = open(file_name, method)
@@ -123,7 +124,7 @@ For this very reason, Python has a context-lib module. We may implement a
 Context Manager instead of a class, using a generator function. 
 Let’s look at a fundamental, useless example:        
 
-```
+```python
 from contextlib import contextmanager
 @contextmanager
 def open_file(name):
@@ -153,7 +154,7 @@ when we call the open_file function later.
 So now that we know all of this, the newly created Context Manager 
 can be used like this:
         
-```
+```python
 with open_file('some_file') as f:
     f.write('Hello World!') 
 ```
