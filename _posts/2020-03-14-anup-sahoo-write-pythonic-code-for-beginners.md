@@ -6,6 +6,7 @@ date: 2020-06-03 23:45:13 -0400
 category: python
 ---
 
+### Tips to Write Pythonic code for beginners 
 
 Most people give a lot of advice about how to go about writing a Python code in the best way. If you have been a developer for quite a while now, you would be acquainted with the industry's best practices. First, we must look at what points to consider and what to avoid while writing the correct pythonic code.Python, as we know it, is a simple language to code in compared to others. It comes with guidelines and pythonic idioms that are to be used by the coding community. These idioms and instructions are the main reason python has a simple syntax and high readability.To write the right code, it is essential to get back to the basics. Let us look at some great styles in guidelines and how we have to deal with legacy code in python.
 
