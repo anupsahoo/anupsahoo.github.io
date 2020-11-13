@@ -5,6 +5,7 @@ date: 2020-04-28
 category: qa
 
 ---
+
 #### What is a test strategy?
 
 A test strategy is a plan that defines the **approach for testing** in a software development cycle. In this case, Quality Assurance is a primary perspective for ensuring an impeccable test strategy. A strategist provides **generic test entry & exit criteria** for every level. The relationships between the levels is also an important parameter. 
