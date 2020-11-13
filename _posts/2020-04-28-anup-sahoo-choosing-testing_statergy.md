@@ -55,13 +55,13 @@ At this level, teams wait till the system under test receives the software. Only
 
 ##### Regression- Aversion Testing Strategies
 
-Functional and/or Non-Functional Regression test automation has risks at different levels. So, this level is all about using various useful techniques to manage this risk. Testers can also use it as **Extensive Automation by using GUI based test automation tool** or any scripting language to **automate the manual tests**. This is for automating The typical and exception use cases for Web-Based Applications. The execution of these tests occurs any time the application undergoes a modification.
+**Functional and/or Non-Functional Regression test automation** has risks at different levels. So, this level is all about using various useful techniques to manage this risk. Testers can also use it as **Extensive Automation by using GUI based test automation tool** or any scripting language to **automate the manual tests**. This is for automating The typical and exception use cases for Web-Based Applications. The execution of these tests occurs any time the application undergoes a modification.
 
 ##### How To Choose?
 
 Depending on the requirements, development models, and the means of a firm, the team members concerned can select a specific test strategy. Every company can modify test strategies depending on the suitability of a subject or operation. 
 
-##### What are the Advantages? Here are some striking advantages of test strategies.
+##### Here are some striking advantages of test strategies.
 
 A test strategy provides a description of a wide **array of Integration procedures, independence of testing, Test specification techniques,** **configuration management approach, mandatory and optional standards, and reusability of software** and **test work products**.
 Test strategy identifies the test **control, test management, and the data meant for recording**. This data reports the progress of testing.
