@@ -9,7 +9,7 @@ category: qa
 
 A test strategy is a plan that defines the **approach for testing** in a software development cycle. In this case, Quality Assurance is a primary perspective for ensuring an impeccable test strategy. A strategist provides **generic test entry & exit criteria** for every level. The relationships between the levels is also an important parameter. 
 
-**Test Strategy: What is The Primary Objective?**
+**What is The Primary Objective?**
 
 The objective of a test strategy is to have a firm hold at the grasping of the end goal, simultaneously, managing the project risk and the product. For the test strategy to serve for the long haul, it’s important to perform the necessary activities for each level. Different Types of Test Strategies and Their Areas of Application.There are different levels of test strategies. Here, we have composed a list of various test strategy levels and what each represents. Additionally, we have also mentioned the areas of application for each level. So, let’s dive in. The different types of strategies include:
 
@@ -45,7 +45,8 @@ The testing team focuses on addressing the following aspects at this level.
 1. Documentation
 2. Proper Identification
 3. Use of Test Basis & Test Oracle
-4. Organizing the Test Team
+4. Organizing the Test Team 
+
 If you’re working on an agile framework, you can follow Scrum Agile Management Techniques for testing the projects. The first step is to analyze user stories that provide an idea of specific features. After that comes estimating test efforts, identifying test conditions for each user story. The execution of tests is the final step followed by reporting the status of each story from time to time. 
 
 ##### Reactive Strategies
