@@ -1,43 +1,64 @@
 ---
 layout: post
-title: " How to use context manager? "
+title: " How to build your first chatbot using NLTK & Keras? "
 subtitle: ""
 date: 2020-07-03 23:45:13 -0400
 category: python
 ---
-### how to build your first chatbot using NLTK & Keras
+### How to build your first chatbot using NLTK & Keras?
 
-For business organizations and even for companies, chat bots are extremely helpful. Instead of calling service centers, most people tend to communicate directly from a chat box. Data that proved the worth of bots was released by Facebook. More than 2 billion messages are sent monthly between individuals and businesses. The Hub Spot study informs us that 71 percent of individuals want messaging apps to get customer service. It is a fast way to solve their problems so that chat bots have a bright organizational future.
+For business organizations and even for companies, chat bots are extremely helpful. Instead of calling service centers, most people tend to **communicate directly** from a chat box. Data that proved the worth of bots was released by Facebook. More than **2 billion messages** are sent monthly between individuals and businesses. The Hub Spot study informs us that **71 percent of individuals want messaging apps** to get customer service. It is a fast way to **solve their problems** so that chat bots have a bright organizational future.
 We will  learn create an exciting Chatbot today. 
-From scratch, we will introduce a chatbot that will be able to understand what the user is talking about and provide a suitable answer.
+
+From scratch, we will introduce a **chatbot** that will be able to understand what the user is talking about and provide a suitable answer.
+
 **What is Chatbot?**
-A chatbot is an intelligent piece of software capable of interacting and carrying out human-like acts. In customer interaction, ads on social network websites and instant messaging to the client, chat bots are used a lot. Based on how they are designed, there are two basic types of chatbot models; Retrieval based and Generative based models.
-1. Retrieval based Chat bots:
-Predefined input patterns and answers are used by a retrieval-based chatbot. To pick the appropriate answer, it then uses some kind of heuristic approach. In the industry, it is commonly used to build goal-oriented chat bots where we can change the chatbot 's tone and flow to drive our customers with the best experience.
-2. Generative based Chat bots:
+A chatbot is an intelligent piece of software capable of interacting and carrying out human-like acts. In **customer interaction**, ads on social network websites and **instant messaging** to the client, chat bots are used a lot. Based on how they are designed, there are two basic types of chatbot models; **Retrieval based and Generative based models**.
+
+**1. Retrieval based Chat bots:**
+
+**Predefined input patterns and answers** are used by a retrieval-based chatbot. To pick the appropriate answer, it then uses some kind of heuristic approach. In the industry, it is commonly used to build goal-oriented chat bots where we can change the chatbot 's tone and flow to drive our customers with the best experience.
+
+**2. Generative based Chat bots:**
+
 Generative models do not depend on any predefined answers.
-They are based on Neural Networks seq 2 seq. As with machine translation, it is the same concept. We convert the source code from one language to another language in machine translation, but here, we will turn the input into an output. It needs a large amount of data and is based on the networks of Deep Neural.
-Prerequisites
+They are based on **Neural Networks seq 2 seq**. As with machine translation, it is the same concept. We convert the source code from one language to another language in machine translation, but here, we will turn the input into an output. It needs a large amount of data and is based on the networks of Deep Neural.
+
+**Prerequisites**
+
 To implement the chatbot, we will be using Keras, which is a Deep Learning library, NLTK, which is a Natural Language Processing toolkit, and some helpful libraries. Run the below command to make sure all the libraries are installed:
 pip install tensorflow keras pickle nltk
+
 **How do Chat bots Work?**
+
 Chat bots are nothing but a smart piece of software that, much like humans, can connect and communicate with individuals. Interesting, aren't they? So now let's see how they work, actually.
 The NLP (Natural Language Processing) principles include all chat bots. NLP is made up of two things:
 NLU (Natural Language Understanding): Machines' capacity, like English, to understand human language.
 NLG (Natural Language Generation): A machine's ability to create text that is similar to human written sentences.
+
 **Project File Structure**
+
 After the project is complete, you will be left with all these files. Lets quickly go through each of them. It will give you an idea of how the project will be implemented.
 1. Train_chatbot.py — In this file, we will build and train the deep learning model that can classify and identify what the user is asking to the bot.
+
 2. Gui_Chatbot.py — This file is where we will build a graphical user interface to chat with our trained chatbot.
+
 3. Intents.json — The intents file has all the data that we will use to train the model. It contains a collection of tags with their corresponding patterns and responses.
+
 4. Chatbot_model.h5 — This is a hierarchical data format file in which we have stored the weights and the architecture of our trained model.
+
 5. Classes.pkl — The pickle file can be used to store all the tag names to classify when we are predicting the message.
+
 6. Words.pkl — The words.pkl pickle file contains all the unique words that are the vocabulary of our model.
+
 **How to Build Your Own Chatbot**
+
 I’ve simplified the building of this chatbot in 5 steps:
 
 **Step 1. Import Libraries and Load the Data**
+
 Build and name a new python file as a train chatbot and then we will import all the necessary modules. We are going to read the JSON data file in our Python programme after that.
+
 ```python
 import numpy as np
 from keras.models import Sequential
@@ -55,6 +76,7 @@ intents = json.loads(intents_file)
 ```
 
 **Step-2 Pre processing the Data**
+
 The raw data cannot be taken by the model. For the computer to understand quickly, it has to go through a lot of pre-processing. There are several preprocessing techniques available for textual data. The first strategy is tokenizing, in which we split the phrases into words.
 We can see that each tag contains a list of patterns and responses by analyzing the purpose file. Each pattern is tokenized and we add the words to a list. We also produce a list of classes and documents to add all the pattern-related intents.
 
@@ -94,7 +116,9 @@ pickle.dump(words,open('words.pkl','wb'))
 pickle.dump(classes,open('classes.pkl','wb'))
 ```
 In the end, the phrases provide the vocabulary of our project and classes include the complete individuals to categorize. We used the pickle.dump() method to save the python object into a register. After the training is completed, these files will be useful and we predict the chats.
+
 **Step 3. Create Training and Testing Data**
+
 We will transform each input pattern into numbers to train the model. First, each word in the pattern is lemmatized and a list of zeroes of the same length as the total number of words is generated. Only those indexes that include the word in the patterns will be set to value 1. In the same manner, by setting 1 to the class input to which the pattern belongs, we can construct the output.
 
 ```python
@@ -127,9 +151,11 @@ train_y = list(training[:,1])
 print("Training data is created")
 ```
 **Step 4. Training the Model**
+
 A neural network made up of 3 dense layers will be the architecture of our model. There are 128 neurons in the first layer, 64 in the second one, and the last layer would have the same neurons as the number of classes. To minimize overfitting of the model, the dropout layers are implemented. We used the SGD optimizer to start the model training and suit the data. We then save the trained model using the Keras model.save("chatbot model.h5) "function after the training of 200 epochs is completed.
 
 **Step 5. Interacting With the Chatbot**
+
 Our model is ready for chatting, so let's now build a nice graphical user interface in a new file for our chatbot. The file can be called as gui chatbot.py
 We will use the Tkinter module in our GUI file to construct the desktop application structure and then we will catch the user message and do some preprocessing again before we enter the message into our qualified model.
 The model will then predict the tag of the user’s message, and we will randomly select the response from the list of responses in our intents file.
@@ -247,5 +273,7 @@ SendButton.place(x=6, y=401, height=90)
 root.mainloop()
 ```
 **Running the Chatbot**
-Now we have two separate files, one is the train_chatbot.py, which we will use first to train the model.
-python train_chatbot.py
+
+Now we have two separate files, one is the `train_chatbot.py`, which we will use first to train the model.
+
+`python train_chatbot.py`
