@@ -1,18 +1,19 @@
 ---
 layout: post
-title: " How to use context manager effectively using python "
+title: " How to use context manager? "
 subtitle: ""
 date: 2020-06-03 23:45:13 -0400
 category: python
 ---
-### How to use context manager effectively using python
+### How to use context manager?
 
 Context managers allow you precisely to assign and release resources when you want to.
 The most frequently used example of context managers is the statement of with. 
 Suppose you have two similar operations with a block of code in between that you would 
 like to execute as a pair. Context managers allow you to do that directly. For instance:
 
-```with open('some_file', 'w') as opened_file:
+```
+with open('some_file', 'w') as opened_file:
     opened_file.write('Hello World!')
 ```
 
@@ -35,7 +36,7 @@ Context managers are typically used to lock and unlock resources and close opene
 Let's see if we can incorporate a Context Manager of our own. This should allow us to know exactly 
 what is happening behind the scenes.
 
-#### A Context Manager implemented as a Class:
+**A Context Manager implemented as a Class:**
 At the very least a context manager has an__ enter__ and __exit__ method defined. 
 Let’s make our own file-opening Context Manager and learn the basics.
 
@@ -67,7 +68,7 @@ going to happen under the hood.
 6. The statement calls the stored method __exit__  .
 7. The method __exit__ closes the file.   
  
-#### Handling Exceptions:
+**Handling Exceptions:**
 
 We did not speak about the __exit__ method's form, value and traceback arguments. 
 Python transfers the sort, value and traceback of the exception to 
@@ -115,7 +116,8 @@ Therefore, no exception was posed by the argument with our __exit__ method retur
 This isn't the only way Context Managers can be applied. There is another route, 
 and in the next segment we will be looking at it.
 
-#### Implementing a Context Manager as a Generator:
+**Implementing a Context Manager as a Generator:**
+
 Using decorators and generators, we can also introduce Context Managers. 
 For this very reason, Python has a context-lib module. We may implement a 
 Context Manager instead of a class, using a generator function. 
