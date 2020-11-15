@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "What is a test strategy? "
-date: 2020-04-28
+date: 2019-12-28
 category: qa
 
 ---
