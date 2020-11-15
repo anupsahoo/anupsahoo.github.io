@@ -2,7 +2,7 @@
 layout: post
 title: "How To Write An Effective Project Charter?"
 subtitle: ""
-date: 2020-07-03 23:45:13 -0400
+date: 2020-14-04 23:45:13 -0400
 category: pmp
 ---
 

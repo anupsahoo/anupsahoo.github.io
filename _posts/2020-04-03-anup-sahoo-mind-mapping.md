@@ -2,7 +2,7 @@
 layout: post
 title: "An effective way to use Mind Mapping for Project Management "
 subtitle: ""
-date: 2020-06-03 23:45:13 -0400
+date: 2020-04-03 23:45:13 -0400
 category: pmp
 ---
  
