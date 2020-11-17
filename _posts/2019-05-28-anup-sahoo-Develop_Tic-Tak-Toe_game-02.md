@@ -11,21 +11,30 @@ category: python
 we are going to build an interactive game of Tic Tac Toe where we’ll learn new things along the way.
 
 1. First of all, define the tk window with the Tk() as the root variable.
+
 2. Then we create the title of the window.
+
 3. Next, we define a variable to store the playable character (say, ‘O’ and ‘X’).
+
 4. Then we define a list to store all the buttons and place them in the window.
+
 5. Finally, we display a label saying the character which has to be played next.
+
 6. We end by a root.mainloop() function to keep events on the main window active and all other widgets interactive.
 
-#### How 
+#### How to do?
 
 One of the most played games is Tic Tac Toe, which is the best time killing game that you can play with only a pen and papers anywhere. Tic-tac-toe (American English), noughts and crosses (Commonwealth English), or Xs and Os, is a game of paper and pencil for two players, X and O, who take turns in a 3/3 grid to locate the spaces. The winner is the player who manages to position three of their marks in a horizontal, vertical, or diagonal row. It's a decided game with a forced draw that means both players play the best
 The game is played by two individuals. Next, a board with a 4*4 square grid is drawn. The first player chooses ‘X’ and draws it on any of the square grid, so the second player has the chance to draw ‘O’ on the spaces open. Like this, until a player succeeds in drawing 4 consecutive marks either horizontally, vertically or diagonally, the players draw ‘X’ and ‘O’ alternatively on the empty spaces. Then the player wins the game when all spots are filled, otherwise the game draws.
 
 Importing the required libraries and setting up the required global variables.
+
 1. Designing the game display function, that will set a platform for other components to be displayed on the screen.
+
 2. Main algorithm of win and draw.
+
 3. Getting the user input and displaying the “X” or “O” at the proper position where the user has clicked his mouse.
+
 4. Running an infinite loop, and including the defined methods in it.
 
 ![tictaktoe](/assets/images/Screenshot 2020-11-17 at 4.18.58 PM.png) 
@@ -44,7 +53,9 @@ flag = 0
 ```
 
 **Define Functions:**
+
 Def clearstatus():
+
 The clearstatus() function use to reset the buttons text in the list.
 
 ```python
@@ -65,6 +76,7 @@ def changecolor(*lis):
         i.configure(fg='black')
 ```
 Def check_win():
+
 The check_win() function checks the Tic Tac Toe board to see all the marks of ‘X’ and ‘O’. It calculates whether a player has won the game or not. They can either win when the player has marked 4 consecutive marks in a row, column or diagonally. This function is called every time when we draw a mark ‘X’ or ‘O’ on the board.
 
 ```python
@@ -98,6 +110,7 @@ tkinter.messagebox.showinfo("Game-over", f"Player {a} wins!!")
 ```
 
 **Def btnClick():**
+
 Every time the user clicks the mouse button, btnClick() function is activated. When the user clicks the mouse and then we draw the 'XO' on the canvas if that place is not occupied. We also check if, after drawing 'XO' on the board, the player wins or not.
 
 ```python
@@ -125,6 +138,7 @@ def btnClick(button):
 ```
 
 **Def reset():**
+
 Last, add a restart button and create a refresh function, so that the players can restart the game. We need to set up a feature that can reset all the global values and parameters to initial values for a fresh start of the game before running an infinite loop.
 
 ```python
@@ -297,6 +311,8 @@ tk.mainloop()
 Out put Images 
 
 ![tictaktoe](/assets/images/Screenshot 2020-11-17 at 4.57.39 PM.png) 
+
 ![tictaktoe](/assets/images/Screenshot 2020-11-17 at 4.57.55 PM.png) 
+
 ![tictaktoe](/assets/images/Screenshot 2020-11-17 at 4.58.07 PM.png) 
 
