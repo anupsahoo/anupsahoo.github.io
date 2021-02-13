@@ -16,8 +16,8 @@ navigations:
  - title: "Blog"
    url: "/blog"
    child:
-   - cat: "PMP Tips & Tricks"
-     url: "/blog/categories/pmp"
+#   - cat: "PMP Tips & Tricks"
+#     url: "/blog/categories/pmp"
    - cat: "Learning Python"
      url: "/blog/categories/python"
    - cat: "qa"
