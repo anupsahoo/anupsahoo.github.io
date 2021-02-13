@@ -11,7 +11,7 @@ category: python
 You must have played Tic Tac Toe during your school days, no doubt, and every one of us loves playing the game. You will be surprised to know that the Tic Tac Toe game has been known to exist since the days of ancient Egypt.
 In this Python project, We are going to build an interactive game of Tic Tac Toe where we’ll learn new things along the way.
 
-1. We need to print a board.
+1. We need to print a board..
 2. Take in player input.
 3. Place their input on the board.
 4. Check if the game is won, tied, lost, or ongoing.
