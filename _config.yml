@@ -28,7 +28,7 @@ navigations:
 #     url: "/blog/categories/ci-cd"
    - cat: "For LifeHackers"
      url: "/blog/categories/lifeHackers"
-#   - cat: "Archives"
+#   - cat: "Archives "
 #     url: "/blog/categories/all"
 
 
