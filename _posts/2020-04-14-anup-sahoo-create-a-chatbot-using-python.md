@@ -15,6 +15,7 @@ From scratch, we will introduce a **chatbot** that will be able to understand wh
 **What is Chatbot?**
 A chatbot is an intelligent piece of software capable of interacting and carrying out human-like acts. In **customer interaction**, ads on social network websites and **instant messaging** to the client, chat bots are used a lot. Based on how they are designed, there are two basic types of chatbot models; **Retrieval based and Generative based models**.
 
+
 **1. Retrieval based Chat bots:**
 
 **Predefined input patterns and answers** are used by a retrieval-based chatbot. To pick the appropriate answer, it then uses some kind of heuristic approach. In the industry, it is commonly used to build goal-oriented chat bots where we can change the chatbot 's tone and flow to drive our customers with the best experience.
