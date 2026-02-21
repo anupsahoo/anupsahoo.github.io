@@ -1,5 +1,21 @@
-_site
-.sass-cache
-node_modules
+# Astro
+dist/
+.astro/
+
+# Node
+node_modules/
+package-lock.json
+
+# Legacy Jekyll
+_site/
+.sass-cache/
 Gemfile.lock
 *.gem
+
+# Environment
+.env
+.env.*
+
+# IDE
+.DS_Store
+.idea/

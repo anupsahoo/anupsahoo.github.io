@@ -2,12 +2,35 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 <BaseLayout title="Anup Sahoo | AI Knowledge Platform">
-<h1 style="font-size:42px;font-weight:bold;">Practical Intelligence for Enterprise AI Systems</h1>
-<p style="margin-top:20px;font-size:18px;color:#cbd5e1;">
-Architecture notes, AI landscape mapping, governance patterns and enterprise playbooks.
-</p>
-<div style="margin-top:30px;display:flex;gap:15px;">
-<a href="/ai-landscape" style="background:#2563eb;padding:10px 16px;border-radius:6px;color:white;text-decoration:none;">Start with AI Landscape</a>
-<a href="/architecture" style="border:1px solid #334155;padding:10px 16px;border-radius:6px;text-decoration:none;">Read Architecture</a>
-</div>
+  <h1 style="font-size:42px;font-weight:bold;">Practical Intelligence for Enterprise AI Systems</h1>
+  <p style="margin-top:20px;font-size:18px;color:#cbd5e1;">
+    Architecture notes, AI landscape mapping, governance patterns and enterprise playbooks.
+  </p>
+  <div style="margin-top:30px;display:flex;gap:15px;flex-wrap:wrap;">
+    <a href="/ai-landscape" style="background:#2563eb;padding:10px 16px;border-radius:6px;color:white;text-decoration:none;">Start with AI Landscape</a>
+    <a href="/architecture" style="border:1px solid #334155;padding:10px 16px;border-radius:6px;text-decoration:none;color:#e2e8f0;">Read Architecture</a>
+    <a href="/blog" style="border:1px solid #334155;padding:10px 16px;border-radius:6px;text-decoration:none;color:#e2e8f0;">Read Blog</a>
+  </div>
+
+  <section style="margin-top:60px;">
+    <h2 style="font-size:28px;font-weight:bold;margin-bottom:24px;">Knowledge Areas</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:20px;">
+      <a href="/ai-landscape" style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:20px;text-decoration:none;color:inherit;">
+        <h3 style="font-size:18px;font-weight:600;color:#60a5fa;margin-bottom:8px;">AI Landscape</h3>
+        <p style="color:#cbd5e1;font-size:14px;line-height:1.5;">Technologies, vendors, and solutions mapping.</p>
+      </a>
+      <a href="/architecture" style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:20px;text-decoration:none;color:inherit;">
+        <h3 style="font-size:18px;font-weight:600;color:#60a5fa;margin-bottom:8px;">Architecture</h3>
+        <p style="color:#cbd5e1;font-size:14px;line-height:1.5;">Patterns, best practices, and strategies.</p>
+      </a>
+      <a href="/playbooks" style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:20px;text-decoration:none;color:inherit;">
+        <h3 style="font-size:18px;font-weight:600;color:#60a5fa;margin-bottom:8px;">Playbooks</h3>
+        <p style="color:#cbd5e1;font-size:14px;line-height:1.5;">Implementation guides and governance.</p>
+      </a>
+      <a href="/blog" style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:20px;text-decoration:none;color:inherit;">
+        <h3 style="font-size:18px;font-weight:600;color:#60a5fa;margin-bottom:8px;">Blog</h3>
+        <p style="color:#cbd5e1;font-size:14px;line-height:1.5;">Articles on AI, ML, and engineering.</p>
+      </a>
+    </div>
+  </section>
 </BaseLayout>

@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Architecture - Anup Sahoo">
+  <header style="text-align:center;margin-bottom:60px;">
+    <h1 style="font-size:48px;font-weight:bold;margin-bottom:20px;">Architecture</h1>
+    <p style="font-size:20px;color:#cbd5e1;max-width:600px;margin:0 auto;line-height:1.6;">
+      Enterprise AI architecture patterns, best practices, and implementation strategies.
+    </p>
+  </header>
+
+  <section style="margin-bottom:60px;">
+    <h2 style="font-size:32px;font-weight:bold;margin-bottom:30px;">Core Patterns</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:24px;">
+      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
+        <h3 style="font-size:20px;font-weight:600;margin-bottom:12px;color:#60a5fa;">Microservices</h3>
+        <p style="color:#cbd5e1;line-height:1.6;">Decoupled services for scalability — independent model serving, container orchestration, API gateways.</p>
+      </div>
+      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
+        <h3 style="font-size:20px;font-weight:600;margin-bottom:12px;color:#60a5fa;">Event-Driven</h3>
+        <p style="color:#cbd5e1;line-height:1.6;">Real-time data processing via Kafka/Pulsar, stream processing, event sourcing, CQRS.</p>
+      </div>
+      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
+        <h3 style="font-size:20px;font-weight:600;margin-bottom:12px;color:#60a5fa;">Layered</h3>
+        <p style="color:#cbd5e1;line-height:1.6;">Clear separation of concerns — data layer, business logic, API layer, presentation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin-bottom:60px;">
+    <h2 style="font-size:32px;font-weight:bold;margin-bottom:30px;">Model Deployment</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:24px;">
+      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
+        <h3 style="font-size:18px;font-weight:600;margin-bottom:12px;color:#60a5fa;">Real-time Inference</h3>
+        <p style="color:#cbd5e1;line-height:1.6;">Low-latency model serving for interactive applications.</p>
+      </div>
+      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
+        <h3 style="font-size:18px;font-weight:600;margin-bottom:12px;color:#60a5fa;">Batch Processing</h3>
+        <p style="color:#cbd5e1;line-height:1.6;">Scheduled inference for large-scale data processing.</p>
+      </div>
+      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
+        <h3 style="font-size:18px;font-weight:600;margin-bottom:12px;color:#60a5fa;">Edge Deployment</h3>
+        <p style="color:#cbd5e1;line-height:1.6;">On-device inference for offline and privacy-critical apps.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 style="font-size:32px;font-weight:bold;margin-bottom:30px;">Best Practices</h2>
+    <div style="background:#1f2937;border-left:4px solid #60a5fa;padding:20px;">
+      <ul style="color:#cbd5e1;line-height:1.8;list-style:none;padding:0;">
+        <li style="margin-bottom:12px;"><strong>Scalability First:</strong> Design for horizontal scaling from day one</li>
+        <li style="margin-bottom:12px;"><strong>Observability:</strong> Comprehensive monitoring and logging</li>
+        <li style="margin-bottom:12px;"><strong>Security by Design:</strong> Zero-trust architecture and data encryption</li>
+        <li style="margin-bottom:12px;"><strong>Cost Optimization:</strong> Right-size resources and auto-scaling</li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
