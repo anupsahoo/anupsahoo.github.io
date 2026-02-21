@@ -1,0 +1,41 @@
+---
+interface Props {
+  variant?: 'inline' | 'full';
+}
+const { variant = 'inline' } = Astro.props;
+---
+
+{variant === 'full' ? (
+  <section class="relative overflow-hidden rounded-2xl border border-border bg-surface-50 p-8 md:p-12">
+    <div class="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+    <div class="relative max-w-xl">
+      <p class="section-label">Newsletter</p>
+      <h3 class="text-headline font-bold text-text mb-3">Stay ahead in AI engineering</h3>
+      <p class="text-text-secondary leading-relaxed mb-6">Weekly insights on enterprise AI architecture, implementation patterns, and engineering leadership. No fluff — only actionable knowledge.</p>
+      <!-- Integration-ready placeholder: Replace action URL with your newsletter provider endpoint -->
+      <form class="flex flex-col sm:flex-row gap-3" action="#newsletter-integration" method="POST">
+        <input
+          type="email"
+          placeholder="your@email.com"
+          required
+          class="flex-1 px-4 py-3 bg-white border border-border rounded-lg text-text placeholder:text-text-muted focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all"
+        />
+        <button type="submit" class="btn-primary whitespace-nowrap">Subscribe</button>
+      </form>
+      <p class="text-xs text-text-muted mt-3">No spam. Unsubscribe anytime.</p>
+    </div>
+  </section>
+) : (
+  <div class="rounded-xl border border-border bg-surface-50 p-6">
+    <div class="flex items-start gap-4">
+      <div class="w-10 h-10 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center flex-shrink-0">
+        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      </div>
+      <div class="flex-1">
+        <h4 class="font-semibold text-text mb-1">Get weekly AI insights</h4>
+        <p class="text-sm text-text-secondary mb-3">Architecture patterns, implementation guides, and engineering leadership — delivered weekly.</p>
+        <a href="/newsletter" class="btn-primary text-sm">Subscribe</a>
+      </div>
+    </div>
+  </div>
+)}

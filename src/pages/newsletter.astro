@@ -1,40 +1,62 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const benefits = [
+  { title: "Architecture Deep Dives", desc: "Detailed analysis of enterprise AI architecture patterns, system design decisions, and trade-offs." },
+  { title: "Implementation Guides", desc: "Step-by-step guides for deploying AI systems in production — RAG, agents, serving, and more." },
+  { title: "Landscape Analysis", desc: "Curated analysis of emerging tools, frameworks, and platforms in the AI ecosystem." },
+  { title: "Engineering Leadership", desc: "Insights on building AI teams, managing technical debt, and driving AI transformation." },
+];
 ---
 
-<BaseLayout title="Newsletter - Anup Sahoo">
-  <header style="text-align:center;margin-bottom:60px;">
-    <h1 style="font-size:48px;font-weight:bold;margin-bottom:20px;">Newsletter</h1>
-    <p style="font-size:20px;color:#cbd5e1;max-width:600px;margin:0 auto;line-height:1.6;">
-      Stay updated with the latest insights on AI architecture, enterprise implementation, and emerging technologies.
-    </p>
-  </header>
+<BaseLayout title="Newsletter — Anup Sahoo" description="Weekly insights on enterprise AI architecture, implementation patterns, and engineering leadership.">
 
-  <section style="margin-bottom:60px;">
-    <div style="background:#1e293b;border:1px solid #334155;border-radius:12px;padding:40px;text-align:center;max-width:600px;margin:0 auto;">
-      <h2 style="font-size:28px;font-weight:bold;margin-bottom:20px;color:#60a5fa;">Subscribe to AI Insights</h2>
-      <p style="color:#cbd5e1;line-height:1.6;margin-bottom:30px;">
-        Weekly insights on enterprise AI implementation, architecture patterns, and industry trends.
-      </p>
-      <p style="color:#94a3b8;font-size:14px;">Newsletter launching soon. Check back for updates!</p>
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-transparent"></div>
+    <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl"></div>
+    <div class="relative max-w-content mx-auto px-6 pt-24 pb-20">
+      <div class="max-w-2xl mx-auto text-center">
+        <p class="section-label mb-4">Newsletter</p>
+        <h1 class="text-display font-extrabold text-text mb-6">Stay ahead in<br/><span class="gradient-text">AI engineering</span></h1>
+        <p class="text-lg text-text-secondary leading-relaxed mb-10">Weekly insights on enterprise AI architecture, implementation patterns, and engineering leadership. No fluff — only actionable knowledge from real-world experience.</p>
+
+        <!-- Integration-ready placeholder: Replace action URL with your newsletter provider (e.g., Buttondown, ConvertKit, Substack) -->
+        <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" action="#newsletter-integration" method="POST">
+          <input type="email" placeholder="your@email.com" required class="flex-1 px-4 py-3.5 bg-white border border-border rounded-lg text-text placeholder:text-text-muted focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all text-center sm:text-left" />
+          <button type="submit" class="btn-primary whitespace-nowrap !py-3.5">Subscribe</button>
+        </form>
+        <p class="text-xs text-text-muted mt-4">No spam. Unsubscribe anytime. Your email is never shared.</p>
+      </div>
+    </div>
+    <div class="divider-line"></div>
+  </section>
+
+  <!-- What You'll Get -->
+  <section class="max-w-content mx-auto px-6 py-20">
+    <div class="text-center mb-12">
+      <p class="section-label">What You'll Get</p>
+      <h2 class="text-headline font-bold text-text">Curated AI engineering knowledge</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+      {benefits.map(b => (
+        <div class="card">
+          <h3 class="text-lg font-semibold text-text mb-2">{b.title}</h3>
+          <p class="text-sm text-text-secondary leading-relaxed">{b.desc}</p>
+        </div>
+      ))}
     </div>
   </section>
 
-  <section style="margin-bottom:60px;">
-    <h2 style="font-size:32px;font-weight:bold;margin-bottom:30px;text-align:center;">What You'll Get</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:24px;">
-      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
-        <h3 style="font-size:20px;font-weight:600;margin-bottom:12px;color:#60a5fa;">Architecture Deep Dives</h3>
-        <p style="color:#cbd5e1;line-height:1.6;">Detailed analysis of enterprise AI architecture patterns and best practices.</p>
-      </div>
-      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
-        <h3 style="font-size:20px;font-weight:600;margin-bottom:12px;color:#60a5fa;">Implementation Guides</h3>
-        <p style="color:#cbd5e1;line-height:1.6;">Step-by-step guides for deploying AI models in production environments.</p>
-      </div>
-      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
-        <h3 style="font-size:20px;font-weight:600;margin-bottom:12px;color:#60a5fa;">Industry Insights</h3>
-        <p style="color:#cbd5e1;line-height:1.6;">Analysis of emerging trends, vendor landscapes, and market developments.</p>
+  <!-- Frequency -->
+  <section class="border-t border-border bg-surface-50">
+    <div class="max-w-content mx-auto px-6 py-20">
+      <div class="max-w-2xl mx-auto text-center">
+        <p class="section-label">Cadence</p>
+        <h2 class="text-headline font-bold text-text mb-4">Weekly, every Tuesday</h2>
+        <p class="text-text-secondary leading-relaxed">Each edition is focused on one topic in depth — not a link dump. Expect structured analysis, code examples, and actionable takeaways you can apply immediately.</p>
       </div>
     </div>
   </section>
+
 </BaseLayout>

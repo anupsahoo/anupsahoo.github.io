@@ -1,52 +1,89 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SubscribeModule from "../components/SubscribeModule.astro";
+
+const techCategories = [
+  { title: "Machine Learning Platforms", desc: "TensorFlow, PyTorch, Scikit-learn, XGBoost, MLflow, Kubeflow, SageMaker" },
+  { title: "Large Language Models", desc: "GPT-4, Claude, Llama, Mistral, Gemini — proprietary and open-source model ecosystem" },
+  { title: "Computer Vision", desc: "OpenCV, YOLO, Vision Transformers, cloud vision APIs, and edge inference" },
+  { title: "Vector Databases & RAG", desc: "Pinecone, Weaviate, Chroma, Qdrant — retrieval-augmented generation infrastructure" },
+  { title: "AI Orchestration", desc: "LangChain, LlamaIndex, Semantic Kernel — agent frameworks and workflow orchestration" },
+  { title: "Model Serving & Inference", desc: "vLLM, TGI, Triton, TensorRT — production model serving and optimization" },
+];
+
+const articles = [
+  {
+    href: "/ai-landscape/enterprise-llm-landscape",
+    title: "The Enterprise LLM Landscape: A Decision Framework",
+    desc: "A structured approach to evaluating and selecting large language models for enterprise use cases.",
+    date: "2025",
+    readTime: "12 min read",
+    tags: ["LLMs", "Enterprise"],
+  },
+  {
+    href: "/ai-landscape/rag-architecture-patterns",
+    title: "RAG Architecture Patterns for Production Systems",
+    desc: "Retrieval-augmented generation patterns that work at scale — from naive RAG to advanced multi-step retrieval.",
+    date: "2025",
+    readTime: "15 min read",
+    tags: ["RAG", "Architecture"],
+  },
+];
 ---
 
-<BaseLayout title="AI Landscape - Anup Sahoo">
-  <header style="text-align:center;margin-bottom:60px;">
-    <h1 style="font-size:48px;font-weight:bold;margin-bottom:20px;">AI Landscape</h1>
-    <p style="font-size:20px;color:#cbd5e1;max-width:600px;margin:0 auto;line-height:1.6;">
-      Comprehensive mapping of AI technologies, vendors, and solutions for enterprise decision-making.
-    </p>
-  </header>
+<BaseLayout title="AI Landscape — Anup Sahoo" description="Comprehensive mapping of AI technologies, vendors, and solutions for enterprise decision-making.">
 
-  <section style="margin-bottom:60px;">
-    <h2 style="font-size:32px;font-weight:bold;margin-bottom:30px;">Technology Categories</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:24px;">
-      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
-        <h3 style="font-size:20px;font-weight:600;margin-bottom:16px;color:#60a5fa;">Machine Learning Platforms</h3>
-        <p style="color:#cbd5e1;line-height:1.6;">TensorFlow, PyTorch, Scikit-learn, XGBoost, MLflow, Kubeflow, Amazon SageMaker</p>
-      </div>
-      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
-        <h3 style="font-size:20px;font-weight:600;margin-bottom:16px;color:#60a5fa;">Large Language Models</h3>
-        <p style="color:#cbd5e1;line-height:1.6;">GPT-4, Claude, Llama 3, Mistral, Gemini, Open Source Models</p>
-      </div>
-      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
-        <h3 style="font-size:20px;font-weight:600;margin-bottom:16px;color:#60a5fa;">Computer Vision</h3>
-        <p style="color:#cbd5e1;line-height:1.6;">OpenCV, MediaPipe, YOLO, Vision Transformers, Cloud Vision APIs</p>
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-border">
+    <div class="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-transparent"></div>
+    <div class="relative max-w-content mx-auto px-6 pt-20 pb-16">
+      <p class="section-label mb-4">AI Landscape</p>
+      <h1 class="text-display font-extrabold text-text mb-4 max-w-3xl">Mapping the enterprise AI technology landscape</h1>
+      <p class="text-lg text-text-secondary leading-relaxed max-w-2xl">Comprehensive analysis of AI technologies, platforms, and solutions — structured for enterprise decision-making.</p>
+    </div>
+  </section>
+
+  <!-- Technology Categories -->
+  <section class="max-w-content mx-auto px-6 py-20">
+    <p class="section-label">Technology Categories</p>
+    <h2 class="text-headline font-bold text-text mb-10">Core technology domains</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {techCategories.map(cat => (
+        <div class="card">
+          <h3 class="text-lg font-semibold text-text mb-2">{cat.title}</h3>
+          <p class="text-sm text-text-secondary leading-relaxed">{cat.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Articles -->
+  <section class="border-t border-border bg-surface-50">
+    <div class="max-w-content mx-auto px-6 py-20">
+      <p class="section-label">Featured Articles</p>
+      <h2 class="text-headline font-bold text-text mb-10">Deep dives into the AI landscape</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {articles.map(article => (
+          <a href={article.href} class="card-interactive group">
+            <div class="flex flex-wrap gap-2 mb-3">
+              {article.tags.map(tag => <span class="badge">{tag}</span>)}
+            </div>
+            <h3 class="text-title font-semibold text-text mb-2 group-hover:text-accent-light transition-colors">{article.title}</h3>
+            <p class="text-text-secondary leading-relaxed mb-4">{article.desc}</p>
+            <div class="flex items-center gap-3 text-sm text-text-muted">
+              <span>{article.date}</span>
+              <span>·</span>
+              <span>{article.readTime}</span>
+            </div>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
-  <section>
-    <h2 style="font-size:32px;font-weight:bold;margin-bottom:30px;">Enterprise Considerations</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:24px;">
-      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
-        <h3 style="font-size:18px;font-weight:600;margin-bottom:12px;color:#60a5fa;">Scalability</h3>
-        <p style="color:#cbd5e1;line-height:1.6;">Infrastructure requirements, data processing, and model serving at scale.</p>
-      </div>
-      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
-        <h3 style="font-size:18px;font-weight:600;margin-bottom:12px;color:#60a5fa;">Security & Compliance</h3>
-        <p style="color:#cbd5e1;line-height:1.6;">Data privacy, model security, GDPR, HIPAA, SOC 2.</p>
-      </div>
-      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
-        <h3 style="font-size:18px;font-weight:600;margin-bottom:12px;color:#60a5fa;">Cost Management</h3>
-        <p style="color:#cbd5e1;line-height:1.6;">Training costs, inference costs, maintenance, and ROI.</p>
-      </div>
-      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
-        <h3 style="font-size:18px;font-weight:600;margin-bottom:12px;color:#60a5fa;">Integration</h3>
-        <p style="color:#cbd5e1;line-height:1.6;">API compatibility, existing systems, and workflow automation.</p>
-      </div>
-    </div>
+  <!-- Subscribe -->
+  <section class="max-w-content mx-auto px-6 py-20">
+    <SubscribeModule variant="full" />
   </section>
+
 </BaseLayout>

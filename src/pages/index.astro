@@ -1,36 +1,129 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
----
-<BaseLayout title="Anup Sahoo | AI Knowledge Platform">
-  <h1 style="font-size:42px;font-weight:bold;">Practical Intelligence for Enterprise AI Systems</h1>
-  <p style="margin-top:20px;font-size:18px;color:#cbd5e1;">
-    Architecture notes, AI landscape mapping, governance patterns and enterprise playbooks.
-  </p>
-  <div style="margin-top:30px;display:flex;gap:15px;flex-wrap:wrap;">
-    <a href="/ai-landscape" style="background:#2563eb;padding:10px 16px;border-radius:6px;color:white;text-decoration:none;">Start with AI Landscape</a>
-    <a href="/architecture" style="border:1px solid #334155;padding:10px 16px;border-radius:6px;text-decoration:none;color:#e2e8f0;">Read Architecture</a>
-    <a href="/blog" style="border:1px solid #334155;padding:10px 16px;border-radius:6px;text-decoration:none;color:#e2e8f0;">Read Blog</a>
-  </div>
+import SubscribeModule from "../components/SubscribeModule.astro";
 
-  <section style="margin-top:60px;">
-    <h2 style="font-size:28px;font-weight:bold;margin-bottom:24px;">Knowledge Areas</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:20px;">
-      <a href="/ai-landscape" style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:20px;text-decoration:none;color:inherit;">
-        <h3 style="font-size:18px;font-weight:600;color:#60a5fa;margin-bottom:8px;">AI Landscape</h3>
-        <p style="color:#cbd5e1;font-size:14px;line-height:1.5;">Technologies, vendors, and solutions mapping.</p>
-      </a>
-      <a href="/architecture" style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:20px;text-decoration:none;color:inherit;">
-        <h3 style="font-size:18px;font-weight:600;color:#60a5fa;margin-bottom:8px;">Architecture</h3>
-        <p style="color:#cbd5e1;font-size:14px;line-height:1.5;">Patterns, best practices, and strategies.</p>
-      </a>
-      <a href="/playbooks" style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:20px;text-decoration:none;color:inherit;">
-        <h3 style="font-size:18px;font-weight:600;color:#60a5fa;margin-bottom:8px;">Playbooks</h3>
-        <p style="color:#cbd5e1;font-size:14px;line-height:1.5;">Implementation guides and governance.</p>
-      </a>
-      <a href="/blog" style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:20px;text-decoration:none;color:inherit;">
-        <h3 style="font-size:18px;font-weight:600;color:#60a5fa;margin-bottom:8px;">Blog</h3>
-        <p style="color:#cbd5e1;font-size:14px;line-height:1.5;">Articles on AI, ML, and engineering.</p>
-      </a>
+const knowledgeAreas = [
+  {
+    href: "/ai-landscape",
+    title: "AI Landscape",
+    description: "Technology mapping, vendor analysis, and solution evaluation frameworks for enterprise AI adoption.",
+  },
+  {
+    href: "/architecture",
+    title: "Architecture",
+    description: "System design patterns, infrastructure blueprints, and scalable AI platform architecture.",
+  },
+  {
+    href: "/playbooks",
+    title: "Playbooks",
+    description: "Step-by-step implementation guides, governance frameworks, and operational excellence.",
+  },
+  {
+    href: "/learning-paths",
+    title: "Learning Paths",
+    description: "Structured progression from fundamentals to principal-level AI engineering mastery.",
+  },
+];
+
+const categories = [
+  { name: "AI Fundamentals", count: "Foundation" },
+  { name: "LLMs", count: "Core" },
+  { name: "RAG", count: "Applied" },
+  { name: "Prompt Engineering", count: "Applied" },
+  { name: "Agentic Systems", count: "Advanced" },
+  { name: "MLOps / LLMOps", count: "Operations" },
+  { name: "AI Infrastructure", count: "Platform" },
+  { name: "Safety & Governance", count: "Critical" },
+  { name: "Evaluation & Reliability", count: "Quality" },
+  { name: "AI Testing", count: "Quality" },
+  { name: "Security", count: "Critical" },
+  { name: "Productization", count: "Business" },
+  { name: "ML Foundations", count: "Foundation" },
+];
+---
+
+<BaseLayout title="Beyond Models — by Anup Sahoo" description="Enterprise AI architecture, landscape mapping, governance patterns, and implementation playbooks for engineering leaders.">
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-transparent"></div>
+    <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl"></div>
+    <div class="relative max-w-content mx-auto px-6 pt-24 pb-20">
+      <div class="max-w-3xl">
+        <p class="section-label mb-4">Beyond Models</p>
+        <h1 class="text-display font-extrabold text-text mb-6">
+          Practical intelligence for<br/>
+          <span class="gradient-text">enterprise AI systems</span>
+        </h1>
+        <p class="text-lg text-text-secondary leading-relaxed mb-8 max-w-2xl">
+          Architecture patterns, landscape mapping, governance frameworks, and implementation playbooks — built from real-world enterprise AI engineering experience.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="/ai-landscape" class="btn-primary">Explore AI Landscape</a>
+          <a href="/architecture" class="btn-secondary">Read Architecture Guides</a>
+        </div>
+      </div>
+    </div>
+    <div class="divider-line"></div>
+  </section>
+
+  <!-- Knowledge Areas -->
+  <section class="max-w-content mx-auto px-6 py-20">
+    <div class="text-center mb-12">
+      <p class="section-label">Knowledge Areas</p>
+      <h2 class="text-headline font-bold text-text">Structured knowledge for AI engineering leaders</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {knowledgeAreas.map(area => (
+        <a href={area.href} class="card-interactive group">
+          <h3 class="text-title font-semibold text-text mb-2 group-hover:text-accent transition-colors">{area.title}</h3>
+          <p class="text-text-secondary leading-relaxed">{area.description}</p>
+          <span class="inline-flex items-center gap-1 mt-4 text-sm text-accent font-medium">
+            Explore
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+      ))}
     </div>
   </section>
+
+  <!-- Category Hubs -->
+  <section class="border-y border-border bg-surface-50">
+    <div class="max-w-content mx-auto px-6 py-20">
+      <div class="text-center mb-12">
+        <p class="section-label">AI Engineering Topics</p>
+        <h2 class="text-headline font-bold text-text">Deep coverage across the AI stack</h2>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+        {categories.map(cat => (
+          <div class="card text-center group cursor-default">
+            <h3 class="text-sm font-semibold text-text mb-1">{cat.name}</h3>
+            <span class="text-xs text-text-muted">{cat.count}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- About Teaser -->
+  <section class="max-w-content mx-auto px-6 py-20">
+    <div class="card p-8 md:p-12 flex flex-col md:flex-row items-start gap-8">
+      <div class="flex-1">
+        <p class="section-label">About</p>
+        <h2 class="text-title font-bold text-text mb-3">Built by Anup Sahoo</h2>
+        <p class="text-text-secondary leading-relaxed mb-4">
+          Currently working at Valtech in collaboration with Louis Vuitton on AI transformation. This platform distills enterprise AI engineering knowledge into structured, actionable resources for engineering leaders and practitioners.
+        </p>
+        <a href="/about" class="btn-ghost text-sm !px-0 text-accent hover:text-accent-dark">
+          Learn more →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscribe CTA -->
+  <section class="max-w-content mx-auto px-6 pb-20">
+    <SubscribeModule variant="full" />
+  </section>
+
 </BaseLayout>

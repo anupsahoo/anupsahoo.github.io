@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-surface text-text font-sans;
+  }
+
+  ::selection {
+    @apply bg-accent/10 text-accent-dark;
+  }
+}
+
+@layer components {
+  .prose-custom h1 {
+    @apply text-3xl font-bold text-text mb-6 mt-10;
+  }
+  .prose-custom h2 {
+    @apply text-2xl font-bold text-text mb-4 mt-10 pb-3 border-b border-border;
+  }
+  .prose-custom h3 {
+    @apply text-xl font-semibold text-text mb-3 mt-8;
+  }
+  .prose-custom p {
+    @apply text-text-secondary leading-[1.8] mb-5 text-[16.5px];
+  }
+  .prose-custom ul, .prose-custom ol {
+    @apply text-text-secondary leading-[1.8] mb-5 pl-6 text-[16.5px];
+  }
+  .prose-custom li {
+    @apply mb-2;
+  }
+  .prose-custom a {
+    @apply text-accent hover:text-accent-dark underline underline-offset-2 decoration-accent/30 hover:decoration-accent transition-colors;
+  }
+  .prose-custom strong {
+    @apply text-text font-semibold;
+  }
+  .prose-custom blockquote {
+    @apply border-l-[3px] border-accent/30 pl-5 py-1 my-6 text-text-secondary italic bg-surface-50 rounded-r-lg;
+  }
+  .prose-custom code:not(pre code) {
+    @apply bg-surface-100 text-text px-1.5 py-0.5 rounded text-sm font-mono border border-border;
+  }
+  .prose-custom pre {
+    @apply bg-[#1e293b] border border-gray-700 rounded-xl p-5 overflow-x-auto mb-6 text-sm;
+  }
+  .prose-custom pre code {
+    @apply bg-transparent p-0 text-gray-300 border-0;
+  }
+  .prose-custom img {
+    @apply rounded-xl border border-border my-6;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.04), 0 1px 2px -1px rgba(0,0,0,0.04);
+  }
+  .prose-custom hr {
+    @apply border-border my-10;
+  }
+
+  .card {
+    @apply bg-white border border-border rounded-xl p-6 transition-all duration-300 hover:border-border-hover;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.04), 0 1px 2px -1px rgba(0,0,0,0.04);
+  }
+  .card:hover {
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03), 0 2px 4px -2px rgba(0,0,0,0.03);
+  }
+  .card-interactive {
+    @apply card cursor-pointer;
+  }
+  .card-interactive:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -4px rgba(0,0,0,0.03);
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent-muted text-accent border border-accent/10;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-5 py-2.5 bg-text hover:bg-gray-800 text-white font-medium rounded-lg transition-all duration-200;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.04), 0 1px 2px -1px rgba(0,0,0,0.04);
+  }
+  .btn-primary:hover {
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03), 0 2px 4px -2px rgba(0,0,0,0.03);
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-5 py-2.5 bg-white hover:bg-surface-50 text-text border border-border hover:border-border-hover font-medium rounded-lg transition-all duration-200;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.04), 0 1px 2px -1px rgba(0,0,0,0.04);
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-4 py-2 text-text-secondary hover:text-text hover:bg-surface-100 font-medium rounded-lg transition-all duration-200;
+  }
+
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-widest text-accent mb-3;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent via-accent-dark to-blue-900 bg-clip-text text-transparent;
+  }
+
+  .divider-line {
+    @apply h-px bg-border;
+  }
+}

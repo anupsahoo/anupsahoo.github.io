@@ -1,0 +1,93 @@
+---
+import ArticleLayout from "../../layouts/ArticleLayout.astro";
+
+const codeExample = `# Example: Document ingestion pipeline structure
+class IngestionPipeline:
+    def __init__(self, parser, chunker, metadata_extractor, store):
+        self.parser = parser
+        self.chunker = chunker
+        self.metadata_extractor = metadata_extractor
+        self.store = store
+
+    async def ingest(self, document_source):
+        # Parse document to structured text
+        parsed = await self.parser.parse(document_source)
+
+        # Extract metadata (title, date, author, section hierarchy)
+        metadata = self.metadata_extractor.extract(parsed)
+
+        # Chunk with overlap and section awareness
+        chunks = self.chunker.chunk(
+            parsed.text,
+            chunk_size=512,
+            overlap=50,
+            respect_boundaries=True
+        )
+
+        # Store with full lineage tracking
+        for chunk in chunks:
+            chunk.metadata = {**metadata, "chunk_index": chunk.index}
+            await self.store.upsert(chunk)`;
+---
+
+<ArticleLayout
+  title="Designing a Production RAG Architecture"
+  description="End-to-end architecture for retrieval-augmented generation systems that handle enterprise-scale document collections reliably."
+  category="Architecture"
+  date="2025"
+  readTime="14 min read"
+  tags={["RAG", "System Design", "Infrastructure"]}
+>
+
+<h2>Executive Summary</h2>
+<p>Moving RAG from prototype to production requires addressing challenges that don't surface in demos: document ingestion at scale, embedding pipeline reliability, retrieval quality monitoring, and graceful degradation. This article walks through a production-grade RAG architecture with concrete component design decisions.</p>
+
+<blockquote>This is example content designed to demonstrate article structure. Replace with your own analysis.</blockquote>
+
+<h2>Key Takeaways</h2>
+<ul>
+  <li><strong>Separate ingestion from serving</strong> — document processing and query serving have fundamentally different scaling characteristics.</li>
+  <li><strong>Build an embedding pipeline, not a script</strong> — production ingestion needs idempotency, retry logic, and progress tracking.</li>
+  <li><strong>Monitor retrieval quality continuously</strong> — use automated evaluation to catch degradation before users report it.</li>
+  <li><strong>Design for hybrid search from day one</strong> — retrofitting keyword search into a vector-only system is painful.</li>
+</ul>
+
+<h2>System Architecture Overview</h2>
+<p>A production RAG system has four major subsystems: document ingestion, embedding pipeline, retrieval engine, and generation layer. Each has distinct scaling, reliability, and monitoring requirements.</p>
+
+<h3>1. Document Ingestion Layer</h3>
+<p>Handles document acquisition, parsing, chunking, and metadata extraction. This is typically the most underestimated component.</p>
+
+<pre><code class="language-python" set:html={codeExample} /></pre>
+
+<h3>2. Embedding Pipeline</h3>
+<p>Converts text chunks into vector representations. In production, this needs to handle batch processing, model versioning, and re-embedding when models change.</p>
+
+<h3>3. Retrieval Engine</h3>
+<p>The core query path. Combines vector similarity search with keyword search (hybrid), applies metadata filters, and re-ranks results.</p>
+<ul>
+  <li><strong>Vector search</strong> — semantic similarity using embeddings</li>
+  <li><strong>Keyword search</strong> — BM25 for exact term matching</li>
+  <li><strong>Reciprocal rank fusion</strong> — combine scores from both methods</li>
+  <li><strong>Cross-encoder re-ranking</strong> — re-score top candidates for precision</li>
+</ul>
+
+<h3>4. Generation Layer</h3>
+<p>Takes retrieved context and generates responses. Key design decisions include context window management, prompt templating, and citation tracking.</p>
+
+<h2>Operational Considerations</h2>
+<ul>
+  <li><strong>Monitoring</strong> — track retrieval latency, relevance scores, generation quality, and cost per query</li>
+  <li><strong>Caching</strong> — cache embeddings for frequent queries, cache generation results for identical contexts</li>
+  <li><strong>Fallback</strong> — graceful degradation when retrieval returns low-confidence results</li>
+  <li><strong>Versioning</strong> — track which embedding model version produced each vector for re-indexing</li>
+</ul>
+
+<h2>Next Reads</h2>
+<ul>
+  <li><a href="/ai-landscape/rag-architecture-patterns">RAG Architecture Patterns for Production Systems</a></li>
+  <li><a href="/architecture/llm-gateway-pattern">The LLM Gateway Pattern: Centralizing Model Access</a></li>
+  <li><a href="/playbooks/llm-evaluation-framework">Building an LLM Evaluation Framework</a></li>
+</ul>
+
+</ArticleLayout>

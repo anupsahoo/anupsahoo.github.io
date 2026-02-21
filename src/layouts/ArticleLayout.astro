@@ -1,0 +1,64 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import ShareBar from '../components/ShareBar.astro';
+import SubscribeModule from '../components/SubscribeModule.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  category: string;
+  date: string;
+  readTime: string;
+  tags?: string[];
+}
+
+const { title, description, category, date, readTime, tags = [] } = Astro.props;
+const url = Astro.url.pathname;
+---
+
+<BaseLayout title={`${title} — Anup Sahoo`} description={description}>
+  <article class="max-w-content mx-auto px-6">
+    <!-- Article Header -->
+    <header class="max-w-3xl mx-auto pt-16 pb-10 border-b border-border mb-10">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="badge">{category}</span>
+        <span class="text-sm text-text-muted">{date}</span>
+        <span class="text-text-muted">·</span>
+        <span class="text-sm text-text-muted">{readTime}</span>
+      </div>
+      <h1 class="text-display font-extrabold text-text mb-4">{title}</h1>
+      <p class="text-lg text-text-secondary leading-relaxed mb-6">{description}</p>
+      {tags.length > 0 && (
+        <div class="flex flex-wrap gap-2 mb-6">
+          {tags.map(tag => (
+            <span class="text-xs px-2.5 py-1 rounded-full bg-surface-200 text-text-muted border border-border">{tag}</span>
+          ))}
+        </div>
+      )}
+      <ShareBar title={title} url={url} />
+    </header>
+
+    <!-- Subscribe after intro -->
+    <div class="max-w-3xl mx-auto mb-10">
+      <SubscribeModule variant="inline" />
+    </div>
+
+    <!-- Article Body -->
+    <div class="max-w-3xl mx-auto prose-custom">
+      <slot />
+    </div>
+
+    <!-- End-of-article subscribe -->
+    <div class="max-w-3xl mx-auto mt-16 mb-10">
+      <SubscribeModule variant="full" />
+    </div>
+
+    <!-- Bottom share bar -->
+    <div class="max-w-3xl mx-auto py-8 border-t border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <ShareBar title={title} url={url} />
+      <a href={`/${category.toLowerCase().replace(/\s+/g, '-')}`} class="btn-ghost text-sm">
+        ← Back to {category}
+      </a>
+    </div>
+  </article>
+</BaseLayout>

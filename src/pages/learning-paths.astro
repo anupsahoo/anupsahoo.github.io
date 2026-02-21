@@ -1,0 +1,98 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SubscribeModule from "../components/SubscribeModule.astro";
+
+const tracks = [
+  {
+    level: "Beginner",
+    color: "",
+    borderColor: "border-green-600/20",
+    tagColor: "bg-green-50 text-green-700 border-green-200",
+    description: "Build a solid foundation in AI/ML concepts, tooling, and basic implementation patterns.",
+    modules: [
+      { title: "AI Fundamentals", desc: "Core concepts: supervised/unsupervised learning, neural networks, training loops, loss functions." },
+      { title: "Python for ML", desc: "NumPy, Pandas, data manipulation, visualization with Matplotlib/Seaborn." },
+      { title: "ML Foundations", desc: "Linear regression, classification, decision trees, model evaluation basics." },
+      { title: "Introduction to LLMs", desc: "What transformers are, tokenization, prompting basics, API usage patterns." },
+      { title: "Prompt Engineering 101", desc: "Zero-shot, few-shot, chain-of-thought, structured output, and prompt templates." },
+    ],
+  },
+  {
+    level: "Intermediate",
+    color: "",
+    borderColor: "border-blue-600/20",
+    tagColor: "bg-blue-50 text-blue-700 border-blue-200",
+    description: "Move from concepts to production — build real systems, pipelines, and deployable AI applications.",
+    modules: [
+      { title: "RAG Systems", desc: "Embedding models, vector databases, retrieval strategies, chunking, and hybrid search." },
+      { title: "Fine-tuning & Adaptation", desc: "LoRA, QLoRA, PEFT methods, dataset preparation, and evaluation." },
+      { title: "MLOps Foundations", desc: "Experiment tracking, model registries, CI/CD for ML, and reproducibility." },
+      { title: "AI Infrastructure", desc: "GPU provisioning, model serving with vLLM/TGI, containerization, and scaling." },
+      { title: "Evaluation & Testing", desc: "Automated evaluation, benchmark design, regression testing, and quality gates." },
+      { title: "Safety & Governance", desc: "Bias detection, content filtering, compliance frameworks, and responsible AI." },
+    ],
+  },
+  {
+    level: "Advanced / Principal",
+    color: "",
+    borderColor: "border-purple-600/20",
+    tagColor: "bg-purple-50 text-purple-700 border-purple-200",
+    description: "Lead AI strategy, design complex systems, and drive organizational AI transformation.",
+    modules: [
+      { title: "Agentic System Design", desc: "Multi-agent orchestration, tool use, planning architectures, memory systems." },
+      { title: "Platform Architecture", desc: "AI platform design, multi-tenant serving, gateway patterns, and cost optimization." },
+      { title: "LLMOps at Scale", desc: "Production LLM pipelines, A/B testing, canary deployments, and observability." },
+      { title: "AI Security", desc: "Prompt injection defense, model security, data poisoning, and adversarial robustness." },
+      { title: "AI Productization", desc: "Product-market fit for AI, UX patterns, pricing models, and go-to-market strategy." },
+      { title: "Enterprise AI Strategy", desc: "Build vs. buy decisions, vendor evaluation, team structure, and roadmap planning." },
+    ],
+  },
+];
+---
+
+<BaseLayout title="Learning Paths — Anup Sahoo" description="Structured learning paths from beginner to principal-level AI engineering mastery.">
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-border">
+    <div class="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-transparent"></div>
+    <div class="relative max-w-content mx-auto px-6 pt-20 pb-16">
+      <p class="section-label mb-4">Learning Paths</p>
+      <h1 class="text-display font-extrabold text-text mb-4 max-w-3xl">Structured paths to AI engineering mastery</h1>
+      <p class="text-lg text-text-secondary leading-relaxed max-w-2xl">Progress from fundamentals to principal-level expertise with structured learning tracks covering the full AI engineering stack.</p>
+    </div>
+  </section>
+
+  <!-- Tracks -->
+  <section class="max-w-content mx-auto px-6 py-20">
+    <div class="space-y-16">
+      {tracks.map((track, i) => (
+        <div>
+          <div class="flex items-center gap-4 mb-6">
+            <span class={`text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full border ${track.tagColor}`}>{track.level}</span>
+            <div class="flex-1 h-px bg-border"></div>
+          </div>
+          <p class="text-text-secondary leading-relaxed mb-8 max-w-2xl">{track.description}</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {track.modules.map((mod, j) => (
+              <div class={`card ${track.borderColor}`}>
+                <div class="flex items-start gap-3">
+                  <span class="text-xs font-mono text-text-muted mt-1">{String(j + 1).padStart(2, '0')}</span>
+                  <div>
+                    <h3 class="font-semibold text-text mb-1.5">{mod.title}</h3>
+                    <p class="text-sm text-text-secondary leading-relaxed">{mod.desc}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Subscribe -->
+  <section class="max-w-content mx-auto px-6 pb-20">
+    <SubscribeModule variant="full" />
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,105 @@
+---
+import ArticleLayout from "../../layouts/ArticleLayout.astro";
+
+const code1 = `# Example: Basic RAG pipeline structure
+class NaiveRAGPipeline:
+    def __init__(self, embedder, vector_store, llm):
+        self.embedder = embedder
+        self.vector_store = vector_store
+        self.llm = llm
+
+    def query(self, user_query: str, top_k: int = 5) -&gt; str:
+        # Embed the query
+        query_embedding = self.embedder.embed(user_query)
+
+        # Retrieve relevant chunks
+        chunks = self.vector_store.search(query_embedding, top_k=top_k)
+
+        # Build context and generate
+        context = "\\n\\n".join([c.text for c in chunks])
+        prompt = f"Context:\\n{context}\\n\\nQuestion: {user_query}\\nAnswer:"
+        return self.llm.generate(prompt)`;
+
+const code2 = `# Example: RAG evaluation dimensions
+rag_eval_metrics = {
+    "retrieval_quality": {
+        "precision_at_k": "Are retrieved chunks relevant?",
+        "recall": "Are all relevant chunks retrieved?",
+        "mrr": "Is the most relevant chunk ranked first?"
+    },
+    "generation_quality": {
+        "faithfulness": "Is the answer grounded in retrieved context?",
+        "relevance": "Does the answer address the question?",
+        "completeness": "Does the answer cover all aspects?"
+    },
+    "system_metrics": {
+        "latency_p50": "Median end-to-end latency",
+        "latency_p99": "Tail latency",
+        "cost_per_query": "Total cost including embedding + LLM"
+    }
+}`;
+---
+
+<ArticleLayout
+  title="RAG Architecture Patterns for Production Systems"
+  description="Retrieval-augmented generation patterns that work at scale — from naive RAG to advanced multi-step retrieval, with practical implementation guidance."
+  category="AI Landscape"
+  date="2025"
+  readTime="15 min read"
+  tags={["RAG", "Architecture", "LLMs", "Vector Databases"]}
+>
+
+<h2>Executive Summary</h2>
+<p>Retrieval-augmented generation (RAG) has become the default pattern for grounding LLM outputs in enterprise knowledge. However, naive RAG implementations often fail in production due to poor retrieval quality, chunking issues, and lack of evaluation. This article covers production-grade RAG patterns from basic to advanced.</p>
+
+<blockquote>This is example content designed to demonstrate article structure. Replace with your own analysis.</blockquote>
+
+<h2>Key Takeaways</h2>
+<ul>
+  <li><strong>Naive RAG is a starting point, not a destination</strong> — production systems need query transformation, re-ranking, and hybrid search.</li>
+  <li><strong>Chunking strategy is the most underrated decision</strong> — it directly impacts retrieval quality more than embedding model choice.</li>
+  <li><strong>Evaluation must be continuous</strong> — build automated evaluation pipelines that catch retrieval degradation before users do.</li>
+  <li><strong>Hybrid search outperforms pure vector search</strong> — combine semantic and keyword search for robust retrieval.</li>
+</ul>
+
+<h2>RAG Architecture Tiers</h2>
+
+<h3>Tier 1: Naive RAG</h3>
+<p>The simplest pattern: chunk documents, embed them, store in a vector database, retrieve top-k results, and pass to an LLM with context. This works for demos but struggles in production.</p>
+
+<pre><code class="language-python" set:html={code1} /></pre>
+
+<h3>Tier 2: Advanced RAG</h3>
+<p>Adds query transformation, hybrid search, re-ranking, and structured retrieval. This is where most production systems should aim.</p>
+<ul>
+  <li><strong>Query transformation</strong> — rewrite queries for better retrieval (HyDE, multi-query, step-back prompting)</li>
+  <li><strong>Hybrid search</strong> — combine BM25 keyword search with vector similarity</li>
+  <li><strong>Re-ranking</strong> — use a cross-encoder to re-score retrieved chunks</li>
+  <li><strong>Metadata filtering</strong> — filter by document type, date, access level before retrieval</li>
+</ul>
+
+<h3>Tier 3: Agentic RAG</h3>
+<p>The retrieval step becomes an agent that can plan multi-step retrieval, query multiple sources, and synthesize across documents. This is needed for complex enterprise queries that span multiple knowledge domains.</p>
+
+<h2>Chunking Strategies</h2>
+<p>The choice of chunking strategy has an outsized impact on retrieval quality:</p>
+<ul>
+  <li><strong>Fixed-size chunking</strong> — simple but breaks semantic boundaries</li>
+  <li><strong>Recursive character splitting</strong> — respects paragraph/sentence boundaries</li>
+  <li><strong>Semantic chunking</strong> — uses embedding similarity to find natural break points</li>
+  <li><strong>Document-structure-aware chunking</strong> — uses headings, sections, and document hierarchy</li>
+</ul>
+
+<h2>Evaluation Framework</h2>
+<p>Production RAG systems need continuous evaluation across multiple dimensions:</p>
+
+<pre><code class="language-python" set:html={code2} /></pre>
+
+<h2>Next Reads</h2>
+<ul>
+  <li><a href="/ai-landscape/enterprise-llm-landscape">The Enterprise LLM Landscape: A Decision Framework</a></li>
+  <li><a href="/architecture/production-rag-architecture">Designing a Production RAG Architecture</a></li>
+  <li><a href="/playbooks/llm-evaluation-framework">Building an LLM Evaluation Framework</a></li>
+</ul>
+
+</ArticleLayout>

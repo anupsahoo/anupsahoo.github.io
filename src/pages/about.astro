@@ -1,53 +1,68 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SubscribeModule from "../components/SubscribeModule.astro";
+
+const expertise = [
+  { title: "AI Architecture", desc: "Designing scalable AI platforms — model serving, RAG systems, agentic architectures, and data pipelines." },
+  { title: "LLM Engineering", desc: "Production LLM systems — fine-tuning, prompt engineering, evaluation frameworks, and gateway patterns." },
+  { title: "MLOps & Infrastructure", desc: "End-to-end ML pipelines, model registries, CI/CD for ML, GPU infrastructure, and cost optimization." },
+  { title: "AI Governance", desc: "Responsible AI frameworks, bias detection, compliance (GDPR, HIPAA), model cards, and audit trails." },
+  { title: "Enterprise Strategy", desc: "AI transformation roadmaps, build vs. buy decisions, vendor evaluation, and team structure." },
+  { title: "AI Productization", desc: "Turning AI capabilities into products — UX patterns, reliability engineering, and go-to-market." },
+];
 ---
 
-<BaseLayout title="About - Anup Sahoo">
-  <header style="text-align:center;margin-bottom:60px;">
-    <h1 style="font-size:48px;font-weight:bold;margin-bottom:20px;">About</h1>
-    <p style="font-size:20px;color:#cbd5e1;max-width:600px;margin:0 auto;line-height:1.6;">
-      Enterprise AI architect helping organizations build scalable, responsible AI systems.
-    </p>
-  </header>
+<BaseLayout title="About — Anup Sahoo" description="Enterprise AI architect helping organizations build scalable, responsible AI systems.">
 
-  <section style="max-width:800px;margin:0 auto 60px;">
-    <h2 style="font-size:32px;font-weight:bold;margin-bottom:20px;color:#60a5fa;">My Journey</h2>
-    <p style="color:#cbd5e1;line-height:1.8;margin-bottom:20px;font-size:18px;">
-      I'm a technology leader with over 15 years of experience building enterprise-scale systems.
-      My journey has taken me from traditional software architecture to the cutting edge of AI and machine learning.
-    </p>
-    <p style="color:#cbd5e1;line-height:1.8;margin-bottom:20px;font-size:18px;">
-      This platform is my way of sharing the insights, patterns, and playbooks I've developed
-      along the way. My goal is to help other engineers and leaders accelerate their AI journey
-      while avoiding common pitfalls.
-    </p>
-  </section>
-
-  <section style="margin-bottom:60px;">
-    <h2 style="font-size:32px;font-weight:bold;margin-bottom:30px;text-align:center;">Areas of Expertise</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:24px;">
-      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
-        <h3 style="font-size:20px;font-weight:600;margin-bottom:12px;color:#60a5fa;">AI Architecture</h3>
-        <p style="color:#cbd5e1;line-height:1.6;">Designing scalable AI systems using modern architectural patterns.</p>
-      </div>
-      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
-        <h3 style="font-size:20px;font-weight:600;margin-bottom:12px;color:#60a5fa;">MLOps Engineering</h3>
-        <p style="color:#cbd5e1;line-height:1.6;">Building robust ML pipelines and automated model deployment systems.</p>
-      </div>
-      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
-        <h3 style="font-size:20px;font-weight:600;margin-bottom:12px;color:#60a5fa;">AI Governance</h3>
-        <p style="color:#cbd5e1;line-height:1.6;">Implementing responsible AI practices and compliance frameworks.</p>
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-border">
+    <div class="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-transparent"></div>
+    <div class="relative max-w-content mx-auto px-6 pt-20 pb-16">
+      <div class="flex flex-col md:flex-row items-start gap-8">
+        <div>
+          <p class="section-label mb-3">About</p>
+          <h1 class="text-display font-extrabold text-text mb-4">Anup Sahoo</h1>
+          <p class="text-lg text-text-secondary leading-relaxed max-w-2xl mb-4">Currently working at Valtech in collaboration with Louis Vuitton on AI transformation. Building enterprise AI systems and sharing structured knowledge for engineering leaders.</p>
+          <div class="flex gap-3">
+            <a href="https://github.com/anupsahoo" target="_blank" rel="noopener noreferrer" class="btn-secondary text-sm">GitHub</a>
+            <a href="https://www.linkedin.com/in/sahooanup/" target="_blank" rel="noopener noreferrer" class="btn-secondary text-sm">LinkedIn</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section>
-    <h2 style="font-size:32px;font-weight:bold;margin-bottom:30px;text-align:center;">Let's Connect</h2>
-    <div style="text-align:center;">
-      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-        <a href="https://github.com/anupsahoo" target="_blank" rel="noopener noreferrer" style="background:#2563eb;padding:12px 24px;border-radius:8px;color:white;text-decoration:none;font-weight:500;">GitHub</a>
-        <a href="https://linkedin.com/in/anupsahoo" target="_blank" rel="noopener noreferrer" style="background:#2563eb;padding:12px 24px;border-radius:8px;color:white;text-decoration:none;font-weight:500;">LinkedIn</a>
+  <!-- About Content -->
+  <section class="max-w-content mx-auto px-6 py-20">
+    <div class="max-w-3xl">
+      <h2 class="text-headline font-bold text-text mb-6">Why this platform</h2>
+      <div class="space-y-4 text-text-secondary leading-relaxed text-lg">
+        <p>Enterprise AI is moving fast, but structured, experience-based knowledge remains scarce. Most resources are either too academic or too shallow for engineers building production systems.</p>
+        <p>This platform distills real-world enterprise AI engineering experience into structured resources — architecture patterns, implementation playbooks, landscape analysis, and learning paths — designed for engineering leaders and practitioners who need actionable knowledge, not hype.</p>
+        <p>Every article includes executive summaries, key takeaways, code examples, and next reads — because your time matters.</p>
       </div>
     </div>
   </section>
+
+  <!-- Expertise -->
+  <section class="border-t border-border bg-surface-50">
+    <div class="max-w-content mx-auto px-6 py-20">
+      <p class="section-label">Areas of Expertise</p>
+      <h2 class="text-headline font-bold text-text mb-10">What I work on</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {expertise.map(e => (
+          <div class="card">
+            <h3 class="text-lg font-semibold text-text mb-2">{e.title}</h3>
+            <p class="text-sm text-text-secondary leading-relaxed">{e.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscribe -->
+  <section class="max-w-content mx-auto px-6 py-20">
+    <SubscribeModule variant="full" />
+  </section>
+
 </BaseLayout>

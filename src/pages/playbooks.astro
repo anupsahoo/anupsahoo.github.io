@@ -1,72 +1,78 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SubscribeModule from "../components/SubscribeModule.astro";
+
+const playbooks = [
+  { title: "LLM Implementation", desc: "Model selection, infrastructure setup, prompt engineering, fine-tuning, and production monitoring." },
+  { title: "RAG System Deployment", desc: "Document ingestion, embedding pipelines, vector store setup, retrieval tuning, and evaluation." },
+  { title: "ML Pipeline Automation", desc: "Feature engineering, training orchestration, CI/CD for models, and continuous monitoring." },
+  { title: "AI Governance Framework", desc: "Risk assessment, bias detection, compliance frameworks, model cards, and audit trails." },
+  { title: "Model Monitoring & Ops", desc: "Performance tracking, data drift detection, alerting, incident response, and rollback strategies." },
+  { title: "Cost Optimization", desc: "Infrastructure right-sizing, inference optimization, caching strategies, and budget management." },
+];
+
+const articles = [
+  {
+    href: "/playbooks/llm-evaluation-framework",
+    title: "Building an LLM Evaluation Framework",
+    desc: "A practical guide to evaluating LLM outputs systematically — from automated metrics to human evaluation protocols.",
+    date: "2025",
+    readTime: "11 min read",
+    tags: ["Evaluation", "LLMs"],
+  },
+];
 ---
 
-<BaseLayout title="Playbooks - Anup Sahoo">
-  <header style="text-align:center;margin-bottom:60px;">
-    <h1 style="font-size:48px;font-weight:bold;margin-bottom:20px;">Playbooks</h1>
-    <p style="font-size:20px;color:#cbd5e1;max-width:600px;margin:0 auto;line-height:1.6;">
-      Step-by-step guides for AI implementation, governance, and operational excellence.
-    </p>
-  </header>
+<BaseLayout title="Playbooks — Anup Sahoo" description="Step-by-step implementation guides, governance frameworks, and operational playbooks for enterprise AI.">
 
-  <section style="margin-bottom:60px;">
-    <h2 style="font-size:32px;font-weight:bold;margin-bottom:30px;">Implementation Guides</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:24px;">
-      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
-        <h3 style="font-size:20px;font-weight:600;margin-bottom:12px;color:#60a5fa;">LLM Implementation</h3>
-        <p style="color:#cbd5e1;line-height:1.6;">Model selection, infrastructure, fine-tuning, prompt engineering, and monitoring.</p>
-      </div>
-      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
-        <h3 style="font-size:20px;font-weight:600;margin-bottom:12px;color:#60a5fa;">Computer Vision</h3>
-        <p style="color:#cbd5e1;line-height:1.6;">Data pipelines, model training, edge deployment, and real-time inference.</p>
-      </div>
-      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
-        <h3 style="font-size:20px;font-weight:600;margin-bottom:12px;color:#60a5fa;">ML Pipeline Automation</h3>
-        <p style="color:#cbd5e1;line-height:1.6;">Data ingestion, feature engineering, training orchestration, and continuous monitoring.</p>
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-border">
+    <div class="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-transparent"></div>
+    <div class="relative max-w-content mx-auto px-6 pt-20 pb-16">
+      <p class="section-label mb-4">Playbooks</p>
+      <h1 class="text-display font-extrabold text-text mb-4 max-w-3xl">Implementation playbooks for AI teams</h1>
+      <p class="text-lg text-text-secondary leading-relaxed max-w-2xl">Step-by-step guides for AI implementation, governance, and operational excellence — built from real enterprise deployments.</p>
+    </div>
+  </section>
+
+  <!-- Playbook Grid -->
+  <section class="max-w-content mx-auto px-6 py-20">
+    <p class="section-label">Playbook Library</p>
+    <h2 class="text-headline font-bold text-text mb-10">Actionable implementation guides</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {playbooks.map(p => (
+        <div class="card">
+          <h3 class="text-lg font-semibold text-text mb-2">{p.title}</h3>
+          <p class="text-sm text-text-secondary leading-relaxed">{p.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Articles -->
+  <section class="border-t border-border bg-surface-50">
+    <div class="max-w-content mx-auto px-6 py-20">
+      <p class="section-label">Featured Playbooks</p>
+      <h2 class="text-headline font-bold text-text mb-10">In-depth implementation guides</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {articles.map(article => (
+          <a href={article.href} class="card-interactive group">
+            <div class="flex flex-wrap gap-2 mb-3">
+              {article.tags.map(tag => <span class="badge">{tag}</span>)}
+            </div>
+            <h3 class="text-title font-semibold text-text mb-2 group-hover:text-accent-light transition-colors">{article.title}</h3>
+            <p class="text-text-secondary leading-relaxed mb-4">{article.desc}</p>
+            <div class="flex items-center gap-3 text-sm text-text-muted">
+              <span>{article.date}</span><span>·</span><span>{article.readTime}</span>
+            </div>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
-  <section style="margin-bottom:60px;">
-    <h2 style="font-size:32px;font-weight:bold;margin-bottom:30px;">Governance & Compliance</h2>
-    <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:32px;">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:24px;">
-        <div>
-          <h4 style="font-size:16px;font-weight:600;margin-bottom:12px;color:#e2e8f0;">Risk Assessment</h4>
-          <p style="color:#cbd5e1;font-size:14px;line-height:1.6;">Bias detection, fairness metrics, impact assessment.</p>
-        </div>
-        <div>
-          <h4 style="font-size:16px;font-weight:600;margin-bottom:12px;color:#e2e8f0;">Compliance</h4>
-          <p style="color:#cbd5e1;font-size:14px;line-height:1.6;">GDPR, HIPAA, industry regulations, audit trails.</p>
-        </div>
-        <div>
-          <h4 style="font-size:16px;font-weight:600;margin-bottom:12px;color:#e2e8f0;">Documentation</h4>
-          <p style="color:#cbd5e1;font-size:14px;line-height:1.6;">Model cards, data sheets, performance reports.</p>
-        </div>
-        <div>
-          <h4 style="font-size:16px;font-weight:600;margin-bottom:12px;color:#e2e8f0;">Ethics</h4>
-          <p style="color:#cbd5e1;font-size:14px;line-height:1.6;">Transparency, accountability, human oversight.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2 style="font-size:32px;font-weight:bold;margin-bottom:30px;">Operational Excellence</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:24px;">
-      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
-        <h3 style="font-size:18px;font-weight:600;margin-bottom:12px;color:#60a5fa;">Monitoring</h3>
-        <p style="color:#cbd5e1;line-height:1.6;">Model performance tracking, data drift detection, system health.</p>
-      </div>
-      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
-        <h3 style="font-size:18px;font-weight:600;margin-bottom:12px;color:#60a5fa;">Incident Response</h3>
-        <p style="color:#cbd5e1;line-height:1.6;">Classification, escalation, rollback strategies, post-incident reviews.</p>
-      </div>
-      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
-        <h3 style="font-size:18px;font-weight:600;margin-bottom:12px;color:#60a5fa;">Continuous Improvement</h3>
-        <p style="color:#cbd5e1;line-height:1.6;">Feedback loops, A/B testing, model retraining, optimization.</p>
-      </div>
-    </div>
+  <!-- Subscribe -->
+  <section class="max-w-content mx-auto px-6 py-20">
+    <SubscribeModule variant="full" />
   </section>
 </BaseLayout>

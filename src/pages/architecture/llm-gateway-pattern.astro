@@ -1,0 +1,97 @@
+---
+import ArticleLayout from "../../layouts/ArticleLayout.astro";
+
+const codeExample = `# Example: LLM Gateway core structure
+class LLMGateway:
+    def __init__(self, config):
+        self.router = ModelRouter(config.routing_rules)
+        self.rate_limiter = RateLimiter(config.rate_limits)
+        self.cost_tracker = CostTracker(config.budget_alerts)
+        self.policy_engine = PolicyEngine(config.policies)
+        self.cache = ResponseCache(config.cache_config)
+
+    async def complete(self, request: CompletionRequest) -&gt; CompletionResponse:
+        # 1. Apply rate limiting
+        await self.rate_limiter.check(request.team_id)
+
+        # 2. Check cache for identical requests
+        cached = await self.cache.get(request)
+        if cached:
+            return cached
+
+        # 3. Apply input policies (PII detection, content filtering)
+        await self.policy_engine.validate_input(request)
+
+        # 4. Route to appropriate model
+        provider = self.router.select(request)
+
+        # 5. Execute with fallback
+        try:
+            response = await provider.complete(request)
+        except ProviderError:
+            response = await self.router.fallback(request)
+
+        # 6. Apply output policies
+        await self.policy_engine.validate_output(response)
+
+        # 7. Track cost and cache
+        await self.cost_tracker.record(request, response)
+        await self.cache.set(request, response)
+
+        return response`;
+---
+
+<ArticleLayout
+  title="The LLM Gateway Pattern: Centralizing Model Access"
+  description="How to build a centralized gateway for managing LLM access, cost tracking, rate limiting, and fallback routing across your organization."
+  category="Architecture"
+  date="2025"
+  readTime="10 min read"
+  tags={["LLMs", "Infrastructure", "Gateway Pattern"]}
+>
+
+<h2>Executive Summary</h2>
+<p>As organizations adopt multiple LLM providers and models, managing access becomes a significant operational challenge. The LLM Gateway pattern centralizes model access behind a unified API, enabling cost tracking, rate limiting, fallback routing, and policy enforcement without changing application code.</p>
+
+<blockquote>This is example content designed to demonstrate article structure. Replace with your own analysis.</blockquote>
+
+<h2>Key Takeaways</h2>
+<ul>
+  <li><strong>Decouple applications from providers</strong> — applications call the gateway, not specific LLM APIs directly.</li>
+  <li><strong>Centralize cost and usage tracking</strong> — one place to monitor spend across all teams and use cases.</li>
+  <li><strong>Enable automatic fallback</strong> — route to backup models when primary providers experience outages.</li>
+  <li><strong>Enforce organizational policies</strong> — content filtering, PII detection, and audit logging at the gateway level.</li>
+</ul>
+
+<h2>Gateway Architecture</h2>
+
+<h3>Core Components</h3>
+<p>An LLM gateway typically consists of these layers:</p>
+
+<pre><code class="language-python" set:html={codeExample} /></pre>
+
+<h3>Routing Strategies</h3>
+<ul>
+  <li><strong>Capability-based routing</strong> — route based on task complexity to the most cost-effective model</li>
+  <li><strong>Cost-based routing</strong> — prefer cheaper models when quality requirements allow</li>
+  <li><strong>Latency-based routing</strong> — route to fastest available provider for real-time use cases</li>
+  <li><strong>Policy-based routing</strong> — route sensitive data to compliant providers only</li>
+</ul>
+
+<h3>Observability</h3>
+<p>The gateway becomes the single source of truth for LLM usage across the organization. Key metrics to track:</p>
+<ul>
+  <li>Request volume and latency per model, team, and use case</li>
+  <li>Token usage and cost per team with budget alerting</li>
+  <li>Error rates and fallback frequency per provider</li>
+  <li>Cache hit rates and cost savings</li>
+</ul>
+
+<h2>Next Reads</h2>
+<ul>
+  <li><a href="/ai-landscape/enterprise-llm-landscape">The Enterprise LLM Landscape: A Decision Framework</a></li>
+  <li><a href="/architecture/production-rag-architecture">Designing a Production RAG Architecture</a></li>
+  <li><a href="/playbooks/llm-evaluation-framework">Building an LLM Evaluation Framework</a></li>
+</ul>
+
+</ArticleLayout>

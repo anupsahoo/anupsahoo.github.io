@@ -1,0 +1,96 @@
+---
+import ArticleLayout from "../../layouts/ArticleLayout.astro";
+
+const codeExample = `# Example: Structured evaluation scoring
+evaluation_dimensions = {
+    "capability": {
+        "weight": 0.25,
+        "metrics": ["task_accuracy", "reasoning_depth", "instruction_following"]
+    },
+    "cost": {
+        "weight": 0.20,
+        "metrics": ["per_token_cost", "infrastructure_cost", "fine_tuning_cost"]
+    },
+    "latency": {
+        "weight": 0.15,
+        "metrics": ["p50_latency", "p99_latency", "time_to_first_token"]
+    },
+    "compliance": {
+        "weight": 0.20,
+        "metrics": ["data_residency", "audit_trail", "certifications"]
+    },
+    "operational": {
+        "weight": 0.20,
+        "metrics": ["uptime_sla", "rate_limits", "support_quality"]
+    }
+}`;
+---
+
+<ArticleLayout
+  title="The Enterprise LLM Landscape: A Decision Framework"
+  description="A structured approach to evaluating and selecting large language models for enterprise use cases — covering proprietary, open-source, and hybrid deployment strategies."
+  category="AI Landscape"
+  date="2025"
+  readTime="12 min read"
+  tags={["LLMs", "Enterprise", "Decision Framework"]}
+>
+
+<h2>Executive Summary</h2>
+<p>The LLM landscape is evolving rapidly, with new models launching monthly. For enterprise teams, the challenge isn't finding a model — it's selecting the right one for specific use cases while managing cost, latency, compliance, and vendor risk. This article provides a structured decision framework for enterprise LLM selection.</p>
+
+<blockquote>This is example content designed to demonstrate article structure. Replace with your own analysis.</blockquote>
+
+<h2>Key Takeaways</h2>
+<ul>
+  <li><strong>No single model fits all use cases</strong> — enterprise teams typically need a portfolio approach with different models for different tasks.</li>
+  <li><strong>Total cost of ownership matters more than per-token pricing</strong> — factor in infrastructure, fine-tuning, evaluation, and operational overhead.</li>
+  <li><strong>Open-source models are production-viable</strong> — but require significant infrastructure investment compared to API-based services.</li>
+  <li><strong>Evaluation must be use-case specific</strong> — generic benchmarks rarely predict real-world performance for enterprise tasks.</li>
+</ul>
+
+<h2>The Decision Framework</h2>
+
+<h3>1. Define Your Use Case Categories</h3>
+<p>Start by categorizing your use cases along two axes: complexity and latency requirements. This immediately narrows your model selection.</p>
+<ul>
+  <li><strong>Simple extraction / classification</strong> — smaller models often suffice, lower cost</li>
+  <li><strong>Complex reasoning / generation</strong> — requires frontier models</li>
+  <li><strong>Real-time interactive</strong> — latency-sensitive, may need edge deployment</li>
+  <li><strong>Batch processing</strong> — cost-optimized, can use larger models with higher latency</li>
+</ul>
+
+<h3>2. Evaluate Along Enterprise Dimensions</h3>
+<p>Beyond raw capability, enterprise selection requires evaluating models across multiple dimensions:</p>
+
+<pre><code class="language-python" set:html={codeExample} /></pre>
+
+<h3>3. Build a Model Portfolio</h3>
+<p>Most enterprises benefit from a tiered approach:</p>
+<ul>
+  <li><strong>Tier 1 — Frontier models</strong> for complex reasoning tasks (e.g., GPT-4, Claude 3.5 Sonnet)</li>
+  <li><strong>Tier 2 — Mid-range models</strong> for general-purpose tasks (e.g., GPT-4o-mini, Claude Haiku, Llama 3)</li>
+  <li><strong>Tier 3 — Specialized/fine-tuned models</strong> for high-volume, domain-specific tasks</li>
+</ul>
+
+<h3>4. Implement a Gateway Pattern</h3>
+<p>Centralize model access through an LLM gateway that handles routing, fallback, cost tracking, and rate limiting. This decouples your application logic from specific model providers.</p>
+
+<h2>Deployment Strategy Comparison</h2>
+
+<h3>API-Based (Managed)</h3>
+<p>Lowest operational overhead, fastest time to production. Best for teams without dedicated ML infrastructure. Trade-off: vendor lock-in, data leaves your environment, less control over model behavior.</p>
+
+<h3>Self-Hosted Open Source</h3>
+<p>Maximum control and data privacy. Requires significant infrastructure investment (GPU provisioning, serving infrastructure, monitoring). Best for organizations with strict compliance requirements or high-volume workloads where cost optimization matters.</p>
+
+<h3>Hybrid Approach</h3>
+<p>Use API-based models for development and non-sensitive workloads, self-hosted models for production and sensitive data. This is the most common enterprise pattern.</p>
+
+<h2>Next Reads</h2>
+<ul>
+  <li><a href="/architecture/llm-gateway-pattern">The LLM Gateway Pattern: Centralizing Model Access</a></li>
+  <li><a href="/ai-landscape/rag-architecture-patterns">RAG Architecture Patterns for Production Systems</a></li>
+  <li><a href="/playbooks/llm-evaluation-framework">Building an LLM Evaluation Framework</a></li>
+</ul>
+
+</ArticleLayout>

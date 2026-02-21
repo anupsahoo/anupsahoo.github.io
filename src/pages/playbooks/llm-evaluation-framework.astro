@@ -1,0 +1,102 @@
+---
+import ArticleLayout from "../../layouts/ArticleLayout.astro";
+
+const codeExample = `# Example: Automated evaluation checks
+class AutomatedEvaluator:
+    def evaluate(self, query: str, response: str, context: str = None):
+        results = {}
+
+        # Format checks
+        results["is_valid_json"] = self._check_json_format(response)
+        results["within_length_limit"] = len(response) &lt; self.max_length
+        results["no_pii_leaked"] = not self._detect_pii(response)
+
+        # Content checks
+        results["no_hallucinated_urls"] = not self._detect_fake_urls(response)
+        results["language_match"] = self._check_language(query, response)
+
+        # Retrieval checks (if RAG)
+        if context:
+            results["grounded_in_context"] = self._check_grounding(
+                response, context
+            )
+            results["no_context_contradiction"] = self._check_consistency(
+                response, context
+            )
+
+        return results`;
+---
+
+<ArticleLayout
+  title="Building an LLM Evaluation Framework"
+  description="A practical guide to evaluating LLM outputs systematically — from automated metrics to human evaluation protocols for enterprise AI systems."
+  category="Playbooks"
+  date="2025"
+  readTime="11 min read"
+  tags={["Evaluation", "LLMs", "Quality"]}
+>
+
+<h2>Executive Summary</h2>
+<p>Evaluating LLM outputs is one of the hardest problems in production AI. Unlike traditional ML where you have clear metrics, LLM evaluation requires a multi-layered approach combining automated metrics, model-based evaluation, and structured human review. This playbook provides a practical framework for building evaluation into your LLM pipeline.</p>
+
+<blockquote>This is example content designed to demonstrate article structure. Replace with your own analysis.</blockquote>
+
+<h2>Key Takeaways</h2>
+<ul>
+  <li><strong>Evaluation is not optional</strong> — without systematic evaluation, you're flying blind on quality, safety, and regression.</li>
+  <li><strong>Automate what you can, but don't skip human review</strong> — automated metrics catch regressions; humans catch subtle quality issues.</li>
+  <li><strong>Build evaluation datasets from production traffic</strong> — synthetic benchmarks don't reflect real-world usage patterns.</li>
+  <li><strong>Evaluate continuously, not just at launch</strong> — model behavior can drift as providers update their models.</li>
+</ul>
+
+<h2>The Evaluation Stack</h2>
+
+<h3>Layer 1: Automated Metrics</h3>
+<p>Fast, cheap, and run on every request or batch. These catch obvious regressions and format issues.</p>
+
+<pre><code class="language-python" set:html={codeExample} /></pre>
+
+<h3>Layer 2: Model-Based Evaluation</h3>
+<p>Use a separate LLM (often a stronger model) to evaluate outputs. This scales better than human review while catching nuanced issues.</p>
+<ul>
+  <li><strong>Relevance scoring</strong> — does the response address the query?</li>
+  <li><strong>Faithfulness scoring</strong> — is the response grounded in provided context?</li>
+  <li><strong>Completeness scoring</strong> — does the response cover all aspects of the query?</li>
+  <li><strong>Tone and style</strong> — does the response match expected communication style?</li>
+</ul>
+
+<h3>Layer 3: Human Evaluation</h3>
+<p>Structured human review for a sample of production outputs. Essential for catching issues that automated methods miss.</p>
+<ul>
+  <li>Define clear rubrics with specific criteria and examples</li>
+  <li>Use multiple reviewers and measure inter-annotator agreement</li>
+  <li>Sample strategically — include edge cases, not just random samples</li>
+  <li>Track reviewer calibration over time</li>
+</ul>
+
+<h2>Building Evaluation Datasets</h2>
+<p>The most valuable evaluation datasets come from production traffic, not synthetic generation:</p>
+<ul>
+  <li><strong>Golden datasets</strong> — curated query-response pairs with expert-verified answers</li>
+  <li><strong>Regression datasets</strong> — cases where previous versions failed, used to prevent regressions</li>
+  <li><strong>Edge case datasets</strong> — adversarial inputs, ambiguous queries, multi-language inputs</li>
+  <li><strong>Domain-specific datasets</strong> — tailored to your specific use case and terminology</li>
+</ul>
+
+<h2>Continuous Evaluation Pipeline</h2>
+<p>Evaluation should run continuously, not just during development:</p>
+<ul>
+  <li>Run automated checks on every request in production</li>
+  <li>Run model-based evaluation on a sample of daily traffic</li>
+  <li>Run human evaluation weekly on flagged or sampled outputs</li>
+  <li>Alert on metric degradation with defined thresholds</li>
+</ul>
+
+<h2>Next Reads</h2>
+<ul>
+  <li><a href="/ai-landscape/enterprise-llm-landscape">The Enterprise LLM Landscape: A Decision Framework</a></li>
+  <li><a href="/architecture/production-rag-architecture">Designing a Production RAG Architecture</a></li>
+  <li><a href="/ai-landscape/rag-architecture-patterns">RAG Architecture Patterns for Production Systems</a></li>
+</ul>
+
+</ArticleLayout>

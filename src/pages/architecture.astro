@@ -1,60 +1,85 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SubscribeModule from "../components/SubscribeModule.astro";
+
+const patterns = [
+  { title: "Microservices for AI", desc: "Decoupled model serving, container orchestration, API gateways, and independent scaling." },
+  { title: "Event-Driven AI Pipelines", desc: "Real-time data processing with Kafka/Pulsar, stream processing, event sourcing, and CQRS." },
+  { title: "RAG Architecture", desc: "Retrieval-augmented generation with vector stores, embedding pipelines, and hybrid search." },
+  { title: "Model Serving Patterns", desc: "Real-time inference, batch processing, edge deployment, and multi-model serving." },
+  { title: "Data Platform Architecture", desc: "Feature stores, data lakes, lakehouse patterns, and real-time feature serving." },
+  { title: "Agentic System Design", desc: "Multi-agent orchestration, tool use patterns, memory systems, and planning architectures." },
+];
+
+const articles = [
+  {
+    href: "/architecture/production-rag-architecture",
+    title: "Designing a Production RAG Architecture",
+    desc: "End-to-end architecture for retrieval-augmented generation systems that handle enterprise-scale document collections.",
+    date: "2025",
+    readTime: "14 min read",
+    tags: ["RAG", "System Design"],
+  },
+  {
+    href: "/architecture/llm-gateway-pattern",
+    title: "The LLM Gateway Pattern: Centralizing Model Access",
+    desc: "How to build a centralized gateway for managing LLM access, cost tracking, rate limiting, and fallback routing.",
+    date: "2025",
+    readTime: "10 min read",
+    tags: ["LLMs", "Infrastructure"],
+  },
+];
 ---
 
-<BaseLayout title="Architecture - Anup Sahoo">
-  <header style="text-align:center;margin-bottom:60px;">
-    <h1 style="font-size:48px;font-weight:bold;margin-bottom:20px;">Architecture</h1>
-    <p style="font-size:20px;color:#cbd5e1;max-width:600px;margin:0 auto;line-height:1.6;">
-      Enterprise AI architecture patterns, best practices, and implementation strategies.
-    </p>
-  </header>
+<BaseLayout title="Architecture — Anup Sahoo" description="Enterprise AI architecture patterns, system design blueprints, and scalable platform architecture.">
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-border">
+    <div class="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-transparent"></div>
+    <div class="relative max-w-content mx-auto px-6 pt-20 pb-16">
+      <p class="section-label mb-4">Architecture</p>
+      <h1 class="text-display font-extrabold text-text mb-4 max-w-3xl">Enterprise AI architecture patterns</h1>
+      <p class="text-lg text-text-secondary leading-relaxed max-w-2xl">System design patterns, infrastructure blueprints, and scalable platform architecture for production AI systems.</p>
+    </div>
+  </section>
 
-  <section style="margin-bottom:60px;">
-    <h2 style="font-size:32px;font-weight:bold;margin-bottom:30px;">Core Patterns</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:24px;">
-      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
-        <h3 style="font-size:20px;font-weight:600;margin-bottom:12px;color:#60a5fa;">Microservices</h3>
-        <p style="color:#cbd5e1;line-height:1.6;">Decoupled services for scalability — independent model serving, container orchestration, API gateways.</p>
-      </div>
-      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
-        <h3 style="font-size:20px;font-weight:600;margin-bottom:12px;color:#60a5fa;">Event-Driven</h3>
-        <p style="color:#cbd5e1;line-height:1.6;">Real-time data processing via Kafka/Pulsar, stream processing, event sourcing, CQRS.</p>
-      </div>
-      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
-        <h3 style="font-size:20px;font-weight:600;margin-bottom:12px;color:#60a5fa;">Layered</h3>
-        <p style="color:#cbd5e1;line-height:1.6;">Clear separation of concerns — data layer, business logic, API layer, presentation.</p>
+  <!-- Patterns -->
+  <section class="max-w-content mx-auto px-6 py-20">
+    <p class="section-label">Design Patterns</p>
+    <h2 class="text-headline font-bold text-text mb-10">Core architecture patterns</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {patterns.map(p => (
+        <div class="card">
+          <h3 class="text-lg font-semibold text-text mb-2">{p.title}</h3>
+          <p class="text-sm text-text-secondary leading-relaxed">{p.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Articles -->
+  <section class="border-t border-border bg-surface-50">
+    <div class="max-w-content mx-auto px-6 py-20">
+      <p class="section-label">Featured Articles</p>
+      <h2 class="text-headline font-bold text-text mb-10">Architecture deep dives</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {articles.map(article => (
+          <a href={article.href} class="card-interactive group">
+            <div class="flex flex-wrap gap-2 mb-3">
+              {article.tags.map(tag => <span class="badge">{tag}</span>)}
+            </div>
+            <h3 class="text-title font-semibold text-text mb-2 group-hover:text-accent-light transition-colors">{article.title}</h3>
+            <p class="text-text-secondary leading-relaxed mb-4">{article.desc}</p>
+            <div class="flex items-center gap-3 text-sm text-text-muted">
+              <span>{article.date}</span><span>·</span><span>{article.readTime}</span>
+            </div>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
-  <section style="margin-bottom:60px;">
-    <h2 style="font-size:32px;font-weight:bold;margin-bottom:30px;">Model Deployment</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:24px;">
-      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
-        <h3 style="font-size:18px;font-weight:600;margin-bottom:12px;color:#60a5fa;">Real-time Inference</h3>
-        <p style="color:#cbd5e1;line-height:1.6;">Low-latency model serving for interactive applications.</p>
-      </div>
-      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
-        <h3 style="font-size:18px;font-weight:600;margin-bottom:12px;color:#60a5fa;">Batch Processing</h3>
-        <p style="color:#cbd5e1;line-height:1.6;">Scheduled inference for large-scale data processing.</p>
-      </div>
-      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
-        <h3 style="font-size:18px;font-weight:600;margin-bottom:12px;color:#60a5fa;">Edge Deployment</h3>
-        <p style="color:#cbd5e1;line-height:1.6;">On-device inference for offline and privacy-critical apps.</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2 style="font-size:32px;font-weight:bold;margin-bottom:30px;">Best Practices</h2>
-    <div style="background:#1f2937;border-left:4px solid #60a5fa;padding:20px;">
-      <ul style="color:#cbd5e1;line-height:1.8;list-style:none;padding:0;">
-        <li style="margin-bottom:12px;"><strong>Scalability First:</strong> Design for horizontal scaling from day one</li>
-        <li style="margin-bottom:12px;"><strong>Observability:</strong> Comprehensive monitoring and logging</li>
-        <li style="margin-bottom:12px;"><strong>Security by Design:</strong> Zero-trust architecture and data encryption</li>
-        <li style="margin-bottom:12px;"><strong>Cost Optimization:</strong> Right-size resources and auto-scaling</li>
-      </ul>
-    </div>
+  <!-- Subscribe -->
+  <section class="max-w-content mx-auto px-6 py-20">
+    <SubscribeModule variant="full" />
   </section>
 </BaseLayout>
