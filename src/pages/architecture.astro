@@ -1,0 +1,141 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Architecture - Anup Sahoo" currentPage="architecture">
+  <header style="text-align:center;margin-bottom:60px;">
+    <h1 style="font-size:48px;font-weight:bold;margin-bottom:20px;">Architecture</h1>
+    <p style="font-size:20px;color:#cbd5e1;max-width:600px;margin:0 auto;line-height:1.6;">
+      Enterprise AI architecture patterns, best practices, and implementation strategies.
+    </p>
+  </header>
+
+  <section style="margin-bottom:60px;">
+    <h2 style="font-size:32px;font-weight:bold;margin-bottom:30px;">Core Architecture Patterns</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(350px, 1fr));gap:24px;">
+      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
+        <h3 style="font-size:20px;font-weight:600;margin-bottom:16px;color:#60a5fa;">Microservices Architecture</h3>
+        <p style="color:#cbd5e1;line-height:1.6;margin-bottom:16px;">
+          Decoupled services for scalability and maintainability in AI systems.
+        </p>
+        <ul style="color:#94a3b8;line-height:1.6;list-style:none;padding:0;font-size:14px;">
+          <li style="margin-bottom:6px;">• Independent model serving</li>
+          <li style="margin-bottom:6px;">• Container orchestration</li>
+          <li style="margin-bottom:6px;">• API gateway patterns</li>
+          <li style="margin-bottom:6px;">• Service mesh integration</li>
+        </ul>
+      </div>
+      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
+        <h3 style="font-size:20px;font-weight:600;margin-bottom:16px;color:#60a5fa;">Event-Driven Architecture</h3>
+        <p style="color:#cbd5e1;line-height:1.6;margin-bottom:16px;">
+          Real-time data processing and model inference through event streams.
+        </p>
+        <ul style="color:#94a3b8;line-height:1.6;list-style:none;padding:0;font-size:14px;">
+          <li style="margin-bottom:6px;">• Kafka/Pulsar integration</li>
+          <li style="margin-bottom:6px;">• Stream processing</li>
+          <li style="margin-bottom:6px;">• Event sourcing</li>
+          <li style="margin-bottom:6px;">• CQRS patterns</li>
+        </ul>
+      </div>
+      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
+        <h3 style="font-size:20px;font-weight:600;margin-bottom:16px;color:#60a5fa;">Layered Architecture</h3>
+        <p style="color:#cbd5e1;line-height:1.6;margin-bottom:16px;">
+          Structured approach with clear separation of concerns.
+        </p>
+        <ul style="color:#94a3b8;line-height:1.6;list-style:none;padding:0;font-size:14px;">
+          <li style="margin-bottom:6px;">• Data layer abstraction</li>
+          <li style="margin-bottom:6px;">• Business logic separation</li>
+          <li style="margin-bottom:6px;">• API layer design</li>
+          <li style="margin-bottom:6px;">• Presentation layer</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin-bottom:60px;">
+    <h2 style="font-size:32px;font-weight:bold;margin-bottom:30px;">Data Architecture</h2>
+    <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:32px;">
+      <h3 style="font-size:24px;font-weight:600;margin-bottom:20px;color:#60a5fa;">Modern Data Stack for AI</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:24px;">
+        <div>
+          <h4 style="font-size:16px;font-weight:600;margin-bottom:12px;color:#e2e8f0;">Data Ingestion</h4>
+          <ul style="color:#cbd5e1;line-height:1.6;list-style:none;padding:0;font-size:14px;">
+            <li style="margin-bottom:6px;">• Apache Kafka</li>
+            <li style="margin-bottom:6px;">• AWS Kinesis</li>
+            <li style="margin-bottom:6px;">• Apache Flink</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-size:16px;font-weight:600;margin-bottom:12px;color:#e2e8f0;">Data Storage</h4>
+          <ul style="color:#cbd5e1;line-height:1.6;list-style:none;padding:0;font-size:14px;">
+            <li style="margin-bottom:6px;">• Data Lakes (S3, ADLS)</li>
+            <li style="margin-bottom:6px;">• Vector Databases</li>
+            <li style="margin-bottom:6px;">• Graph Databases</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-size:16px;font-weight:600;margin-bottom:12px;color:#e2e8f0;">Data Processing</h4>
+          <ul style="color:#cbd5e1;line-height:1.6;list-style:none;padding:0;font-size:14px;">
+            <li style="margin-bottom:6px;">• Apache Spark</li>
+            <li style="margin-bottom:6px;">• Databricks</li>
+            <li style="margin-bottom:6px;">• Snowflake</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-size:16px;font-weight:600;margin-bottom:12px;color:#e2e8f0;">ML Pipeline</h4>
+          <ul style="color:#cbd5e1;line-height:1.6;list-style:none;padding:0;font-size:14px;">
+            <li style="margin-bottom:6px;">• Kubeflow</li>
+            <li style="margin-bottom:6px;">• MLflow</li>
+            <li style="margin-bottom:6px;">• Airflow</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin-bottom:60px;">
+    <h2 style="font-size:32px;font-weight:bold;margin-bottom:30px;">Model Deployment Patterns</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:24px;">
+      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
+        <h3 style="font-size:18px;font-weight:600;margin-bottom:12px;color:#60a5fa;">Real-time Inference</h3>
+        <p style="color:#cbd5e1;line-height:1.6;margin-bottom:12px;font-size:14px;">
+          Low-latency model serving for interactive applications.
+        </p>
+        <div style="background:#0f172a;padding:12px;border-radius:4px;font-family:monospace;font-size:12px;color:#e2e8f0;">
+          REST API → Load Balancer → Model Servers
+        </div>
+      </div>
+      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
+        <h3 style="font-size:18px;font-weight:600;margin-bottom:12px;color:#60a5fa;">Batch Processing</h3>
+        <p style="color:#cbd5e1;line-height:1.6;margin-bottom:12px;font-size:14px;">
+          Scheduled model inference for large-scale data processing.
+        </p>
+        <div style="background:#0f172a;padding:12px;border-radius:4px;font-family:monospace;font-size:12px;color:#e2e8f0;">
+          Data Lake → Spark Jobs → Model Batch
+        </div>
+      </div>
+      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;">
+        <h3 style="font-size:18px;font-weight:600;margin-bottom:12px;color:#60a5fa;">Edge Deployment</h3>
+        <p style="color:#cbd5e1;line-height:1.6;margin-bottom:12px;font-size:14px;">
+          On-device inference for offline and privacy-critical applications.
+        </p>
+        <div style="background:#0f172a;padding:12px;border-radius:4px;font-family:monospace;font-size:12px;color:#e2e8f0;">
+          Cloud → Model Optimization → Edge Devices
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 style="font-size:32px;font-weight:bold;margin-bottom:30px;">Architecture Best Practices</h2>
+    <div style="background:#1f2937;border-left:4px solid #60a5fa;padding:20px;margin:20px 0;">
+      <ul style="color:#cbd5e1;line-height:1.8;list-style:none;padding:0;">
+        <li style="margin-bottom:12px;"><strong>Scalability First:</strong> Design for horizontal scaling from day one</li>
+        <li style="margin-bottom:12px;"><strong>Observability:</strong> Implement comprehensive monitoring and logging</li>
+        <li style="margin-bottom:12px;"><strong>Security by Design:</strong> Zero-trust architecture and data encryption</li>
+        <li style="margin-bottom:12px;"><strong>Cost Optimization:</strong> Right-size resources and implement auto-scaling</li>
+        <li style="margin-bottom:12px;"><strong>Disaster Recovery:</strong> Multi-region deployment and backup strategies</li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

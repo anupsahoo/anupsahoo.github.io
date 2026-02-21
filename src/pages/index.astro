@@ -1,13 +1,65 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogCard from "../components/BlogCard.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog", ({ data }) => {
+  return data.pubDate <= new Date();
+});
+const recentPosts = posts.slice(0, 3);
 ---
-<BaseLayout title="Anup Sahoo | AI Knowledge Platform">
-<h1 style="font-size:42px;font-weight:bold;">Practical Intelligence for Enterprise AI Systems</h1>
-<p style="margin-top:20px;font-size:18px;color:#cbd5e1;">
-Architecture notes, AI landscape mapping, governance patterns and enterprise playbooks.
-</p>
-<div style="margin-top:30px;display:flex;gap:15px;">
-<a href="/ai-landscape" style="background:#2563eb;padding:10px 16px;border-radius:6px;color:white;text-decoration:none;">Start with AI Landscape</a>
-<a href="/architecture" style="border:1px solid #334155;padding:10px 16px;border-radius:6px;text-decoration:none;">Read Architecture</a>
-</div>
+
+<BaseLayout title="Anup Sahoo | AI Knowledge Platform" currentPage="home">
+  <div style="text-align:center;margin-bottom:60px;">
+    <h1 style="font-size:48px;font-weight:bold;margin-bottom:20px;line-height:1.2;">
+      Practical Intelligence for<br />Enterprise AI Systems
+    </h1>
+    <p style="font-size:20px;color:#cbd5e1;margin-bottom:40px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.6;">
+      Architecture notes, AI landscape mapping, governance patterns and enterprise playbooks.
+    </p>
+    <div style="display:flex;gap:15px;justify-content:center;flex-wrap:wrap;">
+      <a href="/ai-landscape" style="background:#2563eb;padding:12px 24px;border-radius:8px;color:white;text-decoration:none;font-weight:500;">Start with AI Landscape</a>
+      <a href="/architecture" style="border:1px solid #334155;padding:12px 24px;border-radius:8px;text-decoration:none;color:#e2e8f0;font-weight:500;">Read Architecture</a>
+    </div>
+  </div>
+
+  <section style="margin-bottom:60px;">
+    <h2 style="font-size:32px;font-weight:bold;margin-bottom:40px;text-align:center;">Latest Blog Posts</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:24px;">
+      {recentPosts.map((post) => (
+        <BlogCard
+          title={post.data.title}
+          description={post.data.description}
+          pubDate={post.data.pubDate}
+          author={post.data.author}
+          slug={post.slug}
+          tags={post.data.tags}
+        />
+      ))}
+    </div>
+    <div style="text-align:center;margin-top:40px;">
+      <a href="/blog" style="color:#60a5fa;text-decoration:none;font-weight:500;">View all posts →</a>
+    </div>
+  </section>
+
+  <section style="margin-bottom:60px;">
+    <h2 style="font-size:32px;font-weight:bold;margin-bottom:40px;text-align:center;">Knowledge Areas</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:24px;">
+      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;text-align:center;">
+        <h3 style="font-size:20px;font-weight:600;margin-bottom:12px;">AI Landscape</h3>
+        <p style="color:#cbd5e1;margin-bottom:16px;">Comprehensive mapping of AI technologies, vendors, and solutions.</p>
+        <a href="/ai-landscape" style="color:#60a5fa;text-decoration:none;font-weight:500;">Explore →</a>
+      </div>
+      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;text-align:center;">
+        <h3 style="font-size:20px;font-weight:600;margin-bottom:12px;">Architecture</h3>
+        <p style="color:#cbd5e1;margin-bottom:16px;">Enterprise AI architecture patterns and best practices.</p>
+        <a href="/architecture" style="color:#60a5fa;text-decoration:none;font-weight:500;">Learn More →</a>
+      </div>
+      <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;text-align:center;">
+        <h3 style="font-size:20px;font-weight:600;margin-bottom:12px;">Playbooks</h3>
+        <p style="color:#cbd5e1;margin-bottom:16px;">Step-by-step guides for AI implementation and governance.</p>
+        <a href="/playbooks" style="color:#60a5fa;text-decoration:none;font-weight:500;">Get Started →</a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>

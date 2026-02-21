@@ -1,36 +1,15 @@
 ---
-const { title = "Anup Sahoo | Enterprise AI Platform", description = "AI Architecture, Landscape & Enterprise Playbooks" } = Astro.props;
+import Layout from '../components/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const { title = "Anup Sahoo | Enterprise AI Platform", description = "AI Architecture, Landscape & Enterprise Playbooks", currentPage } = Astro.props;
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title}</title>
-  <meta name="description" content={description} />
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
-</head>
-<body style="background:#0f172a;color:#e2e8f0;font-family:system-ui;">
-  <div style="max-width:1100px;margin:auto;padding:40px;">
-    <header style="display:flex;justify-content:space-between;margin-bottom:40px;">
-      <a href="/" style="font-weight:600;text-decoration:none;color:white;">Anup Sahoo</a>
-      <nav style="display:flex;gap:20px;font-size:14px;">
-        <a href="/ai-landscape">AI Landscape</a>
-        <a href="/architecture">Architecture</a>
-        <a href="/playbooks">Playbooks</a>
-        <a href="/newsletter">Newsletter</a>
-        <a href="/about">About</a>
-      </nav>
-    </header>
 
-    <main>
-      <slot />
-    </main>
-
-    <footer style="margin-top:60px;padding-top:20px;border-top:1px solid #334155;font-size:12px;color:#94a3b8;">
-      © {new Date().getFullYear()} Anup Sahoo
-    </footer>
-  </div>
-</body>
-</html>
+<Layout title={title} description={description}>
+  <Header currentPage={currentPage} />
+  <main>
+    <slot />
+  </main>
+  <Footer />
+</Layout>

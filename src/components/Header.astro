@@ -1,0 +1,14 @@
+---
+const { currentPage } = Astro.props;
+---
+<header style="display:flex;justify-content:space-between;margin-bottom:40px;">
+  <a href="/" style="font-weight:600;text-decoration:none;color:white;">Anup Sahoo</a>
+  <nav style="display:flex;gap:20px;font-size:14px;">
+    <a href="/ai-landscape" style={currentPage === 'ai-landscape' ? 'color:#60a5fa' : 'color:#cbd5e1'}>AI Landscape</a>
+    <a href="/architecture" style={currentPage === 'architecture' ? 'color:#60a5fa' : 'color:#cbd5e1'}>Architecture</a>
+    <a href="/playbooks" style={currentPage === 'playbooks' ? 'color:#60a5fa' : 'color:#cbd5e1'}>Playbooks</a>
+    <a href="/newsletter" style={currentPage === 'newsletter' ? 'color:#60a5fa' : 'color:#cbd5e1'}>Newsletter</a>
+    <a href="/about" style={currentPage === 'about' ? 'color:#60a5fa' : 'color:#cbd5e1'}>About</a>
+    <a href="/blog" style={currentPage === 'blog' ? 'color:#60a5fa' : 'color:#cbd5e1'}>Blog</a>
+  </nav>
+</header>

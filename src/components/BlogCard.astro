@@ -1,0 +1,43 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  author: string;
+  slug: string;
+  tags?: string[];
+}
+
+const { title, description, pubDate, author, slug, tags = [] } = Astro.props;
+
+const formattedDate = pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<article style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:24px;margin-bottom:24px;">
+  <div style="margin-bottom:16px;">
+    <time style="color:#94a3b8;font-size:14px;">{formattedDate}</time>
+    {author && <span style="color:#94a3b8;font-size:14px;margin-left:8px;">• {author}</span>}
+  </div>
+  
+  <h2 style="font-size:20px;font-weight:600;margin-bottom:12px;">
+    <a href={`/blog/${slug}/`} style="color:#e2e8f0;text-decoration:none;">
+      {title}
+    </a>
+  </h2>
+  
+  <p style="color:#cbd5e1;line-height:1.6;margin-bottom:16px;">{description}</p>
+  
+  {tags.length > 0 && (
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      {tags.map((tag) => (
+        <span style="background:#374151;color:#cbd5e1;padding:4px 8px;border-radius:4px;font-size:12px;">
+          {tag}
+        </span>
+      ))}
+    </div>
+  )}
+</article>

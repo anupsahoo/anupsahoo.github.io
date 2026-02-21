@@ -1,5 +1,32 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Astro
+.astro/
+dist/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Legacy Jekyll
 _site
 .sass-cache
-node_modules
 Gemfile.lock
 *.gem

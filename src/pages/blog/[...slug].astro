@@ -1,0 +1,69 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+
+type Props = CollectionEntry<'blog'>;
+
+const post = Astro.props;
+const { Content, headings } = await post.render();
+
+const formattedDate = post.data.pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<BaseLayout title={post.data.title} currentPage="blog">
+  <article style="max-width:800px;margin:0 auto;">
+    <header style="text-align:center;margin-bottom:60px;">
+      <h1 style="font-size:48px;font-weight:bold;margin-bottom:20px;line-height:1.2;">
+        {post.data.title}
+      </h1>
+      <div style="display:flex;justify-content:center;align-items:center;gap:16px;color:#94a3b8;font-size:16px;margin-bottom:20px;">
+        {post.data.author && <span>By {post.data.author}</span>}
+        <span>•</span>
+        <time>{formattedDate}</time>
+      </div>
+      {post.data.tags && post.data.tags.length > 0 && (
+        <div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap;">
+          {post.data.tags.map((tag) => (
+            <span style="background:#374151;color:#cbd5e1;padding:6px 12px;border-radius:6px;font-size:14px;">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+    </header>
+
+    <div style="font-size:18px;line-height:1.8;color:#e2e8f0;">
+      <Content />
+    </div>
+
+    {headings.length > 0 && (
+      <nav style="margin-top:60px;padding-top:40px;border-top:1px solid #334155;">
+        <h2 style="font-size:24px;font-weight:600;margin-bottom:20px;">Table of Contents</h2>
+        <ul style="list-style:none;padding:0;">
+          {headings.map((heading) => (
+            <li style="margin-bottom:8px;">
+              <a 
+                href={`#${heading.slug}`} 
+                style="color:#60a5fa;text-decoration:none;font-size:16px;"
+              >
+                {heading.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    )}
+  </article>
+</BaseLayout>
