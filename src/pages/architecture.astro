@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SubscribeModule from "../components/SubscribeModule.astro";
+import allArticles from "../data/article-index.json";
 
 const patterns = [
   { title: "Microservices for AI", desc: "Decoupled model serving, container orchestration, API gateways, and independent scaling." },
@@ -11,7 +12,7 @@ const patterns = [
   { title: "Agentic System Design", desc: "Multi-agent orchestration, tool use patterns, memory systems, and planning architectures." },
 ];
 
-const articles = [
+const handWritten = [
   {
     href: "/architecture/production-rag-architecture",
     title: "Designing a Production RAG Architecture",
@@ -29,6 +30,21 @@ const articles = [
     tags: ["LLMs", "Infrastructure"],
   },
 ];
+
+const handWrittenSlugs = new Set(handWritten.map(a => a.href));
+
+const generated = allArticles
+  .filter(a => a.section === "architecture" && !handWrittenSlugs.has(a.href))
+  .map(a => ({
+    href: a.href,
+    title: a.title,
+    desc: a.description,
+    date: a.publishDate.split("-")[0],
+    readTime: a.readTime,
+    tags: a.tags,
+  }));
+
+const articles = [...handWritten, ...generated];
 ---
 
 <BaseLayout title="Architecture — Anup Sahoo" description="Enterprise AI architecture patterns, system design blueprints, and scalable platform architecture.">

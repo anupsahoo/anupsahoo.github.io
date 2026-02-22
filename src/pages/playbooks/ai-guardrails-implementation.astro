@@ -1,0 +1,104 @@
+---
+import ArticleLayout from "../../layouts/ArticleLayout.astro";
+
+const codeExample = `# Simple Guardrails setup for Indian teams
+# Start with this basic structure and expand as needed
+
+class GuardrailsSystem:
+    def __init__(self, config):
+        self.config = config
+        self.model = self._load_model(config["model_name"])
+        self.monitor = PerformanceMonitor()
+
+    def process(self, input_data):
+        """Process a single request with monitoring"""
+        start_time = time.time()
+
+        # Step 1: Validate input
+        if not self._validate(input_data):
+            return {"error": "Invalid input", "status": "failed"}
+
+        # Step 2: Run the AI model
+        result = self.model.predict(input_data)
+
+        # Step 3: Check quality
+        confidence = result.get("confidence", 0)
+        if confidence < 0.7:
+            result["warning"] = "Low confidence - consider human review"
+
+        # Step 4: Log metrics (important for Indian compliance)
+        latency = time.time() - start_time
+        self.monitor.log({
+            "latency_ms": latency * 1000,
+            "confidence": confidence,
+            "model": self.config["model_name"],
+            "cost_inr": self._calculate_cost(input_data)
+        })
+
+        return result
+
+# Usage
+system = GuardrailsSystem({"model_name": "your-model-here"})
+result = system.process({"text": "Your input here"})
+print(f"Result: {result}, Cost: Rs {result.get('cost_inr', 0)}")`;
+---
+
+<ArticleLayout
+  title="LLM Guardrails Implementation Playbook"
+  description="Implementing guardrails for LLM applications — input validation, output filtering, and policy enforcement."
+  category="Playbooks"
+  date="2025"
+  readTime="13 min read"
+  tags={["Guardrails","Safety"]}
+>
+
+<h2>Executive Summary</h2>
+<p>Here is something I have noticed working with Indian engineering teams — most people understand the basics of AI, but when it comes to AI guardrails, there is a lot of confusion. Some teams over-engineer their solutions. Others pick the wrong tools entirely. And many waste months going down paths that a little upfront knowledge could have avoided. This article gives you that knowledge in simple, practical terms.</p>
+
+<h2>Key Takeaways</h2>
+<ul>
+  <li><strong>Your data quality matters more than your model choice</strong> — spending a week cleaning your data will improve results more than spending a week choosing between models.</li>
+  <li><strong>Budget for the long term</strong> — AI systems need ongoing maintenance, monitoring, and improvement. Factor this into your cost planning.</li>
+  <li><strong>Plan for multilingual needs</strong> — if your users speak Hindi, Tamil, or other Indian languages, build language support in from the start.</li>
+  <li><strong>Measure everything from day one</strong> — set up logging and metrics before you launch. You cannot improve what you cannot measure.</li>
+</ul>
+
+<h2>AI Guardrails — What Has Changed Recently</h2>
+<p>Let me explain this with a simple analogy. Think of AI guardrails like building a house. You need a strong foundation (your data), good materials (your tools and models), skilled workers (your engineering team), and a clear blueprint (your architecture). Skip any of these, and the house will have problems.</p>
+<p>In the Indian context, this is especially important because many teams are building AI systems for the first time. They often jump straight to the latest fancy tool without understanding the fundamentals. The teams that succeed are the ones that take time to understand the basics first, then choose tools that fit their specific needs.</p>
+
+<h2>Key Decisions You Need to Make</h2>
+<p>Let me be direct about what works and what does not in the AI guardrails space. What works: starting simple, measuring everything, iterating based on data, and investing in good evaluation. What does not work: chasing the latest trends without understanding your requirements, over-engineering your first version, and skipping evaluation because "the demo looked good."</p>
+<p>For Indian teams specifically, I would add: do not ignore the multilingual challenge. If your users speak Hindi, Tamil, Telugu, or any other Indian language, test your system with those languages from day one. Adding multilingual support later is much harder than building it in from the start.</p>
+
+<pre><code class="language-python" set:html={codeExample} /></pre>
+
+<h2>Implementation: From Zero to Production</h2>
+<p>Here is a practical roadmap that has worked well for Indian teams at different stages of their AI guardrails journey:</p>
+<ul>
+  <li><strong>Define success clearly</strong> — Before writing any code, write down what "good" looks like. What accuracy do you need? What latency is acceptable? What is your budget? Without clear targets, you will never know if you have succeeded.</li>
+  <li><strong>Start with your data</strong> — The quality of your data matters more than the quality of your model. Spend time cleaning, organizing, and understanding your data before choosing tools.</li>
+  <li><strong>Build the simplest thing that works</strong> — Your first version should be embarrassingly simple. A basic solution that works is infinitely better than a complex solution that is still being built.</li>
+  <li><strong>Measure from day one</strong> — Set up logging and metrics before you launch. You need to know how your system is performing in the real world, not just in your test environment.</li>
+  <li><strong>Plan for iteration</strong> — Your first version will not be perfect. That is okay. What matters is that you can improve it quickly based on real user feedback and real performance data.</li>
+</ul>
+
+<h2>Cost and Resource Planning</h2>
+<p>Let us talk about money — because in India, budget is often the biggest constraint. The good news is that AI guardrails does not have to be expensive. The bad news is that costs can spiral quickly if you are not careful.</p>
+<p>Here are some cost-saving strategies that work well for Indian teams. Use open-source tools wherever possible — the quality of open-source AI tools has improved dramatically. Use spot or preemptible GPU instances for non-critical workloads to save 60-70% on compute costs. Start with smaller models and only scale up when you have data showing that bigger models give meaningfully better results. And always set up cost alerts so you know immediately if spending is going above your budget.</p>
+
+<h2>What I Wish Someone Had Told Me Earlier</h2>
+<p>Let me share the most expensive mistakes I have seen Indian teams make with AI guardrails:</p>
+<p>Mistake 1: Choosing tools based on hype instead of requirements. Just because a tool is trending on Twitter does not mean it is right for your use case. Always start with your requirements and find tools that fit.</p>
+<p>Mistake 2: Not involving domain experts early enough. Your AI system needs to understand your business domain. Engineers alone cannot provide this — you need input from people who understand the business deeply.</p>
+<p>Mistake 3: Underestimating the "last mile" problem. Getting from 80% accuracy to 95% accuracy often takes more effort than getting from 0% to 80%. Plan your timeline accordingly.</p>
+<p>Mistake 4: Forgetting about Indian languages. If your users speak Hindi or regional languages, your system needs to handle that. Retrofitting multilingual support is much harder than building it in from the start.</p>
+
+<h2>Next Reads</h2>
+<ul>
+  <li><a href="/playbooks/ai-team-building-playbook">Building an AI Team: Roles, Skills, and Structure</a></li>
+  <li><a href="/architecture/guardrails-architecture">Guardrails Architecture for LLM Applications</a></li>
+  <li><a href="/playbooks/ai-prompt-testing-playbook">Prompt Testing and Regression Playbook</a></li>
+</ul>
+
+</ArticleLayout>

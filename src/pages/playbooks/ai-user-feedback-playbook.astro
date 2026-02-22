@@ -1,0 +1,104 @@
+---
+import ArticleLayout from "../../layouts/ArticleLayout.astro";
+
+const codeExample = `# Evaluating Feedback solutions - practical framework
+# Use this to compare different approaches objectively
+
+def evaluate_feedback_solution(solution, test_cases):
+    """Run evaluation on your actual business data"""
+    results = {
+        "accuracy": [],
+        "latency_ms": [],
+        "cost_per_request_inr": [],
+        "failures": []
+    }
+
+    for test in test_cases:
+        start = time.time()
+        try:
+            output = solution.run(test["input"])
+            latency = (time.time() - start) * 1000
+
+            # Check if output matches expected result
+            is_correct = check_quality(output, test["expected"])
+            results["accuracy"].append(is_correct)
+            results["latency_ms"].append(latency)
+            results["cost_per_request_inr"].append(solution.get_cost())
+        except Exception as e:
+            results["failures"].append(str(e))
+
+    # Calculate summary metrics
+    summary = {
+        "accuracy": sum(results["accuracy"]) / len(results["accuracy"]) * 100,
+        "avg_latency_ms": sum(results["latency_ms"]) / len(results["latency_ms"]),
+        "p99_latency_ms": sorted(results["latency_ms"])[int(len(results["latency_ms"]) * 0.99)],
+        "avg_cost_inr": sum(results["cost_per_request_inr"]) / len(results["cost_per_request_inr"]),
+        "failure_rate": len(results["failures"]) / len(test_cases) * 100,
+        "monthly_cost_estimate_inr": sum(results["cost_per_request_inr"]) * 30 * 1000
+    }
+
+    print(f"Accuracy: {summary['accuracy']:.1f}%")
+    print(f"Avg Latency: {summary['avg_latency_ms']:.0f}ms")
+    print(f"Monthly Cost: Rs {summary['monthly_cost_estimate_inr']:,.0f}")
+    return summary`;
+---
+
+<ArticleLayout
+  title="User Feedback Collection Playbook for AI Products"
+  description="Designing feedback mechanisms for AI products — thumbs up/down, corrections, and implicit signals."
+  category="Playbooks"
+  date="2025"
+  readTime="10 min read"
+  tags={["Feedback","Product"]}
+>
+
+<h2>Executive Summary</h2>
+<p>If you have been working in AI or following the tech industry in India, you have probably heard about feedback. It sounds complex, but the core idea is actually quite simple. In this article, I will break down user feedback collection playbook for ai products in plain language — no jargon, no assumptions. Whether you are a developer at a Bangalore startup or a tech lead at a large enterprise, this guide will help you understand what matters and what you can safely ignore.</p>
+
+<h2>Key Takeaways</h2>
+<ul>
+  <li><strong>Do not over-engineer your first version</strong> — a working simple system beats a perfect system that is still being built. Ship early, learn fast.</li>
+  <li><strong>Budget for the long term</strong> — AI systems need ongoing maintenance, monitoring, and improvement. Factor this into your cost planning.</li>
+  <li><strong>Open source is production-ready</strong> — many open-source feedback tools are now good enough for production use, saving significant licensing costs.</li>
+  <li><strong>Involve domain experts</strong> — engineers build the system, but domain experts ensure it solves the right problem in the right way.</li>
+</ul>
+
+<h2>Understanding Feedback — The Basics</h2>
+<p>The simplest way to think about feedback is this: it is about making your AI system work reliably in the real world, not just in a demo. There is a huge gap between an AI model that works on your laptop and one that serves thousands of users every day without breaking.</p>
+<p>I have seen this gap catch many Indian teams off guard. They build a brilliant prototype, show it to stakeholders, get approval, and then spend months struggling to make it work in production. Understanding feedback properly from the start can save you from this painful cycle.</p>
+
+<h2>What Works and What Does Not</h2>
+<p>When it comes to feedback, Indian teams typically face three key decisions. First, build versus buy — should you build your own solution or use an existing tool? Second, cloud versus on-premise — where should this run? Third, which specific tools or frameworks to use?</p>
+<p>My advice: start with the simplest option that could work. If a managed service solves your problem, use it. Do not build from scratch just because it feels more "engineering." Save your engineering effort for the parts that are truly unique to your business. For everything else, stand on the shoulders of existing solutions.</p>
+
+<pre><code class="language-python" set:html={codeExample} /></pre>
+
+<h2>Step-by-Step Implementation Guide</h2>
+<p>Here is a practical roadmap that has worked well for Indian teams at different stages of their feedback journey:</p>
+<ul>
+  <li><strong>Define success clearly</strong> — Before writing any code, write down what "good" looks like. What accuracy do you need? What latency is acceptable? What is your budget? Without clear targets, you will never know if you have succeeded.</li>
+  <li><strong>Start with your data</strong> — The quality of your data matters more than the quality of your model. Spend time cleaning, organizing, and understanding your data before choosing tools.</li>
+  <li><strong>Build the simplest thing that works</strong> — Your first version should be embarrassingly simple. A basic solution that works is infinitely better than a complex solution that is still being built.</li>
+  <li><strong>Measure from day one</strong> — Set up logging and metrics before you launch. You need to know how your system is performing in the real world, not just in your test environment.</li>
+  <li><strong>Plan for iteration</strong> — Your first version will not be perfect. That is okay. What matters is that you can improve it quickly based on real user feedback and real performance data.</li>
+</ul>
+
+<h2>Budget-Friendly Approaches</h2>
+<p>Budget planning for feedback projects is tricky because costs depend heavily on scale. A prototype might cost almost nothing, but production costs can be significant. Here is a rough framework for Indian teams:</p>
+<p>For a small-scale deployment (serving hundreds of users), expect to spend Rs 10,000-50,000 per month on infrastructure. For medium scale (thousands of users), Rs 50,000-2,00,000 per month. For large scale (lakhs of users), Rs 2,00,000-10,00,000 per month. These numbers vary widely based on your specific use case, but they give you a starting point for budget conversations.</p>
+<p>The most important cost optimization is choosing the right model size. Using a model that is 10x larger than necessary is like using a truck to deliver a letter — it works, but it is incredibly wasteful.</p>
+
+<h2>Common Mistakes and How to Avoid Them</h2>
+<p>After working with many Indian teams on feedback projects, I have seen the same mistakes repeated over and over. Let me save you the trouble.</p>
+<p>First, do not skip evaluation. Many teams build a system, do a quick manual check, and declare it "working." Then they are surprised when users complain about quality. Build automated evaluation from the start — even a simple test suite with 50 examples is better than nothing.</p>
+<p>Second, do not ignore latency. Indian internet speeds vary widely. A system that responds in 2 seconds on your office WiFi might take 8 seconds on a user's mobile connection in a tier-2 city. Always test with realistic network conditions.</p>
+<p>Third, do not try to solve everything at once. Pick one use case, make it work really well, and then expand. The teams that try to build a "general AI platform" from day one usually end up with nothing that works well.</p>
+
+<h2>Next Reads</h2>
+<ul>
+  <li><a href="/playbooks/ai-content-moderation-playbook">AI Content Moderation Playbook</a></li>
+  <li><a href="/playbooks/ai-bias-detection-playbook">AI Bias Detection and Mitigation Playbook</a></li>
+  <li><a href="/playbooks/fine-tuning-playbook">Model Fine-Tuning Playbook: LoRA to Full Fine-Tune</a></li>
+</ul>
+
+</ArticleLayout>

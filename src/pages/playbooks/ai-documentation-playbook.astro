@@ -1,0 +1,108 @@
+---
+import ArticleLayout from "../../layouts/ArticleLayout.astro";
+
+const codeExample = `# Production-ready Documentation pipeline
+# Designed for reliability and cost efficiency
+
+class DocumentationPipeline:
+    def __init__(self):
+        self.preprocessor = DataPreprocessor()
+        self.model = self._init_model()
+        self.cache = ResponseCache(max_size=10000)
+        self.rate_limiter = RateLimiter(max_rpm=100)
+        self.logger = setup_logging("documentation_pipeline")
+
+    async def run(self, request):
+        # Check cache first (saves money!)
+        cached = self.cache.get(request.cache_key)
+        if cached:
+            self.logger.info("Cache hit - saved one API call")
+            return cached
+
+        # Rate limiting (prevent runaway costs)
+        await self.rate_limiter.wait()
+
+        # Preprocess
+        clean_input = self.preprocessor.clean(request.data)
+
+        # Run model with retry logic
+        for attempt in range(3):
+            try:
+                result = await self.model.predict(clean_input)
+                break
+            except Exception as e:
+                self.logger.warning(f"Attempt {attempt+1} failed: {e}")
+                if attempt == 2:
+                    return {"error": "Service temporarily unavailable"}
+                await asyncio.sleep(2 ** attempt)
+
+        # Cache the result
+        self.cache.set(request.cache_key, result)
+
+        # Log for monitoring
+        self.logger.info(f"Processed request, cost: Rs {result.cost_inr}")
+        return result
+
+# Tip: The cache alone can reduce your API costs by 30-50%`;
+---
+
+<ArticleLayout
+  title="AI System Documentation Playbook"
+  description="Documenting AI systems effectively — model cards, system architecture docs, runbooks, and decision logs."
+  category="Playbooks"
+  date="2025"
+  readTime="10 min read"
+  tags={["Documentation","Best Practices"]}
+>
+
+<h2>Executive Summary</h2>
+<p>Let me tell you a story. A few months ago, a mid-size Indian company was struggling with their AI project. They had smart engineers, good data, and a clear business goal. But they were stuck because they did not understand documentation well enough to make the right technical decisions. This is more common than you think. Documenting AI systems effectively — model cards, system architecture docs, runbooks, and decision logs. Let us fix that knowledge gap together.</p>
+
+<h2>Key Takeaways</h2>
+<ul>
+  <li><strong>Test with real Indian users early</strong> — what works in a demo may not work for users in tier-2 cities with slower internet connections and different language preferences.</li>
+  <li><strong>Involve domain experts</strong> — engineers build the system, but domain experts ensure it solves the right problem in the right way.</li>
+  <li><strong>Measure everything from day one</strong> — set up logging and metrics before you launch. You cannot improve what you cannot measure.</li>
+  <li><strong>Plan for multilingual needs</strong> — if your users speak Hindi, Tamil, or other Indian languages, build language support in from the start.</li>
+</ul>
+
+<h2>What Is Documentation and Why Should You Care</h2>
+<p>At its core, documentation solves a fundamental problem that every AI team faces. As your AI system grows — more users, more data, more use cases — things that worked at small scale start breaking. Response times increase. Costs spiral. Quality drops. Errors become harder to debug.</p>
+<p>Documentation gives you the patterns and tools to handle this growth gracefully. Think of it as the difference between a chai stall that serves 50 customers a day and a restaurant chain that serves 50,000. Both serve food, but the systems behind them are completely different.</p>
+
+<h2>Practical Considerations for Indian Teams</h2>
+<p>Here is what I have seen work well in Indian companies of different sizes. Small startups (under 50 people) should use managed services and APIs — do not waste time on infrastructure. Mid-size companies (50-500 people) should use a mix of managed services and some self-hosted components for cost optimization. Large enterprises (500+ people) can justify building custom solutions for their most critical workflows.</p>
+<p>The mistake I see most often is small teams trying to build everything from scratch. They end up spending 80% of their time on infrastructure and only 20% on the actual AI problem they are trying to solve. Flip that ratio.</p>
+
+<pre><code class="language-python" set:html={codeExample} /></pre>
+
+<h2>How to Get Started — A Practical Roadmap</h2>
+<p>Here is a practical roadmap that has worked well for Indian teams at different stages of their documentation journey:</p>
+<ul>
+  <li><strong>Week 1-2: Learn and Explore</strong> — Spend time understanding the fundamentals. Read documentation, try tutorials, and experiment with small examples. Do not commit to any tool yet.</li>
+  <li><strong>Week 3-4: Prototype</strong> — Build a minimal working version using the simplest approach possible. Use your actual business data, not sample datasets. Show it to real users and collect feedback.</li>
+  <li><strong>Month 2: Evaluate and Iterate</strong> — Measure the prototype against your success criteria. Identify the biggest gaps. Fix the most impactful issues first.</li>
+  <li><strong>Month 3: Production Prep</strong> — Add monitoring, error handling, and logging. Set up automated tests. Document your system for your team. Plan for scaling.</li>
+  <li><strong>Month 4+: Launch and Monitor</strong> — Deploy to production with a small percentage of traffic first. Monitor closely. Gradually increase traffic as you gain confidence.</li>
+</ul>
+
+<h2>Making It Work on an Indian Budget</h2>
+<p>One thing I always tell Indian teams: do not let budget anxiety stop you from starting. You can build a meaningful documentation prototype for almost zero cost using free tiers of cloud services, open-source models, and tools like Google Colab.</p>
+<p>The expensive part comes when you scale to production. But by that point, you should have data showing the business value of your AI system. Use that data to justify the budget. Show your leadership concrete numbers — "This system saves our support team 200 hours per month" is much more convincing than "We need GPUs for AI."</p>
+<p>Also, explore government initiatives. The Indian government's AI programs and startup schemes sometimes offer cloud credits and computing resources. It is worth checking if your company qualifies.</p>
+
+<h2>Lessons from Real Indian Deployments</h2>
+<p>Here are the top lessons I have gathered from real documentation deployments across Indian companies:</p>
+<p>Lesson 1: Simple beats clever. The most successful AI systems I have seen are not the most technically sophisticated — they are the ones that solve a clear problem simply and reliably.</p>
+<p>Lesson 2: Data quality trumps model quality. I have seen teams spend weeks choosing between models when their real problem was messy, inconsistent training data. Fix your data first.</p>
+<p>Lesson 3: Users do not care about your architecture. They care about whether the system gives them useful answers quickly. Optimize for user experience, not technical elegance.</p>
+<p>Lesson 4: Plan for the long term. AI systems need ongoing maintenance — data updates, model refreshes, monitoring, and improvement. Budget for this from the start, not as an afterthought.</p>
+
+<h2>Next Reads</h2>
+<ul>
+  <li><a href="/playbooks/llm-implementation-guide">LLM Implementation Playbook: From POC to Production</a></li>
+  <li><a href="/architecture/ai-api-design">Designing AI-Powered APIs</a></li>
+  <li><a href="/playbooks/embedding-optimization-playbook">Embedding Optimization Playbook</a></li>
+</ul>
+
+</ArticleLayout>

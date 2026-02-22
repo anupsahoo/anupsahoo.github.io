@@ -1,0 +1,2837 @@
+[
+  {
+    "slug": "open-source-llm-ecosystem",
+    "title": "The Open-Source LLM Ecosystem in 2025",
+    "description": "A comprehensive map of open-source large language models — from Llama to Mistral to Qwen — and how they compare to proprietary alternatives.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "LLMs",
+      "Open Source"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-03-01",
+    "href": "/ai-landscape/open-source-llm-ecosystem"
+  },
+  {
+    "slug": "small-language-models",
+    "title": "Small Language Models: When Less Is More",
+    "description": "Why sub-7B parameter models are becoming the default for production workloads — cost, latency, and deployment advantages.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "SLMs",
+      "Efficiency"
+    ],
+    "readTime": "10 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-03-05",
+    "href": "/ai-landscape/small-language-models"
+  },
+  {
+    "slug": "multimodal-ai-landscape",
+    "title": "The Multimodal AI Landscape",
+    "description": "Vision-language models, audio understanding, and unified multimodal architectures reshaping enterprise AI.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Multimodal",
+      "Vision"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-03-08",
+    "href": "/ai-landscape/multimodal-ai-landscape"
+  },
+  {
+    "slug": "vector-database-comparison",
+    "title": "Vector Database Comparison: Pinecone vs Weaviate vs Qdrant vs Chroma",
+    "description": "A detailed technical comparison of leading vector databases for production RAG and semantic search workloads.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Vector Databases",
+      "RAG"
+    ],
+    "readTime": "16 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-03-12",
+    "href": "/ai-landscape/vector-database-comparison"
+  },
+  {
+    "slug": "ai-orchestration-frameworks",
+    "title": "AI Orchestration Frameworks: LangChain vs LlamaIndex vs Semantic Kernel",
+    "description": "Comparing the leading AI orchestration frameworks for building LLM-powered applications.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Orchestration",
+      "Frameworks"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-03-16",
+    "href": "/ai-landscape/ai-orchestration-frameworks"
+  },
+  {
+    "slug": "model-serving-landscape",
+    "title": "Model Serving in 2025: vLLM, TGI, and Beyond",
+    "description": "The evolving landscape of LLM inference servers — performance, features, and production readiness.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Inference",
+      "Infrastructure"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "advanced",
+    "publishDate": "2024-03-20",
+    "href": "/ai-landscape/model-serving-landscape"
+  },
+  {
+    "slug": "embedding-models-guide",
+    "title": "Embedding Models: A Practical Selection Guide",
+    "description": "How to choose the right embedding model for your use case — benchmarks, trade-offs, and production considerations.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Embeddings",
+      "RAG"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-03-24",
+    "href": "/ai-landscape/embedding-models-guide"
+  },
+  {
+    "slug": "ai-coding-assistants",
+    "title": "AI Coding Assistants: Enterprise Evaluation",
+    "description": "Evaluating GitHub Copilot, Cursor, Cody, and other AI coding tools for enterprise software teams.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Developer Tools",
+      "Productivity"
+    ],
+    "readTime": "10 min read",
+    "difficulty": "beginner",
+    "publishDate": "2024-03-27",
+    "href": "/ai-landscape/ai-coding-assistants"
+  },
+  {
+    "slug": "gpu-cloud-providers",
+    "title": "GPU Cloud Providers: A Cost and Performance Comparison",
+    "description": "Comparing AWS, GCP, Azure, Lambda Labs, CoreWeave, and other GPU cloud options for AI workloads.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Infrastructure",
+      "Cloud"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-03-31",
+    "href": "/ai-landscape/gpu-cloud-providers"
+  },
+  {
+    "slug": "ai-safety-tools",
+    "title": "AI Safety and Guardrails Tooling Landscape",
+    "description": "Mapping the ecosystem of AI safety tools — from content filtering to prompt injection detection.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Safety",
+      "Guardrails"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-04-04",
+    "href": "/ai-landscape/ai-safety-tools"
+  },
+  {
+    "slug": "fine-tuning-platforms",
+    "title": "Fine-Tuning Platforms and Services Compared",
+    "description": "Evaluating managed fine-tuning services vs self-hosted approaches for enterprise model customization.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Fine-Tuning",
+      "MLOps"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-04-08",
+    "href": "/ai-landscape/fine-tuning-platforms"
+  },
+  {
+    "slug": "ai-agent-frameworks",
+    "title": "AI Agent Frameworks: Building Autonomous Systems",
+    "description": "Comparing CrewAI, AutoGen, LangGraph, and other frameworks for building multi-agent systems.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Agents",
+      "Frameworks"
+    ],
+    "readTime": "15 min read",
+    "difficulty": "advanced",
+    "publishDate": "2024-04-12",
+    "href": "/ai-landscape/ai-agent-frameworks"
+  },
+  {
+    "slug": "enterprise-ai-platforms",
+    "title": "Enterprise AI Platforms: Databricks vs Snowflake vs AWS",
+    "description": "How the major enterprise platforms are positioning for the AI era — features, pricing, and strategic direction.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Enterprise",
+      "Platforms"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-04-15",
+    "href": "/ai-landscape/enterprise-ai-platforms"
+  },
+  {
+    "slug": "speech-ai-landscape",
+    "title": "Speech AI: ASR, TTS, and Voice Agent Landscape",
+    "description": "The state of speech recognition, text-to-speech, and voice AI for enterprise applications.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Speech",
+      "Voice AI"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-04-19",
+    "href": "/ai-landscape/speech-ai-landscape"
+  },
+  {
+    "slug": "document-ai-landscape",
+    "title": "Document AI: OCR, Extraction, and Understanding",
+    "description": "Intelligent document processing tools and models for enterprise document workflows.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Document AI",
+      "OCR"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-04-23",
+    "href": "/ai-landscape/document-ai-landscape"
+  },
+  {
+    "slug": "knowledge-graph-ai",
+    "title": "Knowledge Graphs Meet LLMs: The GraphRAG Revolution",
+    "description": "How knowledge graphs enhance LLM reasoning and retrieval — tools, techniques, and production patterns.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Knowledge Graphs",
+      "GraphRAG"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "advanced",
+    "publishDate": "2024-04-27",
+    "href": "/ai-landscape/knowledge-graph-ai"
+  },
+  {
+    "slug": "ai-observability-tools",
+    "title": "AI Observability: Monitoring LLMs in Production",
+    "description": "Tools and platforms for monitoring LLM applications — LangSmith, Arize, Weights & Biases, and more.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Observability",
+      "MLOps"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-05-01",
+    "href": "/ai-landscape/ai-observability-tools"
+  },
+  {
+    "slug": "synthetic-data-generation",
+    "title": "Synthetic Data Generation for AI Training",
+    "description": "Tools and techniques for generating high-quality synthetic data to train and evaluate AI models.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Synthetic Data",
+      "Training"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-05-04",
+    "href": "/ai-landscape/synthetic-data-generation"
+  },
+  {
+    "slug": "ai-search-engines",
+    "title": "AI-Powered Search: Beyond Traditional Information Retrieval",
+    "description": "How AI is transforming enterprise search — from semantic search to conversational retrieval.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Search",
+      "RAG"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-05-08",
+    "href": "/ai-landscape/ai-search-engines"
+  },
+  {
+    "slug": "edge-ai-inference",
+    "title": "Edge AI: Running Models on Device",
+    "description": "The landscape of on-device AI inference — from mobile to IoT to browser-based ML.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Edge AI",
+      "Inference"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "advanced",
+    "publishDate": "2024-05-12",
+    "href": "/ai-landscape/edge-ai-inference"
+  },
+  {
+    "slug": "ai-data-labeling",
+    "title": "Data Labeling and Annotation Platforms",
+    "description": "Comparing data labeling tools and services for training and evaluating AI models at scale.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Data Labeling",
+      "Training"
+    ],
+    "readTime": "10 min read",
+    "difficulty": "beginner",
+    "publishDate": "2024-05-16",
+    "href": "/ai-landscape/ai-data-labeling"
+  },
+  {
+    "slug": "llm-routing-strategies",
+    "title": "LLM Routing: Choosing the Right Model at Runtime",
+    "description": "Dynamic model selection strategies that optimize for cost, quality, and latency in production.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "LLMs",
+      "Routing"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "advanced",
+    "publishDate": "2024-05-20",
+    "href": "/ai-landscape/llm-routing-strategies"
+  },
+  {
+    "slug": "ai-compliance-landscape",
+    "title": "AI Compliance and Regulation Landscape",
+    "description": "Navigating EU AI Act, NIST AI RMF, and emerging global AI regulations for enterprise compliance.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Compliance",
+      "Regulation"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-05-24",
+    "href": "/ai-landscape/ai-compliance-landscape"
+  },
+  {
+    "slug": "computer-vision-production",
+    "title": "Computer Vision in Production: Models and Platforms",
+    "description": "Production-ready computer vision — from YOLO to Vision Transformers, cloud APIs to edge deployment.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Computer Vision",
+      "Models"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-05-27",
+    "href": "/ai-landscape/computer-vision-production"
+  },
+  {
+    "slug": "ai-workflow-automation",
+    "title": "AI Workflow Automation Tools",
+    "description": "Low-code and no-code AI automation platforms for enterprise process automation.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Automation",
+      "Low-Code"
+    ],
+    "readTime": "10 min read",
+    "difficulty": "beginner",
+    "publishDate": "2024-05-31",
+    "href": "/ai-landscape/ai-workflow-automation"
+  },
+  {
+    "slug": "reasoning-models-landscape",
+    "title": "Reasoning Models: o1, DeepSeek-R1, and Chain-of-Thought",
+    "description": "The emergence of reasoning-specialized models and their impact on complex enterprise tasks.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Reasoning",
+      "LLMs"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "advanced",
+    "publishDate": "2024-06-04",
+    "href": "/ai-landscape/reasoning-models-landscape"
+  },
+  {
+    "slug": "ai-code-generation",
+    "title": "AI Code Generation: Models, Tools, and Enterprise Impact",
+    "description": "The state of AI-assisted software development — from code completion to autonomous coding agents.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Code Generation",
+      "Developer Tools"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-06-08",
+    "href": "/ai-landscape/ai-code-generation"
+  },
+  {
+    "slug": "mlops-platforms-compared",
+    "title": "MLOps Platforms Compared: MLflow vs Kubeflow vs SageMaker",
+    "description": "Evaluating MLOps platforms for experiment tracking, model management, and deployment automation.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "MLOps",
+      "Platforms"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-06-12",
+    "href": "/ai-landscape/mlops-platforms-compared"
+  },
+  {
+    "slug": "ai-hardware-accelerators",
+    "title": "AI Hardware: GPUs, TPUs, and Custom Silicon",
+    "description": "The AI hardware landscape — NVIDIA, AMD, Google TPUs, custom ASICs, and what matters for inference vs training.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Hardware",
+      "Infrastructure"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "advanced",
+    "publishDate": "2024-06-15",
+    "href": "/ai-landscape/ai-hardware-accelerators"
+  },
+  {
+    "slug": "text-to-image-enterprise",
+    "title": "Text-to-Image AI for Enterprise Use Cases",
+    "description": "Evaluating DALL-E, Midjourney, Stable Diffusion, and Flux for enterprise content generation.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Image Generation",
+      "Creative AI"
+    ],
+    "readTime": "10 min read",
+    "difficulty": "beginner",
+    "publishDate": "2024-06-19",
+    "href": "/ai-landscape/text-to-image-enterprise"
+  },
+  {
+    "slug": "ai-testing-tools",
+    "title": "AI Testing and Quality Assurance Tools",
+    "description": "Tools and frameworks for testing AI systems — from unit testing prompts to end-to-end evaluation.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Testing",
+      "Quality"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-06-23",
+    "href": "/ai-landscape/ai-testing-tools"
+  },
+  {
+    "slug": "federated-learning-landscape",
+    "title": "Federated Learning: Privacy-Preserving AI at Scale",
+    "description": "How federated learning enables AI training across distributed data without centralization.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Federated Learning",
+      "Privacy"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "advanced",
+    "publishDate": "2024-06-27",
+    "href": "/ai-landscape/federated-learning-landscape"
+  },
+  {
+    "slug": "ai-customer-support",
+    "title": "AI for Customer Support: Chatbots to Autonomous Agents",
+    "description": "The evolution of AI-powered customer support — from rule-based bots to LLM-powered autonomous agents.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Customer Support",
+      "Chatbots"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "beginner",
+    "publishDate": "2024-07-01",
+    "href": "/ai-landscape/ai-customer-support"
+  },
+  {
+    "slug": "time-series-ai",
+    "title": "Time Series AI: Forecasting and Anomaly Detection",
+    "description": "Modern approaches to time series analysis using foundation models and deep learning.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Time Series",
+      "Forecasting"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-07-04",
+    "href": "/ai-landscape/time-series-ai"
+  },
+  {
+    "slug": "ai-data-pipelines",
+    "title": "AI Data Pipeline Tools and Frameworks",
+    "description": "Building robust data pipelines for AI — from ingestion to feature engineering to model training.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Data Pipelines",
+      "Infrastructure"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-07-08",
+    "href": "/ai-landscape/ai-data-pipelines"
+  },
+  {
+    "slug": "llm-context-windows",
+    "title": "Long Context LLMs: Capabilities and Limitations",
+    "description": "Understanding long-context models — when 128K+ tokens helps, when it doesn't, and practical strategies.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "LLMs",
+      "Context Windows"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-07-12",
+    "href": "/ai-landscape/llm-context-windows"
+  },
+  {
+    "slug": "ai-for-healthcare",
+    "title": "AI in Healthcare: Models, Regulations, and Opportunities",
+    "description": "The healthcare AI landscape — clinical NLP, medical imaging, drug discovery, and regulatory considerations.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Healthcare",
+      "Industry"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-07-16",
+    "href": "/ai-landscape/ai-for-healthcare"
+  },
+  {
+    "slug": "ai-for-finance",
+    "title": "AI in Financial Services: Use Cases and Architecture",
+    "description": "How financial institutions are deploying AI — from fraud detection to algorithmic trading to customer service.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Finance",
+      "Industry"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-07-20",
+    "href": "/ai-landscape/ai-for-finance"
+  },
+  {
+    "slug": "retrieval-models-comparison",
+    "title": "Retrieval Models: Dense vs Sparse vs Hybrid",
+    "description": "Comparing retrieval approaches for production search and RAG systems.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Retrieval",
+      "Search"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "advanced",
+    "publishDate": "2024-07-23",
+    "href": "/ai-landscape/retrieval-models-comparison"
+  },
+  {
+    "slug": "ai-prompt-management",
+    "title": "Prompt Management Platforms and Best Practices",
+    "description": "Tools for versioning, testing, and managing prompts across teams and environments.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Prompts",
+      "Tooling"
+    ],
+    "readTime": "10 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-07-27",
+    "href": "/ai-landscape/ai-prompt-management"
+  },
+  {
+    "slug": "ai-for-legal",
+    "title": "AI in Legal: Contract Analysis, Research, and Compliance",
+    "description": "How AI is transforming legal workflows — document review, contract analysis, and legal research.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Legal",
+      "Industry"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-07-31",
+    "href": "/ai-landscape/ai-for-legal"
+  },
+  {
+    "slug": "model-compression-techniques",
+    "title": "Model Compression: Quantization, Pruning, and Distillation",
+    "description": "Techniques for making large models smaller and faster without sacrificing quality.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Optimization",
+      "Inference"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "advanced",
+    "publishDate": "2024-08-04",
+    "href": "/ai-landscape/model-compression-techniques"
+  },
+  {
+    "slug": "ai-for-devops",
+    "title": "AIOps: AI for IT Operations and DevOps",
+    "description": "How AI is transforming IT operations — incident detection, root cause analysis, and automated remediation.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "AIOps",
+      "DevOps"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-08-08",
+    "href": "/ai-landscape/ai-for-devops"
+  },
+  {
+    "slug": "structured-output-llms",
+    "title": "Structured Output from LLMs: JSON, SQL, and Beyond",
+    "description": "Techniques and tools for getting reliable structured output from language models.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "LLMs",
+      "Structured Output"
+    ],
+    "readTime": "10 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-08-11",
+    "href": "/ai-landscape/structured-output-llms"
+  },
+  {
+    "slug": "ai-for-marketing",
+    "title": "AI for Marketing: Personalization, Content, and Analytics",
+    "description": "How marketing teams are leveraging AI for content generation, personalization, and campaign optimization.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Marketing",
+      "Industry"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "beginner",
+    "publishDate": "2024-08-15",
+    "href": "/ai-landscape/ai-for-marketing"
+  },
+  {
+    "slug": "transformer-alternatives",
+    "title": "Beyond Transformers: Mamba, RWKV, and State Space Models",
+    "description": "Alternative architectures challenging the transformer paradigm — efficiency gains and trade-offs.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Architecture",
+      "Research"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "advanced",
+    "publishDate": "2024-08-19",
+    "href": "/ai-landscape/transformer-alternatives"
+  },
+  {
+    "slug": "ai-for-education",
+    "title": "AI in Education: Tutoring, Assessment, and Content Creation",
+    "description": "How AI is reshaping education — personalized tutoring, automated assessment, and adaptive learning.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Education",
+      "Industry"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "beginner",
+    "publishDate": "2024-08-23",
+    "href": "/ai-landscape/ai-for-education"
+  },
+  {
+    "slug": "ai-ethics-frameworks",
+    "title": "AI Ethics Frameworks for Enterprise Teams",
+    "description": "Practical ethics frameworks for building responsible AI — from principles to implementation.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Ethics",
+      "Governance"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-08-27",
+    "href": "/ai-landscape/ai-ethics-frameworks"
+  },
+  {
+    "slug": "real-time-ai-inference",
+    "title": "Real-Time AI Inference: Architectures and Trade-offs",
+    "description": "Designing systems for sub-100ms AI inference — streaming, batching, and optimization strategies.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Inference",
+      "Real-Time"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "advanced",
+    "publishDate": "2024-08-31",
+    "href": "/ai-landscape/real-time-ai-inference"
+  },
+  {
+    "slug": "ai-for-cybersecurity",
+    "title": "AI for Cybersecurity: Threat Detection and Response",
+    "description": "How AI is transforming cybersecurity — from threat detection to automated incident response.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Cybersecurity",
+      "Industry"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-09-03",
+    "href": "/ai-landscape/ai-for-cybersecurity"
+  },
+  {
+    "slug": "ai-for-supply-chain",
+    "title": "AI in Supply Chain: Optimization and Forecasting",
+    "description": "AI applications in supply chain management — demand forecasting, route optimization, and inventory management.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Supply Chain",
+      "Industry"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-09-07",
+    "href": "/ai-landscape/ai-for-supply-chain"
+  },
+  {
+    "slug": "diffusion-models-explained",
+    "title": "Diffusion Models: Architecture and Applications",
+    "description": "Understanding diffusion models beyond image generation — video, audio, 3D, and scientific applications.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Diffusion Models",
+      "Research"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "advanced",
+    "publishDate": "2024-09-11",
+    "href": "/ai-landscape/diffusion-models-explained"
+  },
+  {
+    "slug": "ai-for-hr",
+    "title": "AI in HR: Recruitment, Engagement, and Workforce Planning",
+    "description": "How AI is transforming human resources — from resume screening to employee engagement analytics.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "HR",
+      "Industry"
+    ],
+    "readTime": "10 min read",
+    "difficulty": "beginner",
+    "publishDate": "2024-09-15",
+    "href": "/ai-landscape/ai-for-hr"
+  },
+  {
+    "slug": "ai-benchmarks-guide",
+    "title": "AI Benchmarks Demystified: What They Measure and What They Don't",
+    "description": "Understanding MMLU, HumanEval, GPQA, and other benchmarks — and why they often mislead.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Benchmarks",
+      "Evaluation"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-09-19",
+    "href": "/ai-landscape/ai-benchmarks-guide"
+  },
+  {
+    "slug": "ai-for-manufacturing",
+    "title": "AI in Manufacturing: Quality Control and Predictive Maintenance",
+    "description": "AI applications in manufacturing — visual inspection, predictive maintenance, and process optimization.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Manufacturing",
+      "Industry"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-09-22",
+    "href": "/ai-landscape/ai-for-manufacturing"
+  },
+  {
+    "slug": "ai-pricing-models",
+    "title": "AI API Pricing Models: A Cost Analysis Framework",
+    "description": "Understanding and comparing AI API pricing — per-token, per-request, subscription, and hybrid models.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Pricing",
+      "Cost"
+    ],
+    "readTime": "10 min read",
+    "difficulty": "beginner",
+    "publishDate": "2024-09-26",
+    "href": "/ai-landscape/ai-pricing-models"
+  },
+  {
+    "slug": "ai-for-retail",
+    "title": "AI in Retail: Recommendation, Pricing, and Customer Experience",
+    "description": "How retailers are deploying AI for personalization, dynamic pricing, and inventory optimization.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Retail",
+      "Industry"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-09-30",
+    "href": "/ai-landscape/ai-for-retail"
+  },
+  {
+    "slug": "continual-learning-models",
+    "title": "Continual Learning: Models That Adapt Over Time",
+    "description": "Approaches to building AI systems that learn continuously from new data without catastrophic forgetting.",
+    "section": "ai-landscape",
+    "category": "AI Landscape",
+    "tags": [
+      "Continual Learning",
+      "Research"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "advanced",
+    "publishDate": "2024-10-04",
+    "href": "/ai-landscape/continual-learning-models"
+  },
+  {
+    "slug": "microservices-for-ai",
+    "title": "Microservices Architecture for AI Systems",
+    "description": "Designing microservice architectures that support AI workloads — model serving, feature stores, and orchestration.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Microservices",
+      "System Design"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-10-08",
+    "href": "/architecture/microservices-for-ai"
+  },
+  {
+    "slug": "event-driven-ai-pipelines",
+    "title": "Event-Driven AI Pipelines with Kafka",
+    "description": "Building real-time AI pipelines using event-driven architecture — from data ingestion to model inference.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Event-Driven",
+      "Kafka"
+    ],
+    "readTime": "15 min read",
+    "difficulty": "advanced",
+    "publishDate": "2024-10-11",
+    "href": "/architecture/event-driven-ai-pipelines"
+  },
+  {
+    "slug": "feature-store-architecture",
+    "title": "Feature Store Architecture for ML Systems",
+    "description": "Designing feature stores that serve both batch training and real-time inference workloads.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Feature Store",
+      "MLOps"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "advanced",
+    "publishDate": "2024-10-15",
+    "href": "/architecture/feature-store-architecture"
+  },
+  {
+    "slug": "multi-agent-architecture",
+    "title": "Multi-Agent System Architecture Patterns",
+    "description": "Designing systems where multiple AI agents collaborate — orchestration, communication, and state management.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Agents",
+      "System Design"
+    ],
+    "readTime": "16 min read",
+    "difficulty": "advanced",
+    "publishDate": "2024-10-19",
+    "href": "/architecture/multi-agent-architecture"
+  },
+  {
+    "slug": "llm-caching-strategies",
+    "title": "LLM Caching Strategies for Production Systems",
+    "description": "Semantic caching, exact-match caching, and hybrid approaches to reduce LLM costs and latency.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Caching",
+      "Performance"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-10-23",
+    "href": "/architecture/llm-caching-strategies"
+  },
+  {
+    "slug": "ai-api-design",
+    "title": "Designing AI-Powered APIs",
+    "description": "API design patterns for AI services — streaming responses, async processing, and graceful degradation.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "API Design",
+      "Best Practices"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-10-27",
+    "href": "/architecture/ai-api-design"
+  },
+  {
+    "slug": "vector-search-architecture",
+    "title": "Vector Search Architecture at Scale",
+    "description": "Designing vector search systems that handle billions of vectors with low latency and high recall.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Vector Search",
+      "Scale"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "advanced",
+    "publishDate": "2024-10-30",
+    "href": "/architecture/vector-search-architecture"
+  },
+  {
+    "slug": "ml-pipeline-architecture",
+    "title": "ML Pipeline Architecture: From Training to Serving",
+    "description": "End-to-end ML pipeline design — data processing, training, evaluation, deployment, and monitoring.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "ML Pipelines",
+      "MLOps"
+    ],
+    "readTime": "15 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-11-03",
+    "href": "/architecture/ml-pipeline-architecture"
+  },
+  {
+    "slug": "ai-data-lake-architecture",
+    "title": "Data Lakehouse Architecture for AI Workloads",
+    "description": "Designing data lakehouses that support both analytics and AI training workloads efficiently.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Data Lake",
+      "Infrastructure"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-11-07",
+    "href": "/architecture/ai-data-lake-architecture"
+  },
+  {
+    "slug": "prompt-chain-architecture",
+    "title": "Prompt Chain Architecture Patterns",
+    "description": "Designing reliable prompt chains — sequential, parallel, conditional, and recursive patterns.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Prompts",
+      "LLMs"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-11-11",
+    "href": "/architecture/prompt-chain-architecture"
+  },
+  {
+    "slug": "ai-security-architecture",
+    "title": "Security Architecture for AI Systems",
+    "description": "Designing secure AI systems — from prompt injection defense to model access control and data protection.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Security",
+      "Architecture"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "advanced",
+    "publishDate": "2024-11-15",
+    "href": "/architecture/ai-security-architecture"
+  },
+  {
+    "slug": "real-time-ml-serving",
+    "title": "Real-Time ML Serving Architecture",
+    "description": "Designing low-latency model serving systems — load balancing, batching, model routing, and auto-scaling.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Serving",
+      "Real-Time"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "advanced",
+    "publishDate": "2024-11-19",
+    "href": "/architecture/real-time-ml-serving"
+  },
+  {
+    "slug": "ai-observability-architecture",
+    "title": "Observability Architecture for AI Applications",
+    "description": "Designing observability systems for LLM applications — tracing, metrics, logging, and alerting.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Observability",
+      "Monitoring"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-11-22",
+    "href": "/architecture/ai-observability-architecture"
+  },
+  {
+    "slug": "hybrid-search-architecture",
+    "title": "Hybrid Search Architecture: Combining Vector and Keyword Search",
+    "description": "Designing search systems that combine semantic and lexical retrieval for optimal results.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Search",
+      "RAG"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-11-26",
+    "href": "/architecture/hybrid-search-architecture"
+  },
+  {
+    "slug": "ai-gateway-advanced",
+    "title": "Advanced LLM Gateway Patterns: Multi-Region and Multi-Cloud",
+    "description": "Scaling LLM gateways across regions and cloud providers for resilience and compliance.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Gateway",
+      "Multi-Cloud"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "advanced",
+    "publishDate": "2024-11-30",
+    "href": "/architecture/ai-gateway-advanced"
+  },
+  {
+    "slug": "document-processing-pipeline",
+    "title": "Document Processing Pipeline Architecture",
+    "description": "Designing scalable document ingestion pipelines — parsing, chunking, enrichment, and indexing.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Document Processing",
+      "Pipelines"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-12-04",
+    "href": "/architecture/document-processing-pipeline"
+  },
+  {
+    "slug": "ai-feedback-loop-architecture",
+    "title": "Feedback Loop Architecture for AI Systems",
+    "description": "Designing systems that learn from user feedback — RLHF pipelines, implicit signals, and continuous improvement.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Feedback Loops",
+      "RLHF"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "advanced",
+    "publishDate": "2024-12-08",
+    "href": "/architecture/ai-feedback-loop-architecture"
+  },
+  {
+    "slug": "multi-tenant-ai-platform",
+    "title": "Multi-Tenant AI Platform Architecture",
+    "description": "Designing AI platforms that serve multiple teams and use cases with isolation, quotas, and governance.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Platform",
+      "Multi-Tenant"
+    ],
+    "readTime": "15 min read",
+    "difficulty": "advanced",
+    "publishDate": "2024-12-11",
+    "href": "/architecture/multi-tenant-ai-platform"
+  },
+  {
+    "slug": "streaming-ai-responses",
+    "title": "Streaming AI Response Architecture",
+    "description": "Designing systems for streaming LLM responses — SSE, WebSockets, backpressure, and client-side rendering.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Streaming",
+      "Real-Time"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-12-15",
+    "href": "/architecture/streaming-ai-responses"
+  },
+  {
+    "slug": "ai-batch-processing",
+    "title": "Batch Processing Architecture for AI Workloads",
+    "description": "Designing efficient batch inference systems — job scheduling, resource management, and cost optimization.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Batch Processing",
+      "Infrastructure"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-12-19",
+    "href": "/architecture/ai-batch-processing"
+  },
+  {
+    "slug": "knowledge-base-architecture",
+    "title": "Enterprise Knowledge Base Architecture",
+    "description": "Designing knowledge management systems powered by AI — ingestion, organization, retrieval, and maintenance.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Knowledge Base",
+      "Enterprise"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-12-23",
+    "href": "/architecture/knowledge-base-architecture"
+  },
+  {
+    "slug": "ai-testing-architecture",
+    "title": "Testing Architecture for AI Applications",
+    "description": "Designing comprehensive test strategies for AI systems — unit, integration, evaluation, and chaos testing.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Testing",
+      "Quality"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-12-27",
+    "href": "/architecture/ai-testing-architecture"
+  },
+  {
+    "slug": "embedding-pipeline-architecture",
+    "title": "Embedding Pipeline Architecture at Scale",
+    "description": "Designing embedding pipelines that handle millions of documents — batching, versioning, and incremental updates.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Embeddings",
+      "Pipelines"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "advanced",
+    "publishDate": "2024-12-30",
+    "href": "/architecture/embedding-pipeline-architecture"
+  },
+  {
+    "slug": "ai-cost-management-architecture",
+    "title": "Cost Management Architecture for AI Systems",
+    "description": "Designing systems for tracking, allocating, and optimizing AI infrastructure and API costs.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Cost Management",
+      "FinOps"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-01-03",
+    "href": "/architecture/ai-cost-management-architecture"
+  },
+  {
+    "slug": "conversational-ai-architecture",
+    "title": "Conversational AI Architecture Patterns",
+    "description": "Designing chatbot and conversational AI systems — dialog management, context handling, and memory.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Conversational AI",
+      "Chatbots"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-01-07",
+    "href": "/architecture/conversational-ai-architecture"
+  },
+  {
+    "slug": "ai-workflow-engine",
+    "title": "AI Workflow Engine Architecture",
+    "description": "Designing workflow engines for complex AI tasks — DAG execution, error handling, and human-in-the-loop.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Workflow",
+      "Orchestration"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "advanced",
+    "publishDate": "2025-01-11",
+    "href": "/architecture/ai-workflow-engine"
+  },
+  {
+    "slug": "model-registry-architecture",
+    "title": "Model Registry Architecture for Enterprise ML",
+    "description": "Designing model registries that track lineage, versions, metadata, and deployment status.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Model Registry",
+      "MLOps"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-01-15",
+    "href": "/architecture/model-registry-architecture"
+  },
+  {
+    "slug": "ai-edge-architecture",
+    "title": "Edge AI Architecture: On-Device Inference Patterns",
+    "description": "Designing AI systems for edge deployment — model optimization, sync strategies, and offline operation.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Edge AI",
+      "IoT"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "advanced",
+    "publishDate": "2025-01-18",
+    "href": "/architecture/ai-edge-architecture"
+  },
+  {
+    "slug": "ai-ab-testing-architecture",
+    "title": "A/B Testing Architecture for AI Features",
+    "description": "Designing experimentation systems for AI features — traffic splitting, metric collection, and statistical analysis.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "A/B Testing",
+      "Experimentation"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-01-22",
+    "href": "/architecture/ai-ab-testing-architecture"
+  },
+  {
+    "slug": "guardrails-architecture",
+    "title": "Guardrails Architecture for LLM Applications",
+    "description": "Designing input/output guardrail systems — content filtering, PII detection, and policy enforcement.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Guardrails",
+      "Safety"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-01-26",
+    "href": "/architecture/guardrails-architecture"
+  },
+  {
+    "slug": "ai-data-governance-architecture",
+    "title": "Data Governance Architecture for AI",
+    "description": "Designing data governance systems that support AI compliance — lineage, access control, and audit trails.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Data Governance",
+      "Compliance"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-01-30",
+    "href": "/architecture/ai-data-governance-architecture"
+  },
+  {
+    "slug": "rag-evaluation-architecture",
+    "title": "RAG Evaluation Architecture: Continuous Quality Monitoring",
+    "description": "Designing automated evaluation systems for RAG pipelines — retrieval quality, generation quality, and alerting.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "RAG",
+      "Evaluation"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "advanced",
+    "publishDate": "2025-02-03",
+    "href": "/architecture/rag-evaluation-architecture"
+  },
+  {
+    "slug": "ai-notification-architecture",
+    "title": "AI-Powered Notification Architecture",
+    "description": "Designing intelligent notification systems that use AI for relevance scoring, timing, and personalization.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Notifications",
+      "Personalization"
+    ],
+    "readTime": "10 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-02-06",
+    "href": "/architecture/ai-notification-architecture"
+  },
+  {
+    "slug": "multi-model-orchestration",
+    "title": "Multi-Model Orchestration Architecture",
+    "description": "Designing systems that coordinate multiple AI models — routing, fallback, ensemble, and chain-of-models.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Orchestration",
+      "Multi-Model"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "advanced",
+    "publishDate": "2025-02-10",
+    "href": "/architecture/multi-model-orchestration"
+  },
+  {
+    "slug": "ai-content-pipeline",
+    "title": "AI Content Generation Pipeline Architecture",
+    "description": "Designing content generation systems — from ideation to generation to review to publication.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Content Generation",
+      "Pipelines"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-02-14",
+    "href": "/architecture/ai-content-pipeline"
+  },
+  {
+    "slug": "semantic-cache-architecture",
+    "title": "Semantic Cache Architecture for AI Applications",
+    "description": "Designing caching systems that understand semantic similarity — embedding-based cache keys and invalidation.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Caching",
+      "Semantic"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "advanced",
+    "publishDate": "2025-02-18",
+    "href": "/architecture/semantic-cache-architecture"
+  },
+  {
+    "slug": "ai-migration-architecture",
+    "title": "AI System Migration Architecture",
+    "description": "Designing migration strategies for AI systems — model swaps, provider changes, and architecture evolution.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Migration",
+      "Strategy"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-02-22",
+    "href": "/architecture/ai-migration-architecture"
+  },
+  {
+    "slug": "ai-playground-architecture",
+    "title": "Internal AI Playground Architecture",
+    "description": "Designing internal tools for teams to experiment with AI models — sandboxing, cost controls, and sharing.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Internal Tools",
+      "Experimentation"
+    ],
+    "readTime": "10 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-02-26",
+    "href": "/architecture/ai-playground-architecture"
+  },
+  {
+    "slug": "ai-compliance-architecture",
+    "title": "Compliance Architecture for Regulated AI",
+    "description": "Designing AI systems that meet regulatory requirements — audit trails, explainability, and data residency.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Compliance",
+      "Regulation"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "advanced",
+    "publishDate": "2025-03-01",
+    "href": "/architecture/ai-compliance-architecture"
+  },
+  {
+    "slug": "ai-disaster-recovery",
+    "title": "Disaster Recovery Architecture for AI Systems",
+    "description": "Designing resilient AI systems — failover strategies, data backup, model versioning, and recovery procedures.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Disaster Recovery",
+      "Resilience"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "advanced",
+    "publishDate": "2025-03-05",
+    "href": "/architecture/ai-disaster-recovery"
+  },
+  {
+    "slug": "ai-recommendation-architecture",
+    "title": "Recommendation System Architecture",
+    "description": "Designing modern recommendation systems — collaborative filtering, content-based, and LLM-enhanced approaches.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Recommendations",
+      "Personalization"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-03-09",
+    "href": "/architecture/ai-recommendation-architecture"
+  },
+  {
+    "slug": "ai-search-ranking-architecture",
+    "title": "Search Ranking Architecture with AI",
+    "description": "Designing AI-powered search ranking systems — learning to rank, neural re-ranking, and personalization.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Search",
+      "Ranking"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "advanced",
+    "publishDate": "2025-03-13",
+    "href": "/architecture/ai-search-ranking-architecture"
+  },
+  {
+    "slug": "ai-data-versioning",
+    "title": "Data Versioning Architecture for ML",
+    "description": "Designing data versioning systems for reproducible ML — DVC, lakeFS, and custom solutions.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Data Versioning",
+      "MLOps"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-03-17",
+    "href": "/architecture/ai-data-versioning"
+  },
+  {
+    "slug": "ai-canary-deployment",
+    "title": "Canary Deployment Architecture for AI Models",
+    "description": "Designing safe model deployment systems — canary releases, shadow mode, and gradual rollouts.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Deployment",
+      "MLOps"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-03-20",
+    "href": "/architecture/ai-canary-deployment"
+  },
+  {
+    "slug": "tool-use-architecture",
+    "title": "Tool Use Architecture for LLM Agents",
+    "description": "Designing systems that enable LLMs to use external tools — function calling, sandboxing, and error handling.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Tool Use",
+      "Agents"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "advanced",
+    "publishDate": "2025-03-24",
+    "href": "/architecture/tool-use-architecture"
+  },
+  {
+    "slug": "ai-memory-architecture",
+    "title": "Memory Architecture for AI Agents",
+    "description": "Designing memory systems for AI agents — short-term, long-term, episodic, and semantic memory patterns.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Memory",
+      "Agents"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "advanced",
+    "publishDate": "2025-03-28",
+    "href": "/architecture/ai-memory-architecture"
+  },
+  {
+    "slug": "ai-rate-limiting",
+    "title": "Rate Limiting Architecture for AI APIs",
+    "description": "Designing rate limiting systems for AI services — token-based limits, fair queuing, and priority tiers.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Rate Limiting",
+      "API"
+    ],
+    "readTime": "10 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-04-01",
+    "href": "/architecture/ai-rate-limiting"
+  },
+  {
+    "slug": "ai-logging-architecture",
+    "title": "Logging Architecture for LLM Applications",
+    "description": "Designing comprehensive logging for AI systems — prompt/response logging, PII handling, and analysis.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Logging",
+      "Observability"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-04-05",
+    "href": "/architecture/ai-logging-architecture"
+  },
+  {
+    "slug": "llm-implementation-guide",
+    "title": "LLM Implementation Playbook: From POC to Production",
+    "description": "A step-by-step guide to implementing LLMs in enterprise — from proof of concept to production deployment.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "LLMs",
+      "Implementation"
+    ],
+    "readTime": "16 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-04-08",
+    "href": "/playbooks/llm-implementation-guide"
+  },
+  {
+    "slug": "rag-deployment-playbook",
+    "title": "RAG System Deployment Playbook",
+    "description": "Complete guide to deploying RAG systems — from document ingestion to production monitoring.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "RAG",
+      "Deployment"
+    ],
+    "readTime": "18 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-04-12",
+    "href": "/playbooks/rag-deployment-playbook"
+  },
+  {
+    "slug": "prompt-engineering-playbook",
+    "title": "Advanced Prompt Engineering Playbook",
+    "description": "Production prompt engineering techniques — system prompts, few-shot design, chain-of-thought, and testing.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Prompts",
+      "Engineering"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-04-16",
+    "href": "/playbooks/prompt-engineering-playbook"
+  },
+  {
+    "slug": "fine-tuning-playbook",
+    "title": "Model Fine-Tuning Playbook: LoRA to Full Fine-Tune",
+    "description": "A practical guide to fine-tuning LLMs — dataset preparation, training strategies, and evaluation.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Fine-Tuning",
+      "Training"
+    ],
+    "readTime": "16 min read",
+    "difficulty": "advanced",
+    "publishDate": "2025-04-20",
+    "href": "/playbooks/fine-tuning-playbook"
+  },
+  {
+    "slug": "ai-governance-playbook",
+    "title": "AI Governance Playbook for Enterprise Teams",
+    "description": "Implementing AI governance — risk assessment, model cards, bias detection, and compliance frameworks.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Governance",
+      "Compliance"
+    ],
+    "readTime": "15 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-04-24",
+    "href": "/playbooks/ai-governance-playbook"
+  },
+  {
+    "slug": "model-monitoring-playbook",
+    "title": "Model Monitoring Playbook: Drift Detection to Alerting",
+    "description": "Setting up comprehensive model monitoring — data drift, performance degradation, and automated alerting.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Monitoring",
+      "MLOps"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-04-27",
+    "href": "/playbooks/model-monitoring-playbook"
+  },
+  {
+    "slug": "ai-cost-optimization-playbook",
+    "title": "AI Cost Optimization Playbook",
+    "description": "Reducing AI infrastructure and API costs — caching, model selection, batching, and right-sizing.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Cost",
+      "Optimization"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-05-01",
+    "href": "/playbooks/ai-cost-optimization-playbook"
+  },
+  {
+    "slug": "vector-database-setup",
+    "title": "Vector Database Setup and Tuning Playbook",
+    "description": "Setting up and optimizing vector databases for production — indexing, tuning, and operational best practices.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Vector Databases",
+      "Setup"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-05-05",
+    "href": "/playbooks/vector-database-setup"
+  },
+  {
+    "slug": "ai-security-playbook",
+    "title": "AI Security Playbook: Protecting LLM Applications",
+    "description": "Securing AI applications — prompt injection defense, data protection, access control, and incident response.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Security",
+      "LLMs"
+    ],
+    "readTime": "15 min read",
+    "difficulty": "advanced",
+    "publishDate": "2025-05-09",
+    "href": "/playbooks/ai-security-playbook"
+  },
+  {
+    "slug": "mlops-cicd-playbook",
+    "title": "CI/CD for ML Models Playbook",
+    "description": "Implementing continuous integration and deployment for ML models — testing, validation, and rollback.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "CI/CD",
+      "MLOps"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-05-13",
+    "href": "/playbooks/mlops-cicd-playbook"
+  },
+  {
+    "slug": "ai-team-building-playbook",
+    "title": "Building an AI Team: Roles, Skills, and Structure",
+    "description": "How to build and structure an effective AI team — hiring, skill development, and organizational design.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Team Building",
+      "Leadership"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "beginner",
+    "publishDate": "2025-05-17",
+    "href": "/playbooks/ai-team-building-playbook"
+  },
+  {
+    "slug": "data-preparation-playbook",
+    "title": "Data Preparation Playbook for AI Projects",
+    "description": "Preparing data for AI — cleaning, labeling, augmentation, and quality assurance at scale.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Data Preparation",
+      "Quality"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "beginner",
+    "publishDate": "2025-05-20",
+    "href": "/playbooks/data-preparation-playbook"
+  },
+  {
+    "slug": "ai-vendor-evaluation-playbook",
+    "title": "AI Vendor Evaluation Playbook",
+    "description": "A structured approach to evaluating AI vendors — criteria, scoring, POC design, and contract negotiation.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Vendor Evaluation",
+      "Enterprise"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-05-24",
+    "href": "/playbooks/ai-vendor-evaluation-playbook"
+  },
+  {
+    "slug": "chatbot-implementation-playbook",
+    "title": "Enterprise Chatbot Implementation Playbook",
+    "description": "Building production chatbots — conversation design, context management, escalation, and analytics.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Chatbots",
+      "Implementation"
+    ],
+    "readTime": "15 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-05-28",
+    "href": "/playbooks/chatbot-implementation-playbook"
+  },
+  {
+    "slug": "ai-incident-response-playbook",
+    "title": "AI Incident Response Playbook",
+    "description": "Handling AI system failures — detection, triage, mitigation, root cause analysis, and prevention.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Incident Response",
+      "Operations"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "advanced",
+    "publishDate": "2025-06-01",
+    "href": "/playbooks/ai-incident-response-playbook"
+  },
+  {
+    "slug": "embedding-optimization-playbook",
+    "title": "Embedding Optimization Playbook",
+    "description": "Optimizing embedding quality and performance — model selection, fine-tuning, and dimension reduction.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Embeddings",
+      "Optimization"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-06-05",
+    "href": "/playbooks/embedding-optimization-playbook"
+  },
+  {
+    "slug": "ai-documentation-playbook",
+    "title": "AI System Documentation Playbook",
+    "description": "Documenting AI systems effectively — model cards, system architecture docs, runbooks, and decision logs.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Documentation",
+      "Best Practices"
+    ],
+    "readTime": "10 min read",
+    "difficulty": "beginner",
+    "publishDate": "2025-06-08",
+    "href": "/playbooks/ai-documentation-playbook"
+  },
+  {
+    "slug": "chunking-strategy-playbook",
+    "title": "Document Chunking Strategy Playbook",
+    "description": "Choosing and implementing the right chunking strategy for your RAG system — with benchmarks and examples.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Chunking",
+      "RAG"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-06-12",
+    "href": "/playbooks/chunking-strategy-playbook"
+  },
+  {
+    "slug": "ai-migration-playbook",
+    "title": "AI Provider Migration Playbook",
+    "description": "Migrating between AI providers — planning, testing, cutover strategies, and rollback procedures.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Migration",
+      "Operations"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-06-16",
+    "href": "/playbooks/ai-migration-playbook"
+  },
+  {
+    "slug": "ai-load-testing-playbook",
+    "title": "Load Testing Playbook for AI Systems",
+    "description": "Load testing AI applications — designing tests, simulating traffic, identifying bottlenecks, and capacity planning.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Load Testing",
+      "Performance"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-06-20",
+    "href": "/playbooks/ai-load-testing-playbook"
+  },
+  {
+    "slug": "ai-bias-detection-playbook",
+    "title": "AI Bias Detection and Mitigation Playbook",
+    "description": "Detecting and mitigating bias in AI systems — measurement frameworks, mitigation strategies, and monitoring.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Bias",
+      "Fairness"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-06-24",
+    "href": "/playbooks/ai-bias-detection-playbook"
+  },
+  {
+    "slug": "ai-poc-playbook",
+    "title": "AI Proof of Concept Playbook",
+    "description": "Designing and executing AI POCs that lead to production — scoping, success criteria, and stakeholder management.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "POC",
+      "Strategy"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "beginner",
+    "publishDate": "2025-06-27",
+    "href": "/playbooks/ai-poc-playbook"
+  },
+  {
+    "slug": "llm-output-parsing-playbook",
+    "title": "LLM Output Parsing and Validation Playbook",
+    "description": "Reliably parsing and validating LLM outputs — structured extraction, error handling, and retry strategies.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "LLMs",
+      "Parsing"
+    ],
+    "readTime": "10 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-07-01",
+    "href": "/playbooks/llm-output-parsing-playbook"
+  },
+  {
+    "slug": "ai-training-data-playbook",
+    "title": "Training Data Collection and Curation Playbook",
+    "description": "Building high-quality training datasets — collection strategies, annotation guidelines, and quality control.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Training Data",
+      "Curation"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-07-05",
+    "href": "/playbooks/ai-training-data-playbook"
+  },
+  {
+    "slug": "ai-rollback-playbook",
+    "title": "AI Model Rollback Playbook",
+    "description": "Safely rolling back AI models in production — triggers, procedures, validation, and communication.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Rollback",
+      "Operations"
+    ],
+    "readTime": "10 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-07-09",
+    "href": "/playbooks/ai-rollback-playbook"
+  },
+  {
+    "slug": "ai-stakeholder-playbook",
+    "title": "AI Stakeholder Communication Playbook",
+    "description": "Communicating AI capabilities and limitations to stakeholders — setting expectations and reporting progress.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Communication",
+      "Leadership"
+    ],
+    "readTime": "9 min read",
+    "difficulty": "beginner",
+    "publishDate": "2025-07-13",
+    "href": "/playbooks/ai-stakeholder-playbook"
+  },
+  {
+    "slug": "ai-data-privacy-playbook",
+    "title": "Data Privacy Playbook for AI Systems",
+    "description": "Implementing data privacy in AI systems — PII handling, anonymization, consent management, and compliance.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Privacy",
+      "Compliance"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-07-16",
+    "href": "/playbooks/ai-data-privacy-playbook"
+  },
+  {
+    "slug": "ai-experiment-tracking-playbook",
+    "title": "Experiment Tracking Playbook for ML Teams",
+    "description": "Setting up experiment tracking — tools, workflows, metrics, and collaboration best practices.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Experiment Tracking",
+      "MLOps"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "beginner",
+    "publishDate": "2025-07-20",
+    "href": "/playbooks/ai-experiment-tracking-playbook"
+  },
+  {
+    "slug": "ai-api-integration-playbook",
+    "title": "AI API Integration Playbook",
+    "description": "Integrating AI APIs into existing applications — error handling, rate limiting, cost management, and testing.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "API Integration",
+      "Implementation"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "beginner",
+    "publishDate": "2025-07-24",
+    "href": "/playbooks/ai-api-integration-playbook"
+  },
+  {
+    "slug": "ai-performance-tuning-playbook",
+    "title": "AI Performance Tuning Playbook",
+    "description": "Optimizing AI system performance — latency reduction, throughput improvement, and resource optimization.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Performance",
+      "Optimization"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "advanced",
+    "publishDate": "2025-07-28",
+    "href": "/playbooks/ai-performance-tuning-playbook"
+  },
+  {
+    "slug": "ai-content-moderation-playbook",
+    "title": "AI Content Moderation Playbook",
+    "description": "Implementing AI-powered content moderation — classification, escalation, appeals, and continuous improvement.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Content Moderation",
+      "Safety"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-08-01",
+    "href": "/playbooks/ai-content-moderation-playbook"
+  },
+  {
+    "slug": "ai-onboarding-playbook",
+    "title": "AI Tools Onboarding Playbook for Engineering Teams",
+    "description": "Onboarding engineering teams to AI tools — training, guidelines, best practices, and support structures.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Onboarding",
+      "Team"
+    ],
+    "readTime": "10 min read",
+    "difficulty": "beginner",
+    "publishDate": "2025-08-04",
+    "href": "/playbooks/ai-onboarding-playbook"
+  },
+  {
+    "slug": "ai-evaluation-dataset-playbook",
+    "title": "Building AI Evaluation Datasets Playbook",
+    "description": "Creating evaluation datasets for AI systems — golden sets, adversarial examples, and domain-specific benchmarks.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Evaluation",
+      "Datasets"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-08-08",
+    "href": "/playbooks/ai-evaluation-dataset-playbook"
+  },
+  {
+    "slug": "ai-debugging-playbook",
+    "title": "AI System Debugging Playbook",
+    "description": "Debugging AI applications — tracing issues, reproducing failures, and systematic root cause analysis.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Debugging",
+      "Operations"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-08-12",
+    "href": "/playbooks/ai-debugging-playbook"
+  },
+  {
+    "slug": "ai-capacity-planning-playbook",
+    "title": "AI Infrastructure Capacity Planning Playbook",
+    "description": "Planning AI infrastructure capacity — forecasting demand, sizing resources, and managing growth.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Capacity Planning",
+      "Infrastructure"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "advanced",
+    "publishDate": "2025-08-16",
+    "href": "/playbooks/ai-capacity-planning-playbook"
+  },
+  {
+    "slug": "ai-knowledge-management-playbook",
+    "title": "AI Knowledge Management Playbook",
+    "description": "Managing organizational knowledge for AI systems — document curation, freshness, and quality maintenance.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Knowledge Management",
+      "Enterprise"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-08-20",
+    "href": "/playbooks/ai-knowledge-management-playbook"
+  },
+  {
+    "slug": "ai-guardrails-implementation",
+    "title": "LLM Guardrails Implementation Playbook",
+    "description": "Implementing guardrails for LLM applications — input validation, output filtering, and policy enforcement.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Guardrails",
+      "Safety"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-08-24",
+    "href": "/playbooks/ai-guardrails-implementation"
+  },
+  {
+    "slug": "ai-model-selection-playbook",
+    "title": "AI Model Selection Playbook",
+    "description": "A systematic approach to selecting AI models — requirements gathering, benchmarking, and decision matrices.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Model Selection",
+      "Strategy"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "beginner",
+    "publishDate": "2025-08-27",
+    "href": "/playbooks/ai-model-selection-playbook"
+  },
+  {
+    "slug": "ai-sla-playbook",
+    "title": "AI System SLA Design Playbook",
+    "description": "Designing SLAs for AI systems — availability, latency, quality targets, and measurement methodology.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "SLA",
+      "Operations"
+    ],
+    "readTime": "10 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-08-31",
+    "href": "/playbooks/ai-sla-playbook"
+  },
+  {
+    "slug": "ai-prompt-testing-playbook",
+    "title": "Prompt Testing and Regression Playbook",
+    "description": "Building prompt test suites — test case design, regression detection, and continuous prompt evaluation.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Testing",
+      "Prompts"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-09-04",
+    "href": "/playbooks/ai-prompt-testing-playbook"
+  },
+  {
+    "slug": "ai-data-augmentation-playbook",
+    "title": "Data Augmentation Playbook for AI",
+    "description": "Techniques for augmenting training data — synthetic generation, paraphrasing, and domain adaptation.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Data Augmentation",
+      "Training"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-09-08",
+    "href": "/playbooks/ai-data-augmentation-playbook"
+  },
+  {
+    "slug": "ai-budget-management-playbook",
+    "title": "AI Budget Management Playbook",
+    "description": "Managing AI budgets — cost forecasting, allocation strategies, optimization levers, and reporting.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Budget",
+      "Management"
+    ],
+    "readTime": "10 min read",
+    "difficulty": "beginner",
+    "publishDate": "2025-09-12",
+    "href": "/playbooks/ai-budget-management-playbook"
+  },
+  {
+    "slug": "ai-feature-flag-playbook",
+    "title": "Feature Flags for AI Features Playbook",
+    "description": "Using feature flags to safely roll out AI features — gradual rollouts, kill switches, and experimentation.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Feature Flags",
+      "Deployment"
+    ],
+    "readTime": "10 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-09-15",
+    "href": "/playbooks/ai-feature-flag-playbook"
+  },
+  {
+    "slug": "ai-compliance-audit-playbook",
+    "title": "AI Compliance Audit Playbook",
+    "description": "Preparing for and conducting AI compliance audits — documentation, evidence collection, and remediation.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Compliance",
+      "Audit"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "advanced",
+    "publishDate": "2025-09-19",
+    "href": "/playbooks/ai-compliance-audit-playbook"
+  },
+  {
+    "slug": "ai-user-feedback-playbook",
+    "title": "User Feedback Collection Playbook for AI Products",
+    "description": "Designing feedback mechanisms for AI products — thumbs up/down, corrections, and implicit signals.",
+    "section": "playbooks",
+    "category": "Playbooks",
+    "tags": [
+      "Feedback",
+      "Product"
+    ],
+    "readTime": "10 min read",
+    "difficulty": "beginner",
+    "publishDate": "2025-09-23",
+    "href": "/playbooks/ai-user-feedback-playbook"
+  },
+  {
+    "slug": "python-for-ai-engineers",
+    "title": "Python for AI Engineers: Essential Skills",
+    "description": "Core Python skills every AI engineer needs — from data manipulation to async programming to package management.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Python",
+      "Fundamentals"
+    ],
+    "readTime": "15 min read",
+    "difficulty": "beginner",
+    "publishDate": "2025-09-27",
+    "href": "/learning-paths/python-for-ai-engineers"
+  },
+  {
+    "slug": "transformer-architecture-deep-dive",
+    "title": "Transformer Architecture Deep Dive",
+    "description": "Understanding transformers from the ground up — attention mechanisms, positional encoding, and training dynamics.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Transformers",
+      "Deep Learning"
+    ],
+    "readTime": "18 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-10-01",
+    "href": "/learning-paths/transformer-architecture-deep-dive"
+  },
+  {
+    "slug": "prompt-engineering-fundamentals",
+    "title": "Prompt Engineering Fundamentals",
+    "description": "Master the basics of prompt engineering — zero-shot, few-shot, chain-of-thought, and structured output techniques.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Prompts",
+      "Fundamentals"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "beginner",
+    "publishDate": "2025-10-04",
+    "href": "/learning-paths/prompt-engineering-fundamentals"
+  },
+  {
+    "slug": "rag-from-scratch",
+    "title": "Building RAG Systems from Scratch",
+    "description": "A hands-on guide to building retrieval-augmented generation systems — from embeddings to production deployment.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "RAG",
+      "Hands-On"
+    ],
+    "readTime": "20 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-10-08",
+    "href": "/learning-paths/rag-from-scratch"
+  },
+  {
+    "slug": "ml-math-essentials",
+    "title": "Math Essentials for Machine Learning",
+    "description": "The mathematical foundations you need for ML — linear algebra, calculus, probability, and optimization.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Math",
+      "Fundamentals"
+    ],
+    "readTime": "16 min read",
+    "difficulty": "beginner",
+    "publishDate": "2025-10-12",
+    "href": "/learning-paths/ml-math-essentials"
+  },
+  {
+    "slug": "deep-learning-fundamentals",
+    "title": "Deep Learning Fundamentals",
+    "description": "Neural networks from the ground up — architectures, training, regularization, and practical implementation.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Deep Learning",
+      "Fundamentals"
+    ],
+    "readTime": "17 min read",
+    "difficulty": "beginner",
+    "publishDate": "2025-10-16",
+    "href": "/learning-paths/deep-learning-fundamentals"
+  },
+  {
+    "slug": "nlp-fundamentals",
+    "title": "NLP Fundamentals for AI Engineers",
+    "description": "Natural language processing essentials — tokenization, embeddings, language models, and text classification.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "NLP",
+      "Fundamentals"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "beginner",
+    "publishDate": "2025-10-20",
+    "href": "/learning-paths/nlp-fundamentals"
+  },
+  {
+    "slug": "fine-tuning-guide",
+    "title": "Fine-Tuning LLMs: A Comprehensive Guide",
+    "description": "Everything you need to know about fine-tuning — LoRA, QLoRA, full fine-tuning, dataset preparation, and evaluation.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Fine-Tuning",
+      "LLMs"
+    ],
+    "readTime": "18 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-10-23",
+    "href": "/learning-paths/fine-tuning-guide"
+  },
+  {
+    "slug": "mlops-fundamentals",
+    "title": "MLOps Fundamentals: From Notebooks to Production",
+    "description": "The essential MLOps skills — experiment tracking, model versioning, CI/CD, and production monitoring.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "MLOps",
+      "Fundamentals"
+    ],
+    "readTime": "15 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-10-27",
+    "href": "/learning-paths/mlops-fundamentals"
+  },
+  {
+    "slug": "vector-databases-guide",
+    "title": "Vector Databases: A Practical Guide",
+    "description": "Understanding vector databases — indexing algorithms, query patterns, and production deployment.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Vector Databases",
+      "Guide"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-10-31",
+    "href": "/learning-paths/vector-databases-guide"
+  },
+  {
+    "slug": "ai-system-design-interview",
+    "title": "AI System Design Interview Preparation",
+    "description": "Preparing for AI system design interviews — common patterns, trade-offs, and structured approaches.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Interview Prep",
+      "System Design"
+    ],
+    "readTime": "16 min read",
+    "difficulty": "advanced",
+    "publishDate": "2025-11-04",
+    "href": "/learning-paths/ai-system-design-interview"
+  },
+  {
+    "slug": "kubernetes-for-ml",
+    "title": "Kubernetes for ML Engineers",
+    "description": "Kubernetes essentials for ML workloads — deployments, GPU scheduling, autoscaling, and monitoring.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Kubernetes",
+      "Infrastructure"
+    ],
+    "readTime": "15 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-11-08",
+    "href": "/learning-paths/kubernetes-for-ml"
+  },
+  {
+    "slug": "llm-security-fundamentals",
+    "title": "LLM Security Fundamentals",
+    "description": "Understanding LLM security threats — prompt injection, data extraction, and defense strategies.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Security",
+      "LLMs"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-11-12",
+    "href": "/learning-paths/llm-security-fundamentals"
+  },
+  {
+    "slug": "data-engineering-for-ai",
+    "title": "Data Engineering for AI: Essential Patterns",
+    "description": "Data engineering skills for AI teams — pipelines, quality, governance, and feature engineering.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Data Engineering",
+      "Fundamentals"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-11-15",
+    "href": "/learning-paths/data-engineering-for-ai"
+  },
+  {
+    "slug": "ai-product-management",
+    "title": "AI Product Management Essentials",
+    "description": "Product management for AI products — user research, feature prioritization, and measuring AI impact.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Product Management",
+      "Strategy"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "beginner",
+    "publishDate": "2025-11-19",
+    "href": "/learning-paths/ai-product-management"
+  },
+  {
+    "slug": "evaluation-metrics-guide",
+    "title": "AI Evaluation Metrics: A Complete Guide",
+    "description": "Understanding evaluation metrics for AI systems — classification, generation, retrieval, and custom metrics.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Evaluation",
+      "Metrics"
+    ],
+    "readTime": "15 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-11-23",
+    "href": "/learning-paths/evaluation-metrics-guide"
+  },
+  {
+    "slug": "gpu-programming-basics",
+    "title": "GPU Programming Basics for AI Engineers",
+    "description": "Understanding GPU computing for AI — CUDA concepts, memory management, and optimization basics.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "GPU",
+      "Programming"
+    ],
+    "readTime": "16 min read",
+    "difficulty": "advanced",
+    "publishDate": "2025-11-27",
+    "href": "/learning-paths/gpu-programming-basics"
+  },
+  {
+    "slug": "ai-ethics-primer",
+    "title": "AI Ethics Primer for Engineers",
+    "description": "Ethical considerations in AI development — bias, fairness, transparency, and responsible AI practices.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Ethics",
+      "Fundamentals"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "beginner",
+    "publishDate": "2025-12-01",
+    "href": "/learning-paths/ai-ethics-primer"
+  },
+  {
+    "slug": "distributed-training-guide",
+    "title": "Distributed Training: Scaling Model Training",
+    "description": "Distributed training techniques — data parallelism, model parallelism, and mixed precision training.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Distributed Training",
+      "Scale"
+    ],
+    "readTime": "17 min read",
+    "difficulty": "advanced",
+    "publishDate": "2025-12-04",
+    "href": "/learning-paths/distributed-training-guide"
+  },
+  {
+    "slug": "api-design-for-ai",
+    "title": "API Design for AI Services",
+    "description": "Designing APIs for AI-powered services — request/response patterns, streaming, versioning, and documentation.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "API Design",
+      "Best Practices"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-12-08",
+    "href": "/learning-paths/api-design-for-ai"
+  },
+  {
+    "slug": "reinforcement-learning-basics",
+    "title": "Reinforcement Learning Basics for AI Engineers",
+    "description": "Understanding reinforcement learning — from Q-learning to RLHF and its applications in LLM alignment.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Reinforcement Learning",
+      "Fundamentals"
+    ],
+    "readTime": "16 min read",
+    "difficulty": "advanced",
+    "publishDate": "2025-12-12",
+    "href": "/learning-paths/reinforcement-learning-basics"
+  },
+  {
+    "slug": "ai-project-management",
+    "title": "Managing AI Projects: A Practical Guide",
+    "description": "Managing AI projects effectively — estimation, milestones, risk management, and stakeholder communication.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Project Management",
+      "Strategy"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "beginner",
+    "publishDate": "2025-12-16",
+    "href": "/learning-paths/ai-project-management"
+  },
+  {
+    "slug": "tokenization-deep-dive",
+    "title": "Tokenization Deep Dive: BPE, WordPiece, and Beyond",
+    "description": "Understanding tokenization algorithms — how they work, why they matter, and their impact on model behavior.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Tokenization",
+      "NLP"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-12-20",
+    "href": "/learning-paths/tokenization-deep-dive"
+  },
+  {
+    "slug": "model-optimization-guide",
+    "title": "Model Optimization: Quantization and Pruning Guide",
+    "description": "Practical guide to model optimization — quantization methods, pruning strategies, and benchmarking.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Optimization",
+      "Inference"
+    ],
+    "readTime": "15 min read",
+    "difficulty": "advanced",
+    "publishDate": "2025-12-23",
+    "href": "/learning-paths/model-optimization-guide"
+  },
+  {
+    "slug": "ai-testing-fundamentals",
+    "title": "Testing AI Systems: A Comprehensive Guide",
+    "description": "Testing strategies for AI systems — unit tests, integration tests, evaluation suites, and chaos testing.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Testing",
+      "Quality"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-12-27",
+    "href": "/learning-paths/ai-testing-fundamentals"
+  },
+  {
+    "slug": "attention-mechanisms-explained",
+    "title": "Attention Mechanisms Explained",
+    "description": "Understanding attention in neural networks — self-attention, cross-attention, multi-head attention, and flash attention.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Attention",
+      "Deep Learning"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2025-12-31",
+    "href": "/learning-paths/attention-mechanisms-explained"
+  },
+  {
+    "slug": "ai-career-guide",
+    "title": "AI Engineering Career Guide: From Junior to Principal",
+    "description": "Career progression in AI engineering — skills, responsibilities, and growth strategies at each level.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Career",
+      "Growth"
+    ],
+    "readTime": "12 min read",
+    "difficulty": "beginner",
+    "publishDate": "2026-01-04",
+    "href": "/learning-paths/ai-career-guide"
+  },
+  {
+    "slug": "docker-for-ml",
+    "title": "Docker for ML Engineers: A Practical Guide",
+    "description": "Docker essentials for ML workflows — containerizing models, GPU support, and multi-stage builds.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Docker",
+      "Infrastructure"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "beginner",
+    "publishDate": "2026-01-08",
+    "href": "/learning-paths/docker-for-ml"
+  },
+  {
+    "slug": "information-retrieval-fundamentals",
+    "title": "Information Retrieval Fundamentals for AI Engineers",
+    "description": "Core information retrieval concepts — TF-IDF, BM25, inverted indexes, and evaluation metrics.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Information Retrieval",
+      "Search"
+    ],
+    "readTime": "14 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2026-01-11",
+    "href": "/learning-paths/information-retrieval-fundamentals"
+  },
+  {
+    "slug": "ai-reading-list",
+    "title": "Essential AI Papers and Resources Reading List",
+    "description": "A curated reading list of foundational and cutting-edge AI papers, blogs, and resources.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Reading List",
+      "Resources"
+    ],
+    "readTime": "10 min read",
+    "difficulty": "beginner",
+    "publishDate": "2026-01-15",
+    "href": "/learning-paths/ai-reading-list"
+  },
+  {
+    "slug": "llm-inference-optimization",
+    "title": "LLM Inference Optimization Techniques",
+    "description": "Optimizing LLM inference — KV caching, speculative decoding, continuous batching, and quantization.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Inference",
+      "Optimization"
+    ],
+    "readTime": "16 min read",
+    "difficulty": "advanced",
+    "publishDate": "2026-01-19",
+    "href": "/learning-paths/llm-inference-optimization"
+  },
+  {
+    "slug": "ai-writing-technical-content",
+    "title": "Writing Technical AI Content",
+    "description": "How to write effective technical content about AI — blog posts, documentation, and technical reports.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Writing",
+      "Communication"
+    ],
+    "readTime": "10 min read",
+    "difficulty": "beginner",
+    "publishDate": "2026-01-23",
+    "href": "/learning-paths/ai-writing-technical-content"
+  },
+  {
+    "slug": "bayesian-methods-ml",
+    "title": "Bayesian Methods in Machine Learning",
+    "description": "Understanding Bayesian approaches to ML — priors, posteriors, Bayesian optimization, and uncertainty estimation.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Bayesian",
+      "Statistics"
+    ],
+    "readTime": "15 min read",
+    "difficulty": "advanced",
+    "publishDate": "2026-01-27",
+    "href": "/learning-paths/bayesian-methods-ml"
+  },
+  {
+    "slug": "graph-neural-networks",
+    "title": "Graph Neural Networks: Concepts and Applications",
+    "description": "Understanding GNNs — message passing, graph transformers, and applications in recommendation and knowledge graphs.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "GNNs",
+      "Deep Learning"
+    ],
+    "readTime": "16 min read",
+    "difficulty": "advanced",
+    "publishDate": "2026-01-30",
+    "href": "/learning-paths/graph-neural-networks"
+  },
+  {
+    "slug": "ai-observability-guide",
+    "title": "AI Observability: A Practical Guide",
+    "description": "Setting up observability for AI systems — metrics, traces, logs, dashboards, and alerting.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Observability",
+      "Operations"
+    ],
+    "readTime": "13 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2026-02-03",
+    "href": "/learning-paths/ai-observability-guide"
+  },
+  {
+    "slug": "cost-efficient-ai",
+    "title": "Cost-Efficient AI: Strategies for Startups and Enterprises",
+    "description": "Building AI systems on a budget — model selection, infrastructure optimization, and cost monitoring.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Cost",
+      "Strategy"
+    ],
+    "readTime": "11 min read",
+    "difficulty": "beginner",
+    "publishDate": "2026-02-07",
+    "href": "/learning-paths/cost-efficient-ai"
+  },
+  {
+    "slug": "ai-pair-programming-guide",
+    "title": "AI Pair Programming: Getting the Most from Copilot and Cursor",
+    "description": "Maximizing productivity with AI coding assistants — workflows, prompting strategies, and best practices.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Pair Programming",
+      "Productivity"
+    ],
+    "readTime": "10 min read",
+    "difficulty": "beginner",
+    "publishDate": "2026-02-11",
+    "href": "/learning-paths/ai-pair-programming-guide"
+  },
+  {
+    "slug": "multimodal-learning-guide",
+    "title": "Multimodal Learning: Vision, Language, and Audio",
+    "description": "Understanding multimodal AI — CLIP, LLaVA, Whisper, and building multimodal applications.",
+    "section": "learning-paths",
+    "category": "Learning Paths",
+    "tags": [
+      "Multimodal",
+      "Deep Learning"
+    ],
+    "readTime": "16 min read",
+    "difficulty": "advanced",
+    "publishDate": "2026-02-15",
+    "href": "/learning-paths/multimodal-learning-guide"
+  }
+]

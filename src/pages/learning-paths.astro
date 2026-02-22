@@ -1,6 +1,18 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SubscribeModule from "../components/SubscribeModule.astro";
+import allArticles from "../data/article-index.json";
+
+const lpArticles = allArticles
+  .filter(a => a.section === "learning-paths")
+  .map(a => ({
+    href: a.href,
+    title: a.title,
+    desc: a.description,
+    date: a.publishDate.split("-")[0],
+    readTime: a.readTime,
+    tags: a.tags,
+  }));
 
 const tracks = [
   {
@@ -87,6 +99,28 @@ const tracks = [
           </div>
         </div>
       ))}
+    </div>
+  </section>
+
+  <!-- Articles -->
+  <section class="border-t border-border bg-surface-50">
+    <div class="max-w-content mx-auto px-6 py-20">
+      <p class="section-label">Learning Resources</p>
+      <h2 class="text-headline font-bold text-text mb-10">In-depth learning guides</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {lpArticles.map(article => (
+          <a href={article.href} class="card-interactive group">
+            <div class="flex flex-wrap gap-2 mb-3">
+              {article.tags.map(tag => <span class="badge">{tag}</span>)}
+            </div>
+            <h3 class="text-title font-semibold text-text mb-2 group-hover:text-accent-light transition-colors">{article.title}</h3>
+            <p class="text-text-secondary leading-relaxed mb-4">{article.desc}</p>
+            <div class="flex items-center gap-3 text-sm text-text-muted">
+              <span>{article.date}</span><span>·</span><span>{article.readTime}</span>
+            </div>
+          </a>
+        ))}
+      </div>
     </div>
   </section>
 

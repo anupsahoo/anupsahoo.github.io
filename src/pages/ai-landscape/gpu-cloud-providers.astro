@@ -1,0 +1,104 @@
+---
+import ArticleLayout from "../../layouts/ArticleLayout.astro";
+
+const codeExample = `# Simple Infrastructure setup for Indian teams
+# Start with this basic structure and expand as needed
+
+class InfrastructureSystem:
+    def __init__(self, config):
+        self.config = config
+        self.model = self._load_model(config["model_name"])
+        self.monitor = PerformanceMonitor()
+
+    def process(self, input_data):
+        """Process a single request with monitoring"""
+        start_time = time.time()
+
+        # Step 1: Validate input
+        if not self._validate(input_data):
+            return {"error": "Invalid input", "status": "failed"}
+
+        # Step 2: Run the AI model
+        result = self.model.predict(input_data)
+
+        # Step 3: Check quality
+        confidence = result.get("confidence", 0)
+        if confidence < 0.7:
+            result["warning"] = "Low confidence - consider human review"
+
+        # Step 4: Log metrics (important for Indian compliance)
+        latency = time.time() - start_time
+        self.monitor.log({
+            "latency_ms": latency * 1000,
+            "confidence": confidence,
+            "model": self.config["model_name"],
+            "cost_inr": self._calculate_cost(input_data)
+        })
+
+        return result
+
+# Usage
+system = InfrastructureSystem({"model_name": "your-model-here"})
+result = system.process({"text": "Your input here"})
+print(f"Result: {result}, Cost: Rs {result.get('cost_inr', 0)}")`;
+---
+
+<ArticleLayout
+  title="GPU Cloud Providers: A Cost and Performance Comparison"
+  description="Comparing AWS, GCP, Azure, Lambda Labs, CoreWeave, and other GPU cloud options for AI workloads."
+  category="AI Landscape"
+  date="2024"
+  readTime="13 min read"
+  tags={["Infrastructure","Cloud"]}
+>
+
+<h2>Executive Summary</h2>
+<p>When I talk to engineering teams across India — from startups in HSR Layout to enterprise teams in Gurgaon — one question keeps coming up: "How do we get AI infrastructure right?" The honest answer is that there is no single right way. But there are definitely wrong ways, and there are proven patterns that work. Let me share what I have learned.</p>
+
+<h2>Key Takeaways</h2>
+<ul>
+  <li><strong>Measure everything from day one</strong> — set up logging and metrics before you launch. You cannot improve what you cannot measure.</li>
+  <li><strong>Test with real Indian users early</strong> — what works in a demo may not work for users in tier-2 cities with slower internet connections and different language preferences.</li>
+  <li><strong>Start simple, then improve</strong> — the best AI infrastructure implementations begin with a basic version that works, then get better over time based on real user feedback.</li>
+  <li><strong>Your data quality matters more than your model choice</strong> — spending a week cleaning your data will improve results more than spending a week choosing between models.</li>
+</ul>
+
+<h2>AI Infrastructure — What Has Changed Recently</h2>
+<p>Let me explain this with a simple analogy. Think of AI infrastructure like building a house. You need a strong foundation (your data), good materials (your tools and models), skilled workers (your engineering team), and a clear blueprint (your architecture). Skip any of these, and the house will have problems.</p>
+<p>In the Indian context, this is especially important because many teams are building AI systems for the first time. They often jump straight to the latest fancy tool without understanding the fundamentals. The teams that succeed are the ones that take time to understand the basics first, then choose tools that fit their specific needs.</p>
+
+<h2>Practical Considerations for Indian Teams</h2>
+<p>Let me be direct about what works and what does not in the AI infrastructure space. What works: starting simple, measuring everything, iterating based on data, and investing in good evaluation. What does not work: chasing the latest trends without understanding your requirements, over-engineering your first version, and skipping evaluation because "the demo looked good."</p>
+<p>For Indian teams specifically, I would add: do not ignore the multilingual challenge. If your users speak Hindi, Tamil, Telugu, or any other Indian language, test your system with those languages from day one. Adding multilingual support later is much harder than building it in from the start.</p>
+
+<pre><code class="language-python" set:html={codeExample} /></pre>
+
+<h2>How to Get Started — A Practical Roadmap</h2>
+<p>Here is a practical roadmap that has worked well for Indian teams at different stages of their AI infrastructure journey:</p>
+<ul>
+  <li><strong>Week 1-2: Learn and Explore</strong> — Spend time understanding the fundamentals. Read documentation, try tutorials, and experiment with small examples. Do not commit to any tool yet.</li>
+  <li><strong>Week 3-4: Prototype</strong> — Build a minimal working version using the simplest approach possible. Use your actual business data, not sample datasets. Show it to real users and collect feedback.</li>
+  <li><strong>Month 2: Evaluate and Iterate</strong> — Measure the prototype against your success criteria. Identify the biggest gaps. Fix the most impactful issues first.</li>
+  <li><strong>Month 3: Production Prep</strong> — Add monitoring, error handling, and logging. Set up automated tests. Document your system for your team. Plan for scaling.</li>
+  <li><strong>Month 4+: Launch and Monitor</strong> — Deploy to production with a small percentage of traffic first. Monitor closely. Gradually increase traffic as you gain confidence.</li>
+</ul>
+
+<h2>Making It Work on an Indian Budget</h2>
+<p>Let us talk about money — because in India, budget is often the biggest constraint. The good news is that AI infrastructure does not have to be expensive. The bad news is that costs can spiral quickly if you are not careful.</p>
+<p>Here are some cost-saving strategies that work well for Indian teams. Use open-source tools wherever possible — the quality of open-source AI tools has improved dramatically. Use spot or preemptible GPU instances for non-critical workloads to save 60-70% on compute costs. Start with smaller models and only scale up when you have data showing that bigger models give meaningfully better results. And always set up cost alerts so you know immediately if spending is going above your budget.</p>
+
+<h2>Lessons from Real Indian Deployments</h2>
+<p>Let me share the most expensive mistakes I have seen Indian teams make with AI infrastructure:</p>
+<p>Mistake 1: Choosing tools based on hype instead of requirements. Just because a tool is trending on Twitter does not mean it is right for your use case. Always start with your requirements and find tools that fit.</p>
+<p>Mistake 2: Not involving domain experts early enough. Your AI system needs to understand your business domain. Engineers alone cannot provide this — you need input from people who understand the business deeply.</p>
+<p>Mistake 3: Underestimating the "last mile" problem. Getting from 80% accuracy to 95% accuracy often takes more effort than getting from 0% to 80%. Plan your timeline accordingly.</p>
+<p>Mistake 4: Forgetting about Indian languages. If your users speak Hindi or regional languages, your system needs to handle that. Retrofitting multilingual support is much harder than building it in from the start.</p>
+
+<h2>Next Reads</h2>
+<ul>
+  <li><a href="/ai-landscape/small-language-models">Small Language Models: When Less Is More</a></li>
+  <li><a href="/learning-paths/docker-for-ml">Docker for ML Engineers: A Practical Guide</a></li>
+  <li><a href="/ai-landscape/model-serving-landscape">Model Serving in 2025: vLLM, TGI, and Beyond</a></li>
+</ul>
+
+</ArticleLayout>

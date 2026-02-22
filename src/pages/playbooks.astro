@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SubscribeModule from "../components/SubscribeModule.astro";
+import allArticles from "../data/article-index.json";
 
 const playbooks = [
   { title: "LLM Implementation", desc: "Model selection, infrastructure setup, prompt engineering, fine-tuning, and production monitoring." },
@@ -11,7 +12,7 @@ const playbooks = [
   { title: "Cost Optimization", desc: "Infrastructure right-sizing, inference optimization, caching strategies, and budget management." },
 ];
 
-const articles = [
+const handWritten = [
   {
     href: "/playbooks/llm-evaluation-framework",
     title: "Building an LLM Evaluation Framework",
@@ -21,6 +22,21 @@ const articles = [
     tags: ["Evaluation", "LLMs"],
   },
 ];
+
+const handWrittenSlugs = new Set(handWritten.map(a => a.href));
+
+const generated = allArticles
+  .filter(a => a.section === "playbooks" && !handWrittenSlugs.has(a.href))
+  .map(a => ({
+    href: a.href,
+    title: a.title,
+    desc: a.description,
+    date: a.publishDate.split("-")[0],
+    readTime: a.readTime,
+    tags: a.tags,
+  }));
+
+const articles = [...handWritten, ...generated];
 ---
 
 <BaseLayout title="Playbooks — Anup Sahoo" description="Step-by-step implementation guides, governance frameworks, and operational playbooks for enterprise AI.">

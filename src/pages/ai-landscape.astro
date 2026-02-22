@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SubscribeModule from "../components/SubscribeModule.astro";
+import allArticles from "../data/article-index.json";
 
 const techCategories = [
   { title: "Machine Learning Platforms", desc: "TensorFlow, PyTorch, Scikit-learn, XGBoost, MLflow, Kubeflow, SageMaker" },
@@ -11,7 +12,7 @@ const techCategories = [
   { title: "Model Serving & Inference", desc: "vLLM, TGI, Triton, TensorRT — production model serving and optimization" },
 ];
 
-const articles = [
+const handWritten = [
   {
     href: "/ai-landscape/enterprise-llm-landscape",
     title: "The Enterprise LLM Landscape: A Decision Framework",
@@ -29,6 +30,21 @@ const articles = [
     tags: ["RAG", "Architecture"],
   },
 ];
+
+const handWrittenSlugs = new Set(handWritten.map(a => a.href));
+
+const generated = allArticles
+  .filter(a => a.section === "ai-landscape" && !handWrittenSlugs.has(a.href))
+  .map(a => ({
+    href: a.href,
+    title: a.title,
+    desc: a.description,
+    date: a.publishDate.split("-")[0],
+    readTime: a.readTime,
+    tags: a.tags,
+  }));
+
+const articles = [...handWritten, ...generated];
 ---
 
 <BaseLayout title="AI Landscape — Anup Sahoo" description="Comprehensive mapping of AI technologies, vendors, and solutions for enterprise decision-making.">
