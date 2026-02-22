@@ -1,0 +1,277 @@
+/**
+ * Rich content builder for Learning Paths section.
+ * Story-driven concept explanations with real-world analogies.
+ * Written so a 10-year-old could follow along.
+ */
+
+function buildLearningArticle(t, seed, naturalRef, seededPick, seededPickN, hashCode) {
+  const [tagDisplay, tagInline] = naturalRef(t.tags[0]);
+  const [tag2Display, tag2Inline] = naturalRef(t.tags[1] || t.tags[0]);
+
+  // ── Story-driven intro ──
+  const intros = [
+    `Do you remember learning to swim? At first, the water felt scary. You held onto the edge of the pool, kicked your legs, and slowly — very slowly — you let go. One day, you were swimming on your own and wondering why you were ever afraid.\n\nLearning ${tagInline} is exactly like that. It looks intimidating from the outside, but once you break it into small steps and practice each one, it becomes natural. This guide is your swimming instructor. I will hold your hand through every step, explain everything in simple words, and before you know it, you will be swimming confidently on your own.`,
+
+    `Let me tell you about Rahul. He is a software developer in Bangalore. He has been writing Java code for 5 years, and his company just told him: "We need you to learn ${tagInline}." Rahul felt overwhelmed. He Googled it and found 500 tutorials, 200 YouTube videos, and 50 online courses. Where should he even start?\n\nIf you are like Rahul, this guide is for you. I have organized everything in the exact order you should learn it. No jumping around, no "you should already know this" assumptions. Just a clear path from "I know nothing about this" to "I can build real things with this." Let us begin.`,
+
+    `Imagine you are learning to drive a car. Your instructor does not start by explaining how the engine works. They start simple: "This is the steering wheel. This is the brake. This is the accelerator." You practice in an empty parking lot before hitting the main road.\n\nThat is exactly how I have structured this guide on ${tagInline}. We start with the absolute basics — no prior knowledge needed. Each section builds on the previous one. By the end, you will not just understand the theory — you will be able to build real, working things. And I promise to explain everything so clearly that even your younger sibling could follow along.`,
+
+    `Here is something nobody tells you about learning ${tagInline}: you do not need to be a genius. You do not need a PhD. You do not need expensive courses. What you need is a clear path, consistent practice, and someone to explain things in simple language.\n\nI have taught these concepts to hundreds of people — from fresh graduates to senior managers, from engineers to non-technical folks. The ones who succeed are not the smartest. They are the ones who follow a structured path and practice regularly. This guide gives you that structured path. All you need to bring is curiosity and 30 minutes a day.`,
+  ];
+
+  // ── "The Big Picture" story section ──
+  const bigPictureSections = [
+    {
+      heading: `The Big Picture — What Is ${tagDisplay} and Why Should You Care?`,
+      body: `Before we dive into the details, let me give you the big picture. Because learning something is much easier when you understand WHY it matters.\n\nImagine you run a small shop in your neighbourhood. Every day, customers come in and ask questions: "Do you have this product?", "What is the price?", "When will it be back in stock?" You answer each question personally. But what if your shop becomes very popular and 1,000 customers come every day? You cannot answer all of them yourself.\n\nThis is exactly the problem that ${tagInline} solves in the tech world. It helps computers handle tasks that would be impossible for humans to do at scale. Whether it is answering customer questions, finding patterns in data, or making predictions — ${tagInline} is the tool that makes it possible.\n\nNow, you might be thinking: "But I am just a developer/student/manager. Why do I need to learn this?" Here is the honest answer: because the world is changing. Companies across India — from Flipkart to your local startup — are using these technologies. Understanding ${tagInline} is becoming as essential as knowing how to use a computer was 20 years ago. You do not need to become an expert. But you need to understand enough to make good decisions and work effectively with AI systems.`
+    },
+    {
+      heading: `Why ${tagDisplay} Matters — Even If You Are Not a Data Scientist`,
+      body: `Let me tell you a story about two project managers — Anita and Vikram. Both work at IT companies in Hyderabad. Both were asked to lead AI projects.\n\nAnita decided she did not need to understand the technical details. "That is what the engineers are for," she said. When her team proposed using an expensive GPU setup, she approved it because she could not evaluate the decision. When the project went over budget and delivered poor results, she could not figure out why.\n\nVikram took a different approach. He spent two weeks learning the basics of ${tagInline} — not to become an engineer, but to understand the landscape. When his team proposed the same expensive setup, he asked: "Have we tried a smaller model first? What are the benchmarks showing?" His project was delivered on time and under budget.\n\nThe moral? You do not need to write code to benefit from understanding ${tagInline}. Whether you are a developer, a manager, a designer, or a business analyst — knowing these concepts helps you make better decisions, ask better questions, and contribute more effectively to AI projects.\n\nSo let us start learning. I promise to make it as painless and enjoyable as possible.`
+    },
+    {
+      heading: `${tagDisplay} — Explained Like You Are Five`,
+      body: `Okay, let us start from the very beginning. And I mean the VERY beginning.\n\nYou know how when you were little, you learned to recognize animals? Your parents showed you a picture of a dog and said "dog." Then another dog picture — "dog." Then a cat — "cat." After seeing enough examples, you could tell the difference between a dog and a cat, even if you had never seen that specific dog or cat before.\n\nThat is basically what ${tagInline} is about. We show a computer thousands of examples, and it learns to recognize patterns. Show it 10,000 customer support emails labeled as "complaint" or "question" or "feedback," and it learns to categorize new emails it has never seen before.\n\nThe amazing thing is that modern AI can learn much more complex patterns than just categories. It can learn to write text, translate languages, generate images, and even write code. But at its core, the principle is the same: learn from examples, then apply that learning to new situations.\n\nNow, there are different ways to teach a computer. Some methods need lots of labeled examples (like our dog/cat pictures). Others can learn from unlabeled data (like learning language by reading millions of books). And some can learn by trial and error (like learning to play a game). We will explore all of these in this guide.`
+    },
+  ];
+
+  // ── Core concept with analogy ──
+  const conceptSections = [
+    {
+      heading: `Understanding the Core Concepts`,
+      body: `Let me explain the key concepts of ${tagInline} using a story that everyone can relate to.\n\n<strong>Concept 1: Data is the Fuel</strong>\n\nImagine you are teaching a new employee at your company. If you give them one example of how to handle a customer complaint, they will struggle. Give them 10 examples, they will do okay. Give them 1,000 examples, they will be excellent. AI works the same way. More data (and better quality data) means better results.\n\nIn India, data is everywhere — customer conversations, transaction records, sensor data, social media posts. The challenge is not finding data; it is cleaning and organizing it. Think of raw data like raw vegetables from the market. You cannot cook with them directly — you need to wash them, cut them, and prepare them first.\n\n<strong>Concept 2: Models are the Recipes</strong>\n\nA model is like a recipe. It takes your ingredients (data) and transforms them into something useful (predictions, answers, classifications). Just like there are different recipes for different dishes, there are different models for different tasks. A recipe for biryani will not help you make dosa. Similarly, a model trained for image recognition will not help you with text translation.\n\n<strong>Concept 3: Training is the Cooking</strong>\n\nTraining a model is like cooking. You combine your ingredients (data) with your recipe (model architecture) and apply heat (computing power). The result is a trained model that can make predictions on new data it has never seen before. If your ingredients are bad or your recipe is wrong, the dish will not taste good — no matter how much heat you apply.\n\n<strong>Concept 4: Evaluation is the Taste Test</strong>\n\nBefore serving food to guests, you taste it yourself. Similarly, before deploying an AI model to real users, you test it thoroughly. You check: Is it accurate? Is it fast enough? Does it work with Indian languages? Does it handle edge cases? This evaluation step is where many teams cut corners — and pay for it later.`
+    },
+    {
+      heading: `The Key Ideas You Need to Know`,
+      body: `I am going to explain the most important concepts in ${tagInline} using everyday examples. No math, no jargon — just clear explanations.\n\n<strong>Idea 1: Pattern Recognition</strong>\n\nYou do pattern recognition every day without thinking about it. When you see dark clouds, you predict rain. When you hear a particular ringtone, you know who is calling. When you smell garam masala, you know someone is cooking something delicious.\n\nAI does the same thing, but with data. It looks at thousands of examples and finds patterns. "When customers use words like 'frustrated' and 'waiting,' they are usually unhappy." "When sales drop in January, they usually recover in March." These patterns help businesses make better decisions.\n\n<strong>Idea 2: Representation</strong>\n\nHow do you explain the colour "red" to a computer? Computers only understand numbers. So we need to convert everything — text, images, sounds — into numbers. This conversion is called "representation" or "encoding."\n\nFor text, modern AI uses something called "embeddings." Think of embeddings as giving every word an address on a map. Words with similar meanings have nearby addresses. "Happy" and "joyful" live on the same street. "Happy" and "sad" live in different neighbourhoods. This is how AI understands that "I am delighted" and "I am very happy" mean the same thing.\n\n<strong>Idea 3: Generalization</strong>\n\nThe whole point of AI is to handle NEW situations it has never seen before. If an AI can only answer questions it has seen during training, it is just a fancy search engine. The real magic is when it can answer questions it has NEVER seen before by applying what it learned from training.\n\nThis is like how you can read a new book even though you have never seen those exact sentences before. You learned the rules of language from reading other books, and you apply those rules to understand new text. AI does the same thing.\n\n<strong>Idea 4: The Cost-Quality Trade-off</strong>\n\nBetter AI usually costs more — bigger models, more computing power, more data. But "better" is not always necessary. If you need to sort emails into 3 categories, you do not need the most powerful AI in the world. A simple, cheap model will do the job perfectly.\n\nThink of it like transportation. If you need to go to the shop around the corner, you walk. You do not hire a helicopter. Similarly, match your AI solution to your problem size.`
+    },
+  ];
+
+  // ── Hands-on code section ──
+  const codeWalkthroughs = [
+    {
+      heading: `Hands-On: Let Us Build Something Together`,
+      intro: `Enough theory — let us get our hands dirty! I am going to walk you through building a real, working example step by step. Every line of code is explained. If you have never coded before, do not worry — I will explain everything.\n\nThink of this like a cooking show. I will show you each ingredient, explain why we are adding it, and walk you through the entire process. By the end, you will have something you built yourself.`,
+      code: `# ${t.title} - Learn by Building!
+# Every line is explained. Copy this and run it!
+
+# ── Part 1: Setting Up (Like organizing your study desk) ──
+
+# These are our tools. Think of them like apps on your phone.
+# Each one does something specific.
+import json          # For reading/writing data (like a notebook)
+import time          # For measuring how long things take (like a stopwatch)
+from datetime import datetime  # For tracking dates and times
+
+# ── Part 2: Your First AI Helper Class ──
+# A class is like a blueprint for building something.
+# Just like an architect draws a blueprint before building a house,
+# we write a class before building our AI system.
+
+class SmartAssistant:
+    """Your personal AI assistant - built from scratch!
+    
+    Think of this like a really smart intern:
+    - They can answer questions (process queries)
+    - They remember what they have learned (knowledge base)
+    - They get better over time (learning from feedback)
+    - They know when to ask for help (confidence threshold)
+    """
+    
+    def __init__(self, name="AI Buddy"):
+        # This runs when you create a new assistant
+        # Like filling out a new employee's first-day paperwork
+        self.name = name
+        self.knowledge = {}        # What the assistant knows
+        self.conversation = []     # History of all conversations
+        self.correct_count = 0     # How many times it was right
+        self.total_count = 0       # Total questions asked
+        print(f"Hi! I am {self.name}. Ready to help!")
+    
+    def teach(self, question, answer):
+        """Teach the assistant something new.
+        
+        Like teaching a child:
+        Child: "What is that?" (question)
+        Parent: "That is a mango tree." (answer)
+        Next time the child sees it, they know!
+        """
+        # Store in knowledge base (like writing in a textbook)
+        key = question.lower().strip()
+        self.knowledge[key] = {
+            "answer": answer,
+            "taught_on": datetime.now().isoformat(),
+            "times_asked": 0
+        }
+        print(f"Learned! I now know about: {question[:50]}")
+    
+    def ask(self, question):
+        """Ask the assistant a question.
+        
+        The assistant tries to find the best answer:
+        1. Check if it knows the exact answer (like remembering)
+        2. Check if it knows something similar (like guessing)
+        3. If it does not know, honestly say so (like a good student)
+        """
+        self.total_count += 1
+        key = question.lower().strip()
+        
+        # Step 1: Do I know the exact answer?
+        if key in self.knowledge:
+            self.knowledge[key]["times_asked"] += 1
+            self.correct_count += 1
+            return {
+                "answer": self.knowledge[key]["answer"],
+                "confidence": "high",
+                "source": "exact match"
+            }
+        
+        # Step 2: Do I know something similar?
+        # This is like when someone asks "What is the capital of India?"
+        # and you know "Delhi is the capital of India" - same knowledge,
+        # different wording.
+        best_match = None
+        best_score = 0
+        
+        for known_q, data in self.knowledge.items():
+            # Count how many words match
+            q_words = set(question.lower().split())
+            k_words = set(known_q.split())
+            common = len(q_words & k_words)  # Words in common
+            total = len(q_words | k_words)    # Total unique words
+            score = common / max(total, 1)    # Similarity score (0 to 1)
+            
+            if score > best_score and score > 0.3:  # At least 30% similar
+                best_score = score
+                best_match = data
+        
+        if best_match:
+            return {
+                "answer": best_match["answer"],
+                "confidence": f"medium ({best_score:.0%} match)",
+                "source": "similar question",
+                "note": "I am not 100% sure. Please verify!"
+            }
+        
+        # Step 3: I do not know. And that is okay!
+        return {
+            "answer": "I do not know the answer to this yet. Can you teach me?",
+            "confidence": "low",
+            "source": "no match"
+        }
+    
+    def get_report_card(self):
+        """How well is the assistant doing?
+        Like a student's report card!"""
+        accuracy = (self.correct_count / max(self.total_count, 1)) * 100
+        grade = "A+" if accuracy > 90 else "A" if accuracy > 80 else "B" if accuracy > 70 else "C" if accuracy > 60 else "Needs improvement"
+        
+        return {
+            "name": self.name,
+            "questions_answered": self.total_count,
+            "correct_answers": self.correct_count,
+            "accuracy": f"{accuracy:.1f}%",
+            "grade": grade,
+            "knowledge_size": len(self.knowledge),
+            "most_asked": self._get_popular_questions()
+        }
+    
+    def _get_popular_questions(self):
+        """Find the most frequently asked questions."""
+        if not self.knowledge:
+            return "No questions yet!"
+        sorted_q = sorted(self.knowledge.items(), key=lambda x: x[1]["times_asked"], reverse=True)
+        return [{"question": q, "times_asked": d["times_asked"]} for q, d in sorted_q[:3]]
+
+# ── Part 3: Let us use it! ──
+# This is the fun part - watch your creation come to life!
+
+print("=" * 50)
+print("BUILDING YOUR FIRST AI ASSISTANT")
+print("=" * 50)
+
+# Create our assistant
+buddy = SmartAssistant("Gyan Buddy")
+
+# Teach it some things (like training an AI with data!)
+print("\\n--- Teaching Phase ---")
+buddy.teach("What is machine learning?", 
+    "Machine learning is teaching computers to learn from examples, just like how you learned to recognize fruits by seeing many of them.")
+
+buddy.teach("What is Python?", 
+    "Python is a programming language. Think of it as the language you use to talk to computers. It is called Python because the creator liked Monty Python comedy shows!")
+
+buddy.teach("What is an API?", 
+    "An API is like a waiter in a restaurant. You tell the waiter what you want (request), the waiter goes to the kitchen (server), and brings back your food (response).")
+
+buddy.teach("What is a neural network?", 
+    "A neural network is inspired by the human brain. Imagine a chain of friends passing a message - each friend adds their understanding before passing it on. That is how neural networks process information.")
+
+buddy.teach("What is the cloud?", 
+    "The cloud is just someone else's computer. Instead of buying your own powerful computer, you rent one over the internet. Like renting a car instead of buying one.")
+
+# Now let us ask questions!
+print("\\n--- Question Time ---")
+questions = [
+    "What is machine learning?",           # Exact match
+    "Tell me about Python programming",     # Similar match
+    "What is deep learning?",               # Unknown - should say "I don't know"
+    "What is an API?",                      # Exact match
+    "Explain neural networks to me",        # Similar match
+]
+
+for q in questions:
+    print(f"\\nQ: {q}")
+    result = buddy.ask(q)
+    print(f"A: {result['answer']}")
+    print(f"   Confidence: {result['confidence']} | Source: {result['source']}")
+
+# Check the report card
+print("\\n--- Report Card ---")
+report = buddy.get_report_card()
+for key, value in report.items():
+    print(f"  {key}: {value}")
+
+print("\\nCongratulations! You just built your first AI system!")`,
+      afterCode: `Let me walk you through what we just built, like explaining a magic trick:\n\n<strong>The Teaching Phase</strong> is like a student studying for an exam. We gave our assistant 5 facts to remember. In real AI systems, this "teaching" happens with thousands or millions of examples, but the principle is identical.\n\n<strong>The Asking Phase</strong> is where the magic happens. When we ask "What is machine learning?" — the assistant finds an exact match and answers confidently. But when we ask "Tell me about Python programming" — the words are different from what it learned ("What is Python?"). So it uses a similarity trick: it counts how many words overlap between the question and what it knows. If enough words match, it gives a "medium confidence" answer. Smart, right?\n\nAnd when we ask "What is deep learning?" — something it was never taught — it honestly says "I do not know." This is actually a GOOD thing. An AI that says "I do not know" when it does not know is much better than one that makes up answers.\n\n<strong>The Report Card</strong> tells us how well our assistant is doing. In real AI systems, this is called "evaluation" and it is one of the most important steps. If your AI is only getting 60% of answers right, you know you need to teach it more or teach it better.\n\nThe beautiful thing about this code is that it captures the essence of how ALL AI systems work — learn from data, find patterns, make predictions, and measure accuracy. Everything else is just making this basic process faster, more accurate, and more scalable.`
+    },
+  ];
+
+  // ── Practice exercises ──
+  const exerciseSections = [
+    {
+      heading: `Practice Exercises — Try These Yourself!`,
+      body: `The best way to learn is by doing. Here are some exercises that will help you solidify what you have learned. Start with the easy ones and work your way up. There is no rush — take your time and enjoy the process.\n\n<strong>Exercise 1 (Easy): Teach the assistant 10 more facts</strong>\nAdd 10 questions and answers about any topic you like — cricket, cooking, Indian history, anything! Then test if the assistant can answer related questions it was not directly taught.\n\n<strong>Exercise 2 (Medium): Improve the similarity matching</strong>\nRight now, our assistant counts matching words. But "What is ML?" and "What is machine learning?" have zero matching words even though they mean the same thing. Can you add a dictionary that maps abbreviations to full forms? (Hint: create a dictionary like {"ml": "machine learning", "ai": "artificial intelligence"})\n\n<strong>Exercise 3 (Medium): Add a feedback system</strong>\nAfter the assistant answers, ask the user "Was this helpful? (yes/no)". If they say "no", ask them for the correct answer and teach it to the assistant. This is how real AI systems improve over time!\n\n<strong>Exercise 4 (Challenge): Build a quiz game</strong>\nUse the assistant's knowledge base to create a quiz. The assistant asks questions, the user answers, and the assistant scores them. Add a leaderboard that saves scores to a file.\n\n<strong>Exercise 5 (Challenge): Connect to a real AI model</strong>\nReplace the simple matching logic with a call to a real AI API (like OpenAI or Google Gemini). Compare the answers from your simple system with the real AI. You will be surprised — for many questions, your simple system works just as well!`
+    },
+    {
+      heading: `What to Build Next — Your Learning Roadmap`,
+      body: `Now that you understand the basics, here is your roadmap for the next few weeks. Think of this like levels in a video game — each level builds on the skills from the previous one.\n\n<strong>Week 1-2: Strengthen Your Python</strong>\nIf you are not comfortable with Python yet, spend two weeks on the basics. You do not need to be an expert — just comfortable with variables, functions, loops, lists, and dictionaries. Free resources: Python on Codecademy, or the "Automate the Boring Stuff with Python" book (free online).\n\n<strong>Week 3-4: Learn Data Basics</strong>\nLearn to work with data using Pandas (a Python library). Practice loading CSV files, filtering data, and creating simple charts. This is like learning to read a map before going on a journey. Use Google Colab — it is free and runs in your browser.\n\n<strong>Week 5-6: Your First ML Model</strong>\nBuild a simple classification model using scikit-learn. Start with something fun — like predicting whether a movie review is positive or negative. The code is surprisingly simple (about 10 lines!) and the results feel magical.\n\n<strong>Week 7-8: Explore LLMs</strong>\nTry using the OpenAI or Google Gemini API to build a simple chatbot. This is where things get really exciting. With just a few lines of code, you can build something that feels like science fiction.\n\n<strong>Month 3+: Specialize</strong>\nBy now, you will have a good foundation. Pick the area that excites you most — RAG systems, fine-tuning, computer vision, or AI agents — and go deep. Build a real project that solves a problem you care about.\n\nRemember: consistency beats intensity. 30 minutes every day is better than 8 hours once a week. Set a daily reminder, find a study buddy, and enjoy the journey!`
+    },
+  ];
+
+  // ── Real-world connections ──
+  const realWorldSections = [
+    {
+      heading: `How This Connects to the Real World`,
+      body: `Everything we learned today is not just theory — it is being used right now by companies all around you.\n\n<strong>Swiggy and Zomato</strong> use AI to predict how long your food delivery will take. They look at patterns — distance, traffic, restaurant preparation time, weather — and make a prediction. The same pattern recognition we discussed!\n\n<strong>Flipkart and Amazon India</strong> use AI to recommend products. "Customers who bought this also bought..." is a recommendation system that learns from millions of purchase patterns.\n\n<strong>HDFC Bank and ICICI</strong> use AI to detect fraudulent transactions. If your spending pattern suddenly changes (like a large purchase in a city you have never visited), the AI flags it. This is anomaly detection — finding things that do not fit the normal pattern.\n\n<strong>Ola and Uber</strong> use AI for dynamic pricing. When demand is high (like during rain or on New Year's Eve), prices go up. The AI learns the relationship between demand, supply, time, and location to set prices.\n\n<strong>Practo and 1mg</strong> use AI to help with preliminary health assessments. You describe your symptoms, and the AI suggests possible conditions and recommends whether you should see a doctor.\n\nThe point is: ${tagInline} is not some abstract academic concept. It is the technology behind the apps you use every day. And now you understand how it works at a fundamental level. That is a superpower.`
+    },
+    {
+      heading: `${tagDisplay} in Everyday Indian Life`,
+      body: `Let me show you how ${tagInline} shows up in places you might not expect:\n\n<strong>Your Phone's Keyboard</strong>\nWhen you type a message in Hindi or English, your phone predicts the next word. That is a language model — a simpler version of ChatGPT. It learned from billions of text messages what word usually comes after another.\n\n<strong>Google Maps in Indian Cities</strong>\nWhen Google Maps tells you "There is heavy traffic on MG Road, take the alternate route via Indiranagar," it is using AI to analyze real-time data from thousands of phones on the road. It predicts traffic patterns and finds the fastest route.\n\n<strong>UPI Fraud Detection</strong>\nEvery time you make a UPI payment, AI checks if it looks legitimate. It compares your transaction to your normal pattern. If something looks suspicious (like a Rs 50,000 transfer at 3 AM to a new account), it might block it or ask for extra verification.\n\n<strong>Crop Recommendations for Farmers</strong>\nSeveral Indian startups use AI to help farmers decide what to plant. The AI looks at soil data, weather patterns, market prices, and water availability to recommend the most profitable crop. This is ${tagInline} making a real difference in people's lives.\n\n<strong>Movie Recommendations on Hotstar</strong>\nWhen Disney+ Hotstar suggests "Because you watched Panchayat, you might like..." — that is a recommendation AI. It groups users with similar tastes and suggests what others in your group enjoyed.\n\nThe next time you use any of these services, you will understand what is happening behind the scenes. And that understanding is the first step to building these systems yourself.`
+    },
+  ];
+
+  // ── Assemble using seed for variety ──
+  const intro = seededPick(intros, seed);
+  const bigPicture = seededPick(bigPictureSections, seed + 1);
+  const concept = seededPick(conceptSections, seed + 2);
+  const codeWalk = seededPick(codeWalkthroughs, seed + 3);
+  const exercises = seededPick(exerciseSections, seed + 4);
+  const realWorld = seededPick(realWorldSections, seed + 5);
+
+  const escapedCode = codeWalk.code.replace(/`/g, '\\`').replace(/\$\{/g, '\\${');
+
+  return { intro, bigPicture, concept, codeWalk, escapedCode, exercises, realWorld };
+}
+
+module.exports = { buildLearningArticle };

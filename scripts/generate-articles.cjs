@@ -9,6 +9,8 @@ const fs = require('fs');
 const path = require('path');
 const { topics } = require('./content-plan.cjs');
 const { buildPublishSchedule } = require('./utils/dates.cjs');
+const { buildPlaybookArticle } = require('./content/playbook-builder.cjs');
+const { buildLearningArticle } = require('./content/learning-builder.cjs');
 
 const PAGES_DIR = path.resolve(__dirname, '..', 'src', 'pages');
 
@@ -473,7 +475,163 @@ function buildTakeaways(t, seed) {
   return seededPickN(allTakeaways, 4, seed + 11);
 }
 
-// ── Article assembler ────────────────────────────────────
+// ── Astro template escaping ──────────────────────────────
+// Astro interprets { } in HTML body as JSX expressions.
+// Body text containing literal braces (e.g. Python dicts) must be escaped.
+function escapeAstro(text) {
+  return text.replace(/\{/g, '&#123;').replace(/\}/g, '&#125;');
+}
+
+// Wrap paragraphs with escaping
+function astroParas(text) {
+  return text.split('\n\n').map(p => `<p>${escapeAstro(p)}</p>`).join('\n');
+}
+
+// Escape list items
+function astroList(items) {
+  return items.map(s => `  <li>${escapeAstro(s)}</li>`).join('\n');
+}
+
+// ── Section-specific assemblers ──────────────────────────
+
+function generatePlaybookArticle(topic, allTopics) {
+  const seed = hashCode(topic.slug);
+  const year = (topic.publishDate || '2025-01-01').split('-')[0];
+  const pb = buildPlaybookArticle(topic, seed, naturalRef, seededPick, seededPickN, hashCode);
+
+  const related = allTopics
+    .filter(t => t.slug !== topic.slug)
+    .filter(t => t.section === topic.section || t.tags.some(tag => topic.tags.includes(tag)));
+  const nextReads = seededPickN(related.length > 3 ? related : allTopics.filter(t => t.slug !== topic.slug), 3, seed + 20);
+  const nextReadsHtml = nextReads.map(nr =>
+    `  <li><a href="/${nr.section}/${nr.slug}">${nr.title}</a></li>`
+  ).join('\n');
+
+  const practicalListHtml = astroList(pb.practical.list);
+  const testingListHtml = astroList(pb.testing.list);
+  const productionListHtml = astroList(pb.production.list);
+
+  return `---
+import ArticleLayout from "../../layouts/ArticleLayout.astro";
+
+const codeExample = \`${pb.escapedCode}\`;
+---
+
+<ArticleLayout
+  title="${topic.title.replace(/"/g, '&quot;')}"
+  description="${topic.description.replace(/"/g, '&quot;')}"
+  category="${topic.category}"
+  date="${year}"
+  readTime="${topic.readTime}"
+  tags={${JSON.stringify(topic.tags)}}
+>
+
+<h2>Executive Summary</h2>
+${astroParas(pb.intro)}
+
+<h2>${escapeAstro(pb.whyStory.heading)}</h2>
+${astroParas(pb.whyStory.body)}
+
+<h2>${escapeAstro(pb.practical.heading)}</h2>
+${astroParas(pb.practical.body)}
+<ul>
+${practicalListHtml}
+</ul>
+<p>${escapeAstro(pb.practical.afterList)}</p>
+
+<h2>${escapeAstro(pb.codeWalk.heading)}</h2>
+${astroParas(pb.codeWalk.intro)}
+
+<pre><code class="language-python" set:html={codeExample} /></pre>
+
+${astroParas(pb.codeWalk.afterCode)}
+
+<h2>${escapeAstro(pb.testing.heading)}</h2>
+${astroParas(pb.testing.body)}
+<ul>
+${testingListHtml}
+</ul>
+<p>${escapeAstro(pb.testing.afterList)}</p>
+
+<h2>${escapeAstro(pb.production.heading)}</h2>
+${astroParas(pb.production.body)}
+<ul>
+${productionListHtml}
+</ul>
+<p>${escapeAstro(pb.production.afterList)}</p>
+
+<h2>${escapeAstro(pb.lessons.heading)}</h2>
+${astroParas(pb.lessons.body)}
+
+<h2>Next Reads</h2>
+<ul>
+${nextReadsHtml}
+</ul>
+
+</ArticleLayout>
+`;
+}
+
+function generateLearningArticle(topic, allTopics) {
+  const seed = hashCode(topic.slug);
+  const year = (topic.publishDate || '2025-01-01').split('-')[0];
+  const lp = buildLearningArticle(topic, seed, naturalRef, seededPick, seededPickN, hashCode);
+
+  const related = allTopics
+    .filter(t => t.slug !== topic.slug)
+    .filter(t => t.section === topic.section || t.tags.some(tag => topic.tags.includes(tag)));
+  const nextReads = seededPickN(related.length > 3 ? related : allTopics.filter(t => t.slug !== topic.slug), 3, seed + 20);
+  const nextReadsHtml = nextReads.map(nr =>
+    `  <li><a href="/${nr.section}/${nr.slug}">${nr.title}</a></li>`
+  ).join('\n');
+
+  return `---
+import ArticleLayout from "../../layouts/ArticleLayout.astro";
+
+const codeExample = \`${lp.escapedCode}\`;
+---
+
+<ArticleLayout
+  title="${topic.title.replace(/"/g, '&quot;')}"
+  description="${topic.description.replace(/"/g, '&quot;')}"
+  category="${topic.category}"
+  date="${year}"
+  readTime="${topic.readTime}"
+  tags={${JSON.stringify(topic.tags)}}
+>
+
+<h2>Executive Summary</h2>
+${astroParas(lp.intro)}
+
+<h2>${escapeAstro(lp.bigPicture.heading)}</h2>
+${astroParas(lp.bigPicture.body)}
+
+<h2>${escapeAstro(lp.concept.heading)}</h2>
+${astroParas(lp.concept.body)}
+
+<h2>${escapeAstro(lp.codeWalk.heading)}</h2>
+${astroParas(lp.codeWalk.intro)}
+
+<pre><code class="language-python" set:html={codeExample} /></pre>
+
+${astroParas(lp.codeWalk.afterCode)}
+
+<h2>${escapeAstro(lp.exercises.heading)}</h2>
+${astroParas(lp.exercises.body)}
+
+<h2>${escapeAstro(lp.realWorld.heading)}</h2>
+${astroParas(lp.realWorld.body)}
+
+<h2>Next Reads</h2>
+<ul>
+${nextReadsHtml}
+</ul>
+
+</ArticleLayout>
+`;
+}
+
+// ── Default article assembler ────────────────────────────
 
 function generateArticle(topic, allTopics) {
   const seed = hashCode(topic.slug);
@@ -578,7 +736,14 @@ function main() {
     }
 
     fs.mkdirSync(dir, { recursive: true });
-    const content = generateArticle(topic, scheduled);
+    let content;
+    if (topic.section === 'playbooks') {
+      content = generatePlaybookArticle(topic, scheduled);
+    } else if (topic.section === 'learning-paths') {
+      content = generateLearningArticle(topic, scheduled);
+    } else {
+      content = generateArticle(topic, scheduled);
+    }
     fs.writeFileSync(filePath, content, 'utf-8');
 
     // Count words in the body (after the frontmatter closing ---)

@@ -1,46 +1,171 @@
 ---
 import ArticleLayout from "../../layouts/ArticleLayout.astro";
 
-const codeExample = `# Simple Testing setup for Indian teams
-# Start with this basic structure and expand as needed
+const codeExample = `# Prompt Testing and Regression Playbook - Practical Implementation
+# This is production-ready code you can copy and use
 
-class TestingSystem:
+import os
+import json
+import time
+from datetime import datetime
+
+# ── Step 1: Set up your configuration ──
+# Think of this like setting up your kitchen before cooking.
+# Everything you need should be ready and organized.
+
+class AITestingConfig:
+    """Configuration for your AI testing system.
+    
+    Why a config class? Because hardcoding values is like
+    writing your phone number on every page of a book.
+    Change it once here, and it changes everywhere.
+    """
+    def __init__(self):
+        self.model_name = os.getenv("MODEL_NAME", "gpt-4o-mini")
+        self.max_retries = 3          # Try 3 times before giving up
+        self.timeout_seconds = 30     # Wait max 30 seconds
+        self.max_budget_inr = 50000   # Monthly budget in rupees
+        self.log_file = "ai_system.log"
+    
+    def validate(self):
+        """Check if config makes sense before starting."""
+        if self.max_budget_inr <= 0:
+            raise ValueError("Budget must be positive!")
+        if self.timeout_seconds < 5:
+            raise ValueError("Timeout too short - AI needs time to think!")
+        print("Config validated successfully!")
+        return True
+
+# ── Step 2: Build the core system ──
+# This is the heart of your application.
+# Like the engine of a car - everything else connects to this.
+
+class AITestingSystem:
     def __init__(self, config):
         self.config = config
-        self.model = self._load_model(config["model_name"])
-        self.monitor = PerformanceMonitor()
+        self.total_cost = 0
+        self.request_count = 0
+        self.start_time = datetime.now()
+        print(f"System initialized with model: {config.model_name}")
+    
+    def process_request(self, user_input):
+        """Process a single user request.
+        
+        This is like a restaurant taking an order:
+        1. Check if the order makes sense (validate)
+        2. Send it to the kitchen (AI model)
+        3. Check the food quality (validate output)
+        4. Serve it to the customer (return response)
+        5. Update the bill (track costs)
+        """
+        # Validate input - never trust user input blindly!
+        if not user_input or len(user_input.strip()) == 0:
+            return {"error": "Please provide some input!", "cost_inr": 0}
+        
+        if len(user_input) > 10000:
+            return {"error": "Input too long! Keep it under 10,000 characters.", "cost_inr": 0}
+        
+        # Check budget before making expensive API calls
+        if self.total_cost >= self.config.max_budget_inr:
+            return {"error": "Monthly budget exhausted! Contact admin.", "cost_inr": 0}
+        
+        # Process with retry logic
+        # Why retry? Because APIs sometimes fail temporarily.
+        # Like when your phone call drops - you just call again.
+        for attempt in range(self.config.max_retries):
+            try:
+                start = time.time()
+                result = self._call_ai_model(user_input)
+                latency = time.time() - start
+                
+                # Track costs (important for Indian teams watching budgets!)
+                cost = self._calculate_cost(user_input, result)
+                self.total_cost += cost
+                self.request_count += 1
+                
+                # Log everything - you will thank yourself later
+                self._log_request(user_input, result, latency, cost)
+                
+                return {
+                    "response": result,
+                    "latency_ms": round(latency * 1000),
+                    "cost_inr": round(cost, 4),
+                    "total_spent_inr": round(self.total_cost, 2),
+                    "budget_remaining_inr": round(self.config.max_budget_inr - self.total_cost, 2)
+                }
+                
+            except Exception as e:
+                print(f"Attempt {attempt + 1} failed: {e}")
+                if attempt < self.config.max_retries - 1:
+                    wait_time = 2 ** attempt  # Wait 1s, 2s, 4s...
+                    print(f"Retrying in {wait_time} seconds...")
+                    time.sleep(wait_time)
+                else:
+                    return {"error": f"All {self.config.max_retries} attempts failed. Please try again later."}
+    
+    def _call_ai_model(self, user_input):
+        """Call the AI model. Replace this with your actual model call."""
+        # In real code, this would call OpenAI, Anthropic, or your local model
+        # For now, this is a placeholder
+        return f"AI response for: {user_input[:50]}..."
+    
+    def _calculate_cost(self, input_text, output_text):
+        """Calculate cost in INR per request."""
+        # GPT-4o-mini costs roughly Rs 0.01 per 1000 tokens
+        input_tokens = len(input_text.split()) * 1.3  # rough estimate
+        output_tokens = len(str(output_text).split()) * 1.3
+        cost_per_1k_tokens = 0.01  # in INR
+        return (input_tokens + output_tokens) / 1000 * cost_per_1k_tokens
+    
+    def _log_request(self, input_text, output, latency, cost):
+        """Log every request for monitoring and debugging."""
+        log_entry = {
+            "timestamp": datetime.now().isoformat(),
+            "input_preview": input_text[:100],
+            "output_preview": str(output)[:100],
+            "latency_ms": round(latency * 1000),
+            "cost_inr": round(cost, 4),
+            "total_requests": self.request_count
+        }
+        with open(self.config.log_file, "a") as f:
+            f.write(json.dumps(log_entry) + "\n")
+    
+    def get_dashboard(self):
+        """Get a summary of how your system is doing.
+        Show this to your manager - they love dashboards!"""
+        uptime = (datetime.now() - self.start_time).total_seconds() / 3600
+        return {
+            "total_requests": self.request_count,
+            "total_cost_inr": f"Rs {self.total_cost:,.2f}",
+            "budget_used": f"{(self.total_cost/self.config.max_budget_inr)*100:.1f}%",
+            "avg_cost_per_request": f"Rs {self.total_cost/max(self.request_count,1):.4f}",
+            "uptime_hours": f"{uptime:.1f}",
+            "requests_per_hour": f"{self.request_count/max(uptime,0.01):.1f}"
+        }
 
-    def process(self, input_data):
-        """Process a single request with monitoring"""
-        start_time = time.time()
-
-        # Step 1: Validate input
-        if not self._validate(input_data):
-            return {"error": "Invalid input", "status": "failed"}
-
-        # Step 2: Run the AI model
-        result = self.model.predict(input_data)
-
-        # Step 3: Check quality
-        confidence = result.get("confidence", 0)
-        if confidence < 0.7:
-            result["warning"] = "Low confidence - consider human review"
-
-        # Step 4: Log metrics (important for Indian compliance)
-        latency = time.time() - start_time
-        self.monitor.log({
-            "latency_ms": latency * 1000,
-            "confidence": confidence,
-            "model": self.config["model_name"],
-            "cost_inr": self._calculate_cost(input_data)
-        })
-
-        return result
-
-# Usage
-system = TestingSystem({"model_name": "your-model-here"})
-result = system.process({"text": "Your input here"})
-print(f"Result: {result}, Cost: Rs {result.get('cost_inr', 0)}")`;
+# ── Step 3: Run it! ──
+if __name__ == "__main__":
+    # Set up
+    config = AITestingConfig()
+    config.validate()
+    system = AITestingSystem(config)
+    
+    # Process some requests
+    test_queries = [
+        "What is the refund policy for damaged items?",
+        "How do I track my order?",
+        "I want to speak to a manager",
+    ]
+    
+    for query in test_queries:
+        print(f"\nQuery: {query}")
+        result = system.process_request(query)
+        print(f"Response: {result}")
+    
+    # Check the dashboard
+    print("\n--- System Dashboard ---")
+    for key, value in system.get_dashboard().items():
+        print(f"  {key}: {value}")`;
 ---
 
 <ArticleLayout
@@ -53,46 +178,70 @@ print(f"Result: {result}, Cost: Rs {result.get('cost_inr', 0)}")`;
 >
 
 <h2>Executive Summary</h2>
-<p>Here is something I have noticed working with Indian engineering teams — most people understand the basics of AI, but when it comes to AI testing, there is a lot of confusion. Some teams over-engineer their solutions. Others pick the wrong tools entirely. And many waste months going down paths that a little upfront knowledge could have avoided. This article gives you that knowledge in simple, practical terms.</p>
+<p>Imagine you are cooking biryani for the first time. You have the recipe, the ingredients, and a kitchen. But without knowing the right order of steps — when to add the spices, how long to cook the rice, when to layer everything — you will end up with a mess instead of a masterpiece.</p>
+<p>AI Testing in AI is exactly like that. You have the tools, the models, and the data. But without a clear step-by-step playbook, your AI project can go from "this is amazing" to "what went wrong" very quickly. This playbook gives you that recipe — tested, practical, and explained so simply that even a 10-year-old could follow along.</p>
 
-<h2>Key Takeaways</h2>
+<h2>Who Is This Playbook For</h2>
+<p>This playbook is for anyone who needs to implement AI testing in a real project — not just play with it in a Jupyter notebook. Whether you are a developer at a startup in Koramangala, a tech lead at an IT services company in Hyderabad, or a data scientist at a bank in Mumbai, this guide will help you.</p>
+<p>I have written it assuming you know basic Python and have a general idea of what AI/ML is. But I do not assume you have built production AI systems before. Every concept is explained from scratch with real-world analogies. If something is complex, I break it down until it is simple. If there is code, you can copy it and run it immediately.</p>
+<p>Think of this as your experienced colleague sitting next to you, guiding you through every step, warning you about every pothole, and celebrating every small win with you.</p>
+
+<h2>Step 1: Laying the Foundation</h2>
+<p>Before building anything, you need to understand what you are building and why. This sounds obvious, but you would be surprised how many teams skip this step.</p>
+<p>Think of it like planning a road trip. Before you start driving, you need to know: Where are you going? Which route will you take? How much petrol do you need? What if there is a road block? The same applies to AI testing.</p>
+<p>Here is a simple template I use with every team I work with. Fill this out before writing any code:</p>
 <ul>
-  <li><strong>Test with real Indian users early</strong> — what works in a demo may not work for users in tier-2 cities with slower internet connections and different language preferences.</li>
-  <li><strong>Budget for the long term</strong> — AI systems need ongoing maintenance, monitoring, and improvement. Factor this into your cost planning.</li>
-  <li><strong>Do not over-engineer your first version</strong> — a working simple system beats a perfect system that is still being built. Ship early, learn fast.</li>
-  <li><strong>Security and compliance are not optional</strong> — especially with India's DPDPA, make sure your AI system handles personal data responsibly from day one.</li>
+  <li><strong>The Problem Statement</strong> — Write one sentence describing what you are solving. If you cannot fit it in one sentence, your problem is too vague.</li>
+  <li><strong>The Success Metric</strong> — How will you know if your AI system is working? Pick one number you can measure.</li>
+  <li><strong>The Data Inventory</strong> — What data do you already have? What data do you need? Where does it live?</li>
+  <li><strong>The Budget</strong> — How much can you spend per month? Include compute, API costs, and people time.</li>
+  <li><strong>The Timeline</strong> — When does this need to be working? Be realistic — most AI projects take 2-4 months for a solid v1.</li>
 </ul>
+<p>I have seen this simple exercise save teams months of wasted effort. When everyone agrees on what "done" looks like before starting, you avoid the painful "but I thought we were building something different" conversation three months later.</p>
 
-<h2>AI Testing — What Has Changed Recently</h2>
-<p>Let me explain this with a simple analogy. Think of AI testing like building a house. You need a strong foundation (your data), good materials (your tools and models), skilled workers (your engineering team), and a clear blueprint (your architecture). Skip any of these, and the house will have problems.</p>
-<p>In the Indian context, this is especially important because many teams are building AI systems for the first time. They often jump straight to the latest fancy tool without understanding the fundamentals. The teams that succeed are the ones that take time to understand the basics first, then choose tools that fit their specific needs.</p>
-
-<h2>Key Decisions You Need to Make</h2>
-<p>Let me be direct about what works and what does not in the AI testing space. What works: starting simple, measuring everything, iterating based on data, and investing in good evaluation. What does not work: chasing the latest trends without understanding your requirements, over-engineering your first version, and skipping evaluation because "the demo looked good."</p>
-<p>For Indian teams specifically, I would add: do not ignore the multilingual challenge. If your users speak Hindi, Tamil, Telugu, or any other Indian language, test your system with those languages from day one. Adding multilingual support later is much harder than building it in from the start.</p>
+<h2>Step 2: Building Your First Prototype (With Real Code)</h2>
+<p>Now comes the fun part — actual code! But remember, this is a prototype, not the final product. The goal is to build the simplest thing that could possibly work, show it to real users, and learn from their feedback.</p>
+<p>I am going to walk you through every line of code. If you are new to this, do not worry — I will explain everything like I am explaining it to a friend over chai.</p>
 
 <pre><code class="language-python" set:html={codeExample} /></pre>
 
-<h2>Implementation: From Zero to Production</h2>
-<p>Here is a practical roadmap that has worked well for Indian teams at different stages of their AI testing journey:</p>
+<p>Let me explain what is happening in this code, step by step:</p>
+<p>First, we create a configuration class. Think of this like the settings on your phone — you set things up once and everything uses those settings. We store the model name, retry count, timeout, and most importantly, the budget in rupees.</p>
+<p>Next, the main system class handles everything. When a user sends a request, it goes through a pipeline — just like an order at a restaurant. The request is validated (is this a real order?), processed (send it to the kitchen), quality-checked (does the food look right?), and delivered (serve it to the customer). At every step, we track costs and log what happened.</p>
+<p>The retry logic is crucial. Imagine you are calling someone and the call drops. You do not give up — you try again. Our system does the same thing. If the AI model fails, it waits a bit and tries again, up to 3 times.</p>
+<p>Finally, the dashboard gives you a bird's eye view of how your system is performing. This is what you show your manager when they ask "How is the AI project going?"</p>
+
+<h2>Step 3: Making Sure It Actually Works</h2>
+<p>You have built your system. It works on your laptop. You are excited. But before you show it to anyone, you need to test it properly. I have seen too many demos go wrong because someone typed something unexpected and the whole system crashed.</p>
+<p>Testing an AI system is different from testing regular software. With regular software, the same input always gives the same output. With AI, the output can vary. So how do you test something that is not deterministic? Here is my approach:</p>
 <ul>
-  <li><strong>Define success clearly</strong> — Before writing any code, write down what "good" looks like. What accuracy do you need? What latency is acceptable? What is your budget? Without clear targets, you will never know if you have succeeded.</li>
-  <li><strong>Start with your data</strong> — The quality of your data matters more than the quality of your model. Spend time cleaning, organizing, and understanding your data before choosing tools.</li>
-  <li><strong>Build the simplest thing that works</strong> — Your first version should be embarrassingly simple. A basic solution that works is infinitely better than a complex solution that is still being built.</li>
-  <li><strong>Measure from day one</strong> — Set up logging and metrics before you launch. You need to know how your system is performing in the real world, not just in your test environment.</li>
-  <li><strong>Plan for iteration</strong> — Your first version will not be perfect. That is okay. What matters is that you can improve it quickly based on real user feedback and real performance data.</li>
+  <li><strong>Create a "golden dataset"</strong> — Write 50 questions and their ideal answers. These are your reference points. Run your system on these 50 questions and score how close the answers are to ideal. This is your baseline score.</li>
+  <li><strong>Test with real Indian data</strong> — Include questions in Hinglish (Hindi + English mix), questions with Indian names and places, questions about Indian-specific topics (GST, Aadhaar, UPI). Many AI systems work great with American English but struggle with Indian context.</li>
+  <li><strong>Test the boundaries</strong> — What is the longest question it can handle? What happens with an empty question? What if someone sends an image instead of text? What if someone tries to trick the AI into saying something inappropriate?</li>
+  <li><strong>Test the costs</strong> — Process your 50 test questions and check the total cost. Now multiply by your expected daily volume. If 50 questions cost Rs 5, and you expect 5,000 questions per day, that is Rs 500/day or Rs 15,000/month. Is that within your budget?</li>
+  <li><strong>Test with real users</strong> — Give it to 5-10 colleagues and ask them to use it naturally for a day. Watch what they do. The questions real users ask are always different from what you imagined.</li>
 </ul>
+<p>The most important thing about testing is to do it BEFORE launch, not after. Fixing a bug before launch costs you an hour. Fixing the same bug after 1,000 customers have seen it costs you a week plus a lot of apologetic emails.</p>
 
-<h2>Cost and Resource Planning</h2>
-<p>Let us talk about money — because in India, budget is often the biggest constraint. The good news is that AI testing does not have to be expensive. The bad news is that costs can spiral quickly if you are not careful.</p>
-<p>Here are some cost-saving strategies that work well for Indian teams. Use open-source tools wherever possible — the quality of open-source AI tools has improved dramatically. Use spot or preemptible GPU instances for non-critical workloads to save 60-70% on compute costs. Start with smaller models and only scale up when you have data showing that bigger models give meaningfully better results. And always set up cost alerts so you know immediately if spending is going above your budget.</p>
+<h2>Step 4: Going Live — The Launch Checklist</h2>
+<p>You have built it. You have tested it. Now it is time to go live. But do not just flip a switch and hope for the best. Use this checklist — I call it the "sleep peacefully at night" checklist because if you complete it, you will not get panic calls at 2 AM.</p>
+<p>Before launch, make sure you have:</p>
+<ul>
+  <li><strong>Monitoring dashboard</strong> — You should be able to see, at a glance, how many requests are coming in, what the average response time is, how much money you are spending, and if there are any errors. Tools like Grafana (free) or even a simple Google Sheet work.</li>
+  <li><strong>Cost alerts</strong> — Set up an alert that sends you a WhatsApp message or email if daily spending exceeds your budget. This is non-negotiable. I have seen teams get surprise bills of Rs 5 lakh because nobody was watching the costs.</li>
+  <li><strong>Error handling</strong> — When (not if) something goes wrong, your system should show a friendly message to the user, not a scary error page. Something like "I am having trouble right now. Let me connect you with a human agent" is much better than a blank screen.</li>
+  <li><strong>Rollback plan</strong> — If the new AI system is causing problems, you should be able to switch back to the old system within 5 minutes. Always keep the old system running in parallel for the first month.</li>
+  <li><strong>Gradual rollout</strong> — Do not launch to 100% of users on day one. Start with 5%, then 20%, then 50%, then 100%. This way, if something is wrong, only a small percentage of users are affected.</li>
+</ul>
+<p>The first week after launch is the most critical. Check your dashboard every few hours. Read the logs. Talk to users. You will find issues that no amount of testing could have caught. That is normal. Fix them quickly, and within a month, your system will be running smoothly.</p>
 
-<h2>What I Wish Someone Had Told Me Earlier</h2>
-<p>Let me share the most expensive mistakes I have seen Indian teams make with AI testing:</p>
-<p>Mistake 1: Choosing tools based on hype instead of requirements. Just because a tool is trending on Twitter does not mean it is right for your use case. Always start with your requirements and find tools that fit.</p>
-<p>Mistake 2: Not involving domain experts early enough. Your AI system needs to understand your business domain. Engineers alone cannot provide this — you need input from people who understand the business deeply.</p>
-<p>Mistake 3: Underestimating the "last mile" problem. Getting from 80% accuracy to 95% accuracy often takes more effort than getting from 0% to 80%. Plan your timeline accordingly.</p>
-<p>Mistake 4: Forgetting about Indian languages. If your users speak Hindi or regional languages, your system needs to handle that. Retrofitting multilingual support is much harder than building it in from the start.</p>
+<h2>Lessons I Learned the Hard Way (So You Do Not Have To)</h2>
+<p>After helping dozens of Indian teams implement AI testing, I have collected a list of lessons that I wish someone had told me when I started. Each of these comes from a real mistake that cost real money and real time.</p>
+<p><strong>Lesson 1: Start with the cheapest model that works.</strong> Everyone wants to use GPT-4 or Claude Opus. But for most tasks, GPT-4o-mini or even a fine-tuned small model works just as well at 1/10th the cost. I worked with a team that switched from GPT-4 to GPT-4o-mini and saved Rs 2 lakh per month with zero quality drop.</p>
+<p><strong>Lesson 2: Cache everything.</strong> In most applications, 30-40% of queries are repeated or very similar. A simple cache can cut your costs by a third. One team I worked with reduced their monthly bill from Rs 90,000 to Rs 55,000 just by adding caching.</p>
+<p><strong>Lesson 3: Log every single request.</strong> When something goes wrong (and it will), your logs are your detective toolkit. Without logs, debugging is like finding a needle in a haystack. With logs, it is like following a trail of breadcrumbs.</p>
+<p><strong>Lesson 4: Set budget alerts before you need them.</strong> AI costs can spike unexpectedly. A bug in your code might cause it to call the API in an infinite loop. Without a budget alert, you could wake up to a bill of Rs 50,000 for one night of runaway requests.</p>
+<p><strong>Lesson 5: Talk to your users every week.</strong> The best improvements come from watching real users interact with your system. They will use it in ways you never imagined, ask questions you never expected, and find bugs you never knew existed.</p>
 
 <h2>Next Reads</h2>
 <ul>
