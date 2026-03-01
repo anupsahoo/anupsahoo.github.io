@@ -5,31 +5,31 @@ const codeExample = `# Get brutally honest feedback from world-class advisors
 # Zero-config setup with local AI models
 
 # Install and setup
-git clone https://github.com/anupsahoo/board-of-directors-agents
-cd board-of-directors-agents
+git clone https://github.com/anupsahoo/advisory-ai
+cd advisory-ai
 make setup
 
 # Verify everything works
-board doctor
+advisory doctor
 
-# Get full board critique
-board critique --input my-idea.md --output critique.md
+# Get full advisory critique
+advisory critique --input my-idea.md --output critique.md
 
 # Single lens analysis
-board critique --lens jobs --input my-idea.md
-board critique --lens naval --input my-idea.md
-board critique --lens munger --input my-idea.md
+advisory critique --lens jobs --input my-idea.md
+advisory critique --lens naval --input my-idea.md
+advisory critique --lens munger --input my-idea.md
 
 # JSON output for automation
-board critique --input my-idea.md --json --output results.json
+advisory critique --input my-idea.md --json --output results.json
 
 # Interactive mode with clarifying questions
-board critique --input my-idea.md --interactive`;
+advisory critique --input my-idea.md --interactive`;
 ---
 
 <ArticleLayout
-  title="Board of Directors Agents: AI Advisory System That Actually Works"
-  description="Get brutally honest feedback on your ideas from 5 AI agents inspired by legendary thinkers - Jobs, Naval, Munger, and more. Runs locally with Ollama."
+  title="Advisory AI: Get Brutally Honest Feedback on Your Ideas"
+  description="5 AI agents inspired by legendary thinkers provide structured critique on your business ideas. Runs locally with Ollama - no API keys required."
   category="Architecture"
   date="2024"
   readTime="16 min read"
@@ -43,12 +43,12 @@ board critique --input my-idea.md --interactive`;
 
 <p>The problem? Hiring real advisors costs $50K+ per year. Your friends are too polite. Your team is too invested. And most feedback you get is either too nice, too vague, or too shallow to actually help.</p>
 
-<h2>What If You Could Assemble Your Dream Board?</h2>
-<p>Imagine having access to a board of directors that includes the sharpest minds in business and philosophy. Not just their quotes or books, but their actual thinking patterns applied to your specific situation.</p>
+<h2>What If You Could Assemble Your Dream Advisory Team?</h2>
+<p>Imagine having access to advisors that include the sharpest minds in business and philosophy. Not just their quotes or books, but their actual thinking patterns applied to your specific situation.</p>
 
 <p>What if Steve Jobs could tell you exactly what to cut from your product? What if Naval could map out your leverage opportunities? What if Charlie Munger could show you the mental models you're missing and the ways your idea will definitely fail?</p>
 
-<p>That's exactly what Board of Directors Agents delivers - five AI agents, each embodying the thinking patterns of legendary advisors, providing structured critique that's actionable, honest, and transformative.</p>
+<p>That's exactly what Advisory AI delivers - five AI agents, each embodying the thinking patterns of legendary advisors, providing structured critique that's actionable, honest, and transformative.</p>
 
 <div class="bg-accent/5 border border-accent/20 rounded-lg p-6 my-8">
   <h3 class="font-semibold text-text mb-3">Independence First: Your Ideas Stay Private</h3>
@@ -64,8 +64,8 @@ board critique --input my-idea.md --interactive`;
   </p>
 </div>
 
-<h2>Meet Your AI Board of Directors</h2>
-<p>Each agent brings a unique lens to your ideas, asking the questions that real board members would ask and providing the kind of feedback that turns good ideas into great ones.</p>
+<h2>Meet Your AI Advisory Team</h2>
+<p>Each agent brings a unique lens to your ideas, asking the questions that real advisors would ask and providing the kind of feedback that turns good ideas into great ones.</p>
 
 <p><strong>Jobs Lens: Ruthless Simplicity</strong><br>
 Cuts through feature bloat to find the essential user need. Asks what you'd remove if you only had one screen. Scores you on simplicity, user focus, and execution clarity. The brutal truth about whether you're building a product or a feature factory.</p>
@@ -83,14 +83,14 @@ Evaluates the dharmic purpose of your endeavor and its impact on all stakeholder
 Analyzes competitive dynamics and defensibility. Asks what prevents competitors from copying you in six months. Evaluates your pricing power and path to market dominance. No mercy for weak business models.</p>
 
 <p><strong>Synthesis Agent: Unified Action Plan</strong><br>
-Reconciles disagreements between board members and creates one actionable plan. Identifies consensus recommendations and productive tensions. Gives you a clear path forward that addresses multiple concerns.</p>
+Reconciles disagreements between advisors and creates one actionable plan. Identifies consensus recommendations and productive tensions. Gives you a clear path forward that addresses multiple concerns.</p>
 
 <h2>What You Actually Get</h2>
 <p>This isn't just another AI tool that gives you generic advice. Each agent provides structured, actionable feedback that you can immediately use to improve your idea.</p>
 
 <p>Every critique includes a brutal one-liner that cuts to the core issue, key questions that need answers, assumptions analysis labeled as fact/assumption/guess, risk assessment with specific failure modes, one bold counterintuitive move to consider, numerical scorecards on relevant dimensions, and a concrete 30-day experiment to validate or invalidate your approach.</p>
 
-<p>The output is beautifully formatted in Markdown by default, with optional JSON for automation. You can run individual lenses or get the full board treatment with synthesis. Interactive mode lets agents ask clarifying questions before providing feedback.</p>
+<p>The output is beautifully formatted in Markdown by default, with optional JSON for automation. You can run individual lenses or get the full advisory treatment with synthesis. Interactive mode lets agents ask clarifying questions before providing feedback.</p>
 
 <pre><code class="language-bash" set:html={codeExample} /></pre>
 
@@ -102,7 +102,7 @@ Reconciles disagreements between board members and creates one actionable plan. 
 <p>The architecture follows the same independence philosophy as our other systems. Each agent is self-contained, the CLI is built with Typer for reliability, and everything is designed to work without external dependencies.</p>
 
 <h2>Real Example: AI Fitness App Critique</h2>
-<p>Let me show you what this looks like in practice. Here's how the board would critique an AI-powered fitness app idea:</p>
+<p>Let me show you what this looks like in practice. Here's how the advisory team would critique an AI-powered fitness app idea:</p>
 
 <p><strong>Jobs Lens</strong>: "You're building a feature factory, not solving a real problem. Cut the social features, gamification, and multiple workout types. Focus on one thing that users will do every single day. What would you remove if you only had one screen?"</p>
 
@@ -114,21 +114,21 @@ Reconciles disagreements between board members and creates one actionable plan. 
 
 <p><strong>Ruthless Capitalist Lens</strong>: "You have no moat. Competitors will copy your features and undercut on price. Where's your pricing power? What prevents Nike or Apple from crushing you with better distribution?"</p>
 
-<p><strong>Synthesis</strong>: "The board agrees: focus on one transformative behavior, find the leverage angle that creates network effects, address the motivation problem with better incentive design, ensure you're serving genuine health outcomes, and build defensible advantages before competitors notice."</p>
+<p><strong>Synthesis</strong>: "The advisory team agrees: focus on one transformative behavior, find the leverage angle that creates network effects, address the motivation problem with better incentive design, ensure you're serving genuine health outcomes, and build defensible advantages before competitors notice."</p>
 
 <h2>Technical Architecture That Just Works</h2>
 <p>The system is built with production-grade Python using Pydantic for data validation, Typer for the CLI, and a clean agent architecture that's easy to extend.</p>
 
 <p>Each agent follows a consistent interface but implements unique prompting strategies. The synthesis agent reconciles disagreements and creates unified action plans. Blog reference matching connects critiques to relevant articles from a curated knowledge base.</p>
 
-<p>Error handling is robust, the CLI provides helpful feedback, and the `board doctor` command verifies that everything is working correctly. The codebase includes comprehensive tests and follows best practices for maintainability.</p>
+<p>Error handling is robust, the CLI provides helpful feedback, and the `advisory doctor` command verifies that everything is working correctly. The codebase includes comprehensive tests and follows best practices for maintainability.</p>
 
 <h2>Getting Started in Minutes</h2>
 <p>The quickstart experience is designed to be friction-free. Install Ollama, clone the repository, run `make setup`, and you're ready to get world-class feedback on your ideas.</p>
 
 <p>The system includes example idea files so you can see how it works immediately. The CLI is intuitive with helpful error messages and clear documentation. Everything is designed for developers who want powerful tools without complexity.</p>
 
-<p>You can start with single-lens analysis to understand each perspective, then graduate to full board critiques with synthesis. The JSON output option makes it easy to integrate with other tools or build automation around the feedback process.</p>
+<p>You can start with single-lens analysis to understand each perspective, then graduate to full advisory critiques with synthesis. The JSON output option makes it easy to integrate with other tools or build automation around the feedback process.</p>
 
 <h2>Why This Approach Works</h2>
 <p>Traditional feedback is either too nice (friends), too invested (team), or too expensive (real advisors). AI-generated feedback is often too generic or lacks the specific mental models that make great advisors valuable.</p>
@@ -142,7 +142,7 @@ Reconciles disagreements between board members and creates one actionable plan. 
 
 <p>The blog reference system can be populated with your own articles and knowledge base. The JSON output enables integration with project management tools, automated reporting, or custom dashboards.</p>
 
-<p>For teams, you can create standardized critique processes where every new idea gets board feedback before moving to development. The deterministic output makes it easy to track how ideas evolve based on board recommendations.</p>
+<p>For teams, you can create standardized critique processes where every new idea gets advisory feedback before moving to development. The deterministic output makes it easy to track how ideas evolve based on advisory recommendations.</p>
 
 <h2>The Independence Advantage</h2>
 <p>Building your own AI advisory system means you control the entire experience. No monthly fees, no usage limits, no terms of service changes. Your feedback system evolves with your needs rather than being constrained by external platforms.</p>
@@ -159,7 +159,7 @@ Reconciles disagreements between board members and creates one actionable plan. 
 <p>Teams report that having consistent, high-quality feedback early in the ideation process leads to better outcomes and fewer pivots later. The brutal honesty helps kill bad ideas quickly, freeing up resources for better opportunities.</p>
 
 <h2>Getting Your Copy</h2>
-<p>The Board of Directors Agents system is open source and available on GitHub. The setup process is designed to be friction-free - you can be getting world-class feedback on your ideas within minutes of cloning the repository.</p>
+<p>Advisory AI is open source and available on GitHub. The setup process is designed to be friction-free - you can be getting world-class feedback on your ideas within minutes of cloning the repository.</p>
 
 <p>The system includes comprehensive documentation, example files, and test suites. The codebase follows best practices and is designed for easy extension and customization.</p>
 
@@ -169,7 +169,7 @@ Reconciles disagreements between board members and creates one actionable plan. 
 
 <h2>Next Steps</h2>
 <ul>
-  <li><a href="https://github.com/anupsahoo/board-of-directors-agents">Download Board of Directors Agents</a></li>
+  <li><a href="https://github.com/anupsahoo/advisory-ai">Download Advisory AI</a></li>
   <li><a href="/atelier-lab">Explore 35+ More Thinking Agents</a></li>
   <li><a href="/architecture/custom-subscription-system">Build Your Own Independent Systems</a></li>
 </ul>

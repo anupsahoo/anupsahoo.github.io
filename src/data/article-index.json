@@ -1,8 +1,8 @@
 [
   {
-    "slug": "board-of-directors-agents",
-    "title": "Board of Directors Agents: AI Advisory System That Actually Works",
-    "description": "Get brutally honest feedback on your ideas from 5 AI agents inspired by legendary thinkers - Jobs, Naval, Munger, and more. Runs locally with Ollama.",
+    "slug": "advisory-ai",
+    "title": "Advisory AI: Get Brutally Honest Feedback on Your Ideas",
+    "description": "5 AI agents inspired by legendary thinkers provide structured critique on your business ideas. Runs locally with Ollama - no API keys required.",
     "section": "architecture",
     "category": "Architecture",
     "tags": [
@@ -13,7 +13,7 @@
     "readTime": "16 min read",
     "difficulty": "intermediate",
     "publishDate": "2024-03-16",
-    "href": "/architecture/board-of-directors-agents"
+    "href": "/architecture/advisory-ai"
   },
   {
     "slug": "custom-subscription-system",
