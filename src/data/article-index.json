@@ -1,5 +1,21 @@
 [
   {
+    "slug": "board-of-directors-agents",
+    "title": "Board of Directors Agents: AI Advisory System That Actually Works",
+    "description": "Get brutally honest feedback on your ideas from 5 AI agents inspired by legendary thinkers - Jobs, Naval, Munger, and more. Runs locally with Ollama.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "AI Agents",
+      "Business Strategy",
+      "Local AI"
+    ],
+    "readTime": "16 min read",
+    "difficulty": "intermediate",
+    "publishDate": "2024-03-16",
+    "href": "/architecture/board-of-directors-agents"
+  },
+  {
     "slug": "custom-subscription-system",
     "title": "Building a Custom Subscription System Without External Tools",
     "description": "How to build your own email subscription system using git hooks, SQLite, and zero external dependencies for complete independence.",
