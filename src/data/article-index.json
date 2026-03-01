@@ -1,5 +1,21 @@
 [
   {
+    "slug": "custom-subscription-system",
+    "title": "Building a Custom Subscription System Without External Tools",
+    "description": "How to build your own email subscription system using git hooks, SQLite, and zero external dependencies for complete independence.",
+    "section": "architecture",
+    "category": "Architecture",
+    "tags": [
+      "Architecture",
+      "Independence",
+      "Git Automation"
+    ],
+    "readTime": "18 min read",
+    "difficulty": "advanced",
+    "publishDate": "2024-03-15",
+    "href": "/architecture/custom-subscription-system"
+  },
+  {
     "slug": "open-source-llm-ecosystem",
     "title": "The Open-Source LLM Ecosystem in 2025",
     "description": "A comprehensive map of open-source large language models — from Llama to Mistral to Qwen — and how they compare to proprietary alternatives.",
