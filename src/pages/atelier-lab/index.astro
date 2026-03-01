@@ -1,0 +1,584 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SubscribeModule from "../../components/SubscribeModule.astro";
+
+const agentCategories = [
+  {
+    id: "cognitive",
+    title: "Cognitive Agents",
+    description: "Thinking upgrade agents that enhance mental models and reasoning capabilities",
+    icon: "",
+    agents: [
+      {
+        name: "Assumption Breaker",
+        description: "Identifies hidden assumptions using first-principles thinking",
+        mentalModels: ["First Principles", "Inversion"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/cognitive/assumption_breaker.py"
+      },
+      {
+        name: "Second Order Thinking", 
+        description: "Predicts downstream consequences and ripple effects",
+        mentalModels: ["Second-Order Thinking", "Systems Thinking"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/cognitive/second_order_thinking.py"
+      },
+      {
+        name: "Bias Detector",
+        description: "Detects cognitive biases in text and decisions",
+        mentalModels: ["Critical Thinking", "Probabilistic Reasoning"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/cognitive/bias_detector.py"
+      },
+      {
+        name: "Devil's Advocate",
+        description: "Provides logical opposition to test arguments",
+        mentalModels: ["Logical Reasoning", "Inversion"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/cognitive/devils_advocate.py"
+      },
+      {
+        name: "Clarity Refiner",
+        description: "Makes vague ideas sharp and structured",
+        mentalModels: ["First Principles", "Systems Thinking"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/cognitive/clarity_refiner.py"
+      },
+      {
+        name: "Mental Model Injector",
+        description: "Applies specific mental models to problems",
+        mentalModels: ["Multi-Model Thinking", "Pattern Recognition"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/cognitive/mental_model_injector.py"
+      },
+      {
+        name: "Tradeoff Analyzer",
+        description: "Analyzes what you gain vs. what you sacrifice",
+        mentalModels: ["Opportunity Cost", "Systems Thinking"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/cognitive/tradeoff_analyzer.py"
+      }
+    ]
+  },
+  {
+    id: "life-engineering",
+    title: "Life Engineering",
+    description: "Life optimization agents for personal growth and productivity",
+    icon: "",
+    agents: [
+      {
+        name: "Weekly Direction",
+        description: "Suggests weekly focus based on goals and priorities",
+        mentalModels: ["Pareto Principle", "Goal Setting"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/life_engineering/weekly_direction.py"
+      },
+      {
+        name: "Energy Audit",
+        description: "Identifies energy drains and time allocation issues",
+        mentalModels: ["Pareto Analysis", "Opportunity Cost"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/life_engineering/energy_audit.py"
+      },
+      {
+        name: "Decision Weight",
+        description: "Helps choose between options using weighted scoring",
+        mentalModels: ["Decision Matrices", "Expected Value"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/life_engineering/decision_weight.py"
+      },
+      {
+        name: "Fear Decomposer",
+        description: "Breaks fears into rational components",
+        mentalModels: ["Stoicism", "Risk Analysis"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/life_engineering/fear_decomposer.py"
+      },
+      {
+        name: "Discipline Reminder",
+        description: "Monitors consistency patterns and provides reminders",
+        mentalModels: ["Habit Formation", "Systems Thinking"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/life_engineering/discipline_reminder.py"
+      },
+      {
+        name: "Long-Term Identity",
+        description: "Checks if actions align with long-term identity",
+        mentalModels: ["Identity-Based Habits", "Value Alignment"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/life_engineering/long_term_identity.py"
+      }
+    ]
+  },
+  {
+    id: "strategy",
+    title: "Strategic Thinking",
+    description: "Business strategy and competitive analysis agents",
+    icon: "",
+    agents: [
+      {
+        name: "Business Stress Tester",
+        description: "Attacks business ideas to find weaknesses",
+        mentalModels: ["Premortem Analysis", "Red Teaming"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/strategy/business_stress_tester.py"
+      },
+      {
+        name: "Competitive Positioning",
+        description: "Analyzes differentiation and market position",
+        mentalModels: ["Competitive Analysis", "Strategy Frameworks"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/strategy/competitive_positioning.py"
+      },
+      {
+        name: "Narrative Framer",
+        description: "Turns concepts into compelling stories",
+        mentalModels: ["Storytelling", "Psychology"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/strategy/narrative_framer.py"
+      },
+      {
+        name: "Audience Persona",
+        description: "Creates detailed psychological personas",
+        mentalModels: ["Empathy Mapping", "User Psychology"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/strategy/audience_persona.py"
+      },
+      {
+        name: "Leverage Finder",
+        description: "Finds highest ROI actions and leverage points",
+        mentalModels: ["80/20 Principle", "Systems Analysis"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/strategy/leverage_finder.py"
+      },
+      {
+        name: "Anti-Fragility",
+        description: "Makes systems stronger under stress",
+        mentalModels: ["Anti-Fragility Theory", "Risk Management"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/strategy/anti_fragility.py"
+      }
+    ]
+  },
+  {
+    id: "communication",
+    title: "Communication Intelligence",
+    description: "Agents that enhance communication and influence",
+    icon: "",
+    agents: [
+      {
+        name: "Ego Filter",
+        description: "Softens aggressive tone and reduces ego",
+        mentalModels: ["Emotional Intelligence", "Non-Violent Communication"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/communication/ego_filter.py"
+      },
+      {
+        name: "Power Rewriter",
+        description: "Makes messages more authoritative",
+        mentalModels: ["Power Dynamics", "Confidence Building"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/communication/power_rewriter.py"
+      },
+      {
+        name: "Simplifier",
+        description: "Converts complex concepts into simple explanations",
+        mentalModels: ["Feynman Technique", "Teaching Methods"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/communication/simplifier.py"
+      },
+      {
+        name: "Influence Pattern",
+        description: "Rewrites content to increase persuasion",
+        mentalModels: ["Cialdini's Principles", "Persuasion Psychology"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/communication/influence_pattern.py"
+      },
+      {
+        name: "Hook Generator",
+        description: "Creates powerful opening lines and hooks",
+        mentalModels: ["Psychology", "Copywriting"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/communication/hook_generator.py"
+      }
+    ]
+  },
+  {
+    id: "ai-future",
+    title: "AI Future",
+    description: "Human + AI collaboration and future-readiness agents",
+    icon: "",
+    agents: [
+      {
+        name: "AI Readiness Assessor",
+        description: "Measures team AI readiness and maturity",
+        mentalModels: ["Change Management", "Capability Assessment"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/ai_future/ai_readiness_assessor.py"
+      },
+      {
+        name: "Copilot Discipline",
+        description: "Analyzes and improves AI usage patterns",
+        mentalModels: ["Prompt Engineering", "Human-AI Collaboration"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/ai_future/copilot_discipline.py"
+      },
+      {
+        name: "Skill Gap Predictor",
+        description: "Predicts which skills will become obsolete",
+        mentalModels: ["Trend Analysis", "Future Planning"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/ai_future/skill_gap_predictor.py"
+      },
+      {
+        name: "Automation Finder",
+        description: "Identifies repetitive tasks for automation",
+        mentalModels: ["Process Optimization", "Systems Analysis"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/ai_future/automation_finder.py"
+      },
+      {
+        name: "Ethical Risk Scanner",
+        description: "Scans for AI misuse and ethical risks",
+        mentalModels: ["AI Ethics", "Risk Management"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/ai_future/ethical_risk_scanner.py"
+      },
+      {
+        name: "Cognitive Load Reducer",
+        description: "Reduces mental strain in workflows",
+        mentalModels: ["Cognitive Psychology", "UX Design"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/ai_future/cognitive_load_reducer.py"
+      }
+    ]
+  },
+  {
+    id: "beyond-software",
+    title: "Beyond Software",
+    description: "Philosophical agents for deeper thinking and legacy",
+    icon: "",
+    agents: [
+      {
+        name: "Digital Dharma",
+        description: "Analyzes if work creates value or noise",
+        mentalModels: ["Essentialism", "Value Theory"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/beyond_software/digital_dharma.py"
+      },
+      {
+        name: "Silence Agent",
+        description: "Suggests what to stop doing",
+        mentalModels: ["Subtraction", "Strategic Quitting"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/beyond_software/silence_agent.py"
+      },
+      {
+        name: "Attention Protector",
+        description: "Identifies and protects attention from leaks",
+        mentalModels: ["Attention Economics", "Focus Management"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/beyond_software/attention_protector.py"
+      },
+      {
+        name: "Long Horizon",
+        description: "Projects current path 10 years forward",
+        mentalModels: ["Scenario Planning", "Time Horizon Analysis"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/beyond_software/long_horizon.py"
+      },
+      {
+        name: "Legacy Simulator",
+        description: "Analyzes long-term impact and legacy",
+        mentalModels: ["Legacy Thinking", "Impact Assessment"],
+        githubUrl: "https://github.com/anupsahoo/AtelierLabs/blob/main/beyond_software/legacy_simulator.py"
+      }
+    ]
+  }
+];
+---
+
+<BaseLayout title="Atelier Lab — Anup Sahoo" description="35+ intelligent thinking agents that demonstrate cognitive architectures and mental models for complex problem solving.">
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-transparent"></div>
+    <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl"></div>
+    <div class="relative max-w-content mx-auto px-6 pt-24 pb-20">
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="section-label mb-4">Atelier Lab</p>
+        <h1 class="text-display font-extrabold text-text mb-6">35+ Intelligent Thinking Agents</h1>
+        <p class="text-lg text-text-secondary leading-relaxed mb-8">
+          What if you could have a team of brilliant consultants, each specializing in a different type of thinking, 
+          available 24/7 to help you make better decisions? That's exactly what we've built here - autonomous agents 
+          that don't just process data, they actually think alongside you.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a href="https://github.com/anupsahoo/AtelierLabs" target="_blank" rel="noopener noreferrer" class="btn-primary">
+            View on GitHub
+          </a>
+          <a href="#framework" class="btn-secondary">
+            Learn Framework
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="divider-line"></div>
+  </section>
+
+  <!-- Philosophy Section -->
+  <section class="max-w-content mx-auto px-6 py-20">
+    <div class="max-w-3xl mx-auto text-center mb-12">
+      <p class="section-label">Philosophy</p>
+      <h2 class="text-headline font-bold text-text mb-4">The Day We Stopped Building Software</h2>
+      <p class="text-text-secondary leading-relaxed">
+        There's a moment in every engineer's journey when they realize they're not just writing code anymore - they're designing minds. 
+        These agents represent that breakthrough moment. Each one thinks, reasons, and solves problems the way a brilliant human consultant would, 
+        but they never get tired, never have bad days, and are always ready to help you think better.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+      <div class="card">
+        <h3 class="font-semibold text-text mb-2">Think Like Chanakya</h3>
+        <p class="text-sm text-text-secondary leading-relaxed">
+          Remember how Chanakya broke down complex political problems into first principles? Our agents do the same - they don't just follow patterns, they understand the fundamental truths behind every decision.
+        </p>
+      </div>
+      <div class="card">
+        <h3 class="font-semibold text-text mb-2">Memory That Never Forgets</h3>
+        <p class="text-sm text-text-secondary leading-relaxed">
+          Unlike that colleague who forgets yesterday's discussion, these agents remember everything. Every conversation, every insight, every pattern - building wisdom over time like a master craftsman.
+        </p>
+      </div>
+      <div class="card">
+        <h3 class="font-semibold text-text mb-2">The Wisdom of Crowds, Digitized</h3>
+        <p class="text-sm text-text-secondary leading-relaxed">
+          Imagine having a room full of experts who never argue, always collaborate, and build on each other's ideas. That's what happens when our agents work together.
+        </p>
+      </div>
+      <div class="card">
+        <h3 class="font-semibold text-text mb-2">Show Your Work</h3>
+        <p class="text-sm text-text-secondary leading-relaxed">
+          Remember your math teacher asking you to show your work? These agents do exactly that - every conclusion comes with the complete reasoning path, so you know exactly how they arrived at their insights.
+        </p>
+      </div>
+      <div class="card">
+        <h3 class="font-semibold text-text mb-2">From Automation to Augmentation</h3>
+        <p class="text-sm text-text-secondary leading-relaxed">
+          We're not trying to replace human thinking - we're trying to make it superhuman. These agents are like having a brilliant research assistant who never sleeps.
+        </p>
+      </div>
+      <div class="card">
+        <h3 class="font-semibold text-text mb-2">Built to Grow</h3>
+        <p class="text-sm text-text-secondary leading-relaxed">
+          Just like how you can teach a smart student new concepts, you can easily add new mental models and reasoning capabilities to these agents. Intelligence that evolves.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Framework Section -->
+  <section id="framework" class="border-t border-border bg-surface-50">
+    <div class="max-w-content mx-auto px-6 py-20">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <p class="section-label">Independent Agent Architecture</p>
+        <h2 class="text-headline font-bold text-text mb-4">Enterprise-Grade Autonomous Agents</h2>
+        <p class="text-text-secondary leading-relaxed">
+          Every agent is a complete, independent project with its own cognitive framework, 
+          production scaffolding, and enterprise-grade structure. No shared dependencies.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="bg-white border border-border rounded-xl p-6">
+          <h4 class="font-semibold text-text mb-3">Self-Contained Framework</h4>
+          <p class="text-sm text-text-secondary mb-4">
+            Each agent includes its own cognitive framework in a core/ directory - no shared dependencies.
+          </p>
+          <a href="https://github.com/anupsahoo/AtelierLabs/tree/main/assumption_breaker/core" target="_blank" class="text-accent hover:text-accent-dark text-sm font-medium">
+            View Example →
+          </a>
+        </div>
+        <div class="bg-white border border-border rounded-xl p-6">
+          <h4 class="font-semibold text-text mb-3">Enterprise Structure</h4>
+          <p class="text-sm text-text-secondary mb-4">
+            Full project scaffolding with pyproject.toml, Dockerfile, Makefile, tests, and docs.
+          </p>
+          <a href="https://github.com/anupsahoo/AtelierLabs/tree/main/autonomy_gatekeeper" target="_blank" class="text-accent hover:text-accent-dark text-sm font-medium">
+            View Example →
+          </a>
+        </div>
+        <div class="bg-white border border-border rounded-xl p-6">
+          <h4 class="font-semibold text-text mb-3">Production Ready</h4>
+          <p class="text-sm text-text-secondary mb-4">
+            Independent deployment with Docker support, CI/CD configuration, and CLI interfaces.
+          </p>
+          <a href="https://github.com/anupsahoo/AtelierLabs/blob/main/autonomy_gatekeeper/Dockerfile" target="_blank" class="text-accent hover:text-accent-dark text-sm font-medium">
+            View Example →
+          </a>
+        </div>
+        <div class="bg-white border border-border rounded-xl p-6">
+          <h4 class="font-semibold text-text mb-3">Observable Reasoning</h4>
+          <p class="text-sm text-text-secondary mb-4">
+            Detailed reasoning traces, confidence scoring, and mental model application tracking.
+          </p>
+          <a href="https://github.com/anupsahoo/AtelierLabs/blob/main/assumption_breaker/assumption_breaker.py" target="_blank" class="text-accent hover:text-accent-dark text-sm font-medium">
+            View Example →
+          </a>
+        </div>
+        <div class="bg-white border border-border rounded-xl p-6">
+          <h4 class="font-semibold text-text mb-3">Mental Models Integration</h4>
+          <p class="text-sm text-text-secondary mb-4">
+            First principles, second-order thinking, systems thinking integrated into each agent.
+          </p>
+          <a href="https://github.com/anupsahoo/AtelierLabs/blob/main/bias_detector/core/mental_models.py" target="_blank" class="text-accent hover:text-accent-dark text-sm font-medium">
+            View Example →
+          </a>
+        </div>
+        <div class="bg-white border border-border rounded-xl p-6">
+          <h4 class="font-semibold text-text mb-3">Independent Deployment</h4>
+          <p class="text-sm text-text-secondary mb-4">
+            Each agent can be deployed independently without any external framework dependencies.
+          </p>
+          <a href="https://github.com/anupsahoo/AtelierLabs" target="_blank" class="text-accent hover:text-accent-dark text-sm font-medium">
+            Browse All →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agent Categories -->
+  <section class="max-w-content mx-auto px-6 py-20">
+    <div class="max-w-3xl mx-auto text-center mb-12">
+      <p class="section-label">Agent Categories</p>
+      <h2 class="text-headline font-bold text-text mb-4">35+ Specialized Thinking Agents</h2>
+      <p class="text-text-secondary leading-relaxed">
+        Six categories of intelligent agents, each designed to solve specific types of cognitive problems 
+        using sophisticated mental models and reasoning patterns.
+      </p>
+    </div>
+
+    <div class="space-y-16">
+      {agentCategories.map(category => (
+        <div>
+          <div class="flex items-center gap-4 mb-8">
+            <span class="text-3xl">{category.icon}</span>
+            <div>
+              <h3 class="text-2xl font-bold text-text mb-2">{category.title}</h3>
+              <p class="text-text-secondary">{category.description}</p>
+            </div>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {category.agents.map(agent => (
+              <div class="card card-interactive group">
+                <div class="flex items-start justify-between mb-3">
+                  <h4 class="font-semibold text-text group-hover:text-accent transition-colors">
+                    {agent.name}
+                  </h4>
+                  <a href={agent.githubUrl} target="_blank" rel="noopener noreferrer" 
+                     class="text-text-muted hover:text-text transition-colors">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                  </a>
+                </div>
+                <p class="text-sm text-text-secondary leading-relaxed mb-4">{agent.description}</p>
+                <div class="flex flex-wrap gap-2">
+                  {agent.mentalModels.map(model => (
+                    <span class="text-xs px-2 py-1 rounded-full bg-surface-200 text-text-muted border border-border">
+                      {model}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- Usage Examples -->
+  <section class="border-t border-border bg-surface-50">
+    <div class="max-w-content mx-auto px-6 py-20">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <p class="section-label">Usage Examples</p>
+        <h2 class="text-headline font-bold text-text mb-4">How to Use the Agents</h2>
+        <p class="text-text-secondary leading-relaxed">
+          Simple, intuitive interfaces for complex cognitive tasks. Each agent explains its reasoning process.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div class="bg-white border border-border rounded-xl p-6">
+          <h4 class="font-semibold text-text mb-4">CLI Usage</h4>
+          <pre class="bg-surface-100 rounded-lg p-4 text-sm overflow-x-auto mb-4"><code># Each agent has its own CLI interface
+cd assumption_breaker/
+make setup
+assumption-breaker --input "We will capture 50% market share"
+
+# Or use Docker
+docker build -t assumption-breaker .
+docker run assumption-breaker --input "Your idea here"</code></pre>
+          <p class="text-sm text-text-secondary">
+            Each agent is independently deployable with CLI and Docker support.
+          </p>
+        </div>
+
+        <div class="bg-white border border-border rounded-xl p-6">
+          <h4 class="font-semibold text-text mb-4">Python Integration</h4>
+          <pre class="bg-surface-100 rounded-lg p-4 text-sm overflow-x-auto mb-4"><code>from assumption_breaker.assumption_breaker import AssumptionBreakerAgent
+
+async def analyze_idea():
+    agent = AssumptionBreakerAgent()
+    idea = "We will capture 50% market share in 2 years"
+    result = await agent.process_input(idea)
+    return result.content
+
+# Get detailed analysis with reasoning trace
+analysis = await analyze_idea()</code></pre>
+          <p class="text-sm text-text-secondary">
+            Each agent provides detailed reasoning traces and confidence scores.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Section -->
+  <section class="max-w-content mx-auto px-6 py-20">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="section-label">Beyond Code</p>
+      <h2 class="text-headline font-bold text-text mb-4">The Moment Everything Changed</h2>
+      <p class="text-text-secondary leading-relaxed mb-8">
+        Picture this: You're in a meeting, discussing a critical business decision. Instead of just sharing opinions, 
+        you pull up your "Assumption Breaker" agent and say, "Let me show you what assumptions we're making." 
+        Suddenly, you're not just another voice in the room - you're the person who brings intelligence to the conversation. 
+        That's the power of having 35 thinking agents at your fingertips.
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div class="text-center">
+          <div class="text-3xl font-bold text-accent mb-2">35+</div>
+          <p class="text-sm text-text-secondary">Intelligent Agents</p>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-accent mb-2">12</div>
+          <p class="text-sm text-text-secondary">Mental Models</p>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-accent mb-2">6</div>
+          <p class="text-sm text-text-secondary">Agent Categories</p>
+        </div>
+      </div>
+
+      <div class="bg-surface-50 border border-border rounded-xl p-8">
+        <blockquote class="text-lg text-text-secondary italic leading-relaxed mb-4">
+          "We didn't set out to replace human intelligence. We set out to amplify it. 
+          These agents are like having the wisdom of ancient philosophers, the analytical power of modern scientists, 
+          and the strategic thinking of successful entrepreneurs - all working together to make you better at what you do."
+        </blockquote>
+        <p class="text-sm text-text-muted">— The Story Behind AtelierLabs</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="border-t border-border bg-surface-50">
+    <div class="max-w-content mx-auto px-6 py-20">
+      <div class="max-w-2xl mx-auto text-center">
+        <p class="section-label">Get Started</p>
+        <h2 class="text-headline font-bold text-text mb-4">Build Your Own Thinking Systems</h2>
+        <p class="text-text-secondary leading-relaxed mb-8">
+          Explore the framework, study the agents, and start building your own cognitive architectures. 
+          This is open source intelligence design.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://github.com/anupsahoo/AtelierLabs" target="_blank" rel="noopener noreferrer" class="btn-primary">
+            Clone Repository
+          </a>
+          <a href="https://github.com/anupsahoo/AtelierLabs/blob/main/README.md" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            Read Documentation
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscribe -->
+  <section class="max-w-content mx-auto px-6 pb-20">
+    <SubscribeModule variant="full" />
+  </section>
+
+</BaseLayout>
