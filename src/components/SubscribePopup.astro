@@ -1,0 +1,163 @@
+---
+import { SUBSCRIBE_ACTION } from '../data/newsletter';
+
+const topics = [
+  'Eval frameworks, benchmarks, and LLM-as-judge patterns',
+  'Validating AI systems before and after they ship',
+  'Hands-on reviews of eval services and tooling',
+];
+---
+
+<!-- Subscribe popup: shown once per visitor after a short delay or scroll, hidden after dismiss/subscribe -->
+<div id="subscribe-popup" class="fixed inset-0 z-[60] hidden items-end sm:items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="subscribe-popup-title">
+  <div data-popup-close class="popup-backdrop absolute inset-0 bg-gray-950/50 backdrop-blur-sm"></div>
+
+  <div class="popup-card relative w-full max-w-lg overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-black/5">
+    <button type="button" data-popup-close class="absolute top-4 right-4 z-10 p-2 text-white/60 hover:text-white rounded-full hover:bg-white/10 transition-colors" aria-label="Close">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+
+    <!-- Header -->
+    <div class="relative overflow-hidden bg-gray-950 px-8 pt-9 pb-8">
+      <div class="popup-grid absolute inset-0 opacity-40"></div>
+      <div class="absolute -top-24 -right-16 w-72 h-72 rounded-full bg-accent/40 blur-3xl"></div>
+      <div class="absolute -bottom-32 -left-20 w-72 h-72 rounded-full bg-blue-400/20 blur-3xl"></div>
+      <div class="relative">
+        <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-blue-200">
+          <span class="relative flex h-1.5 w-1.5">
+            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-300 opacity-75"></span>
+            <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-blue-300"></span>
+          </span>
+          Beyond Models Newsletter
+        </span>
+        <h3 id="subscribe-popup-title" class="mt-5 text-[1.75rem] leading-tight font-bold tracking-tight text-white">
+          Get the latest on<br/>
+          <span class="bg-gradient-to-r from-blue-300 to-blue-100 bg-clip-text text-transparent">AI validation &amp; evals</span>
+        </h3>
+        <p class="mt-3 text-sm leading-relaxed text-gray-300">Subscribe to this blog and get an email whenever a new post lands — 2–3 deep dives a month.</p>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="px-8 pt-6 pb-8">
+      <div data-subscribe-view>
+        <ul class="space-y-2.5 mb-6">
+          {topics.map(t => (
+            <li class="flex items-start gap-3 text-sm text-text-secondary">
+              <svg class="mt-0.5 w-4 h-4 flex-shrink-0 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              {t}
+            </li>
+          ))}
+        </ul>
+        <form data-subscribe-form class="flex flex-col sm:flex-row gap-2.5" action={SUBSCRIBE_ACTION} method="post" target="_blank">
+          <input type="hidden" name="embed" value="1" />
+          <input type="hidden" name="tag" value="popup" />
+          <input
+            type="email"
+            name="email"
+            placeholder="you@company.com"
+            required
+            aria-label="Email address"
+            class="flex-1 min-w-0 px-4 py-3 bg-surface-50 border border-border rounded-xl text-text placeholder:text-text-muted focus:outline-none focus:bg-white focus:border-accent/50 focus:ring-4 focus:ring-accent/10 transition-all"
+          />
+          <button type="submit" class="btn-primary !rounded-xl !py-3 !px-6 whitespace-nowrap">Subscribe</button>
+        </form>
+        <p class="text-xs text-text-muted mt-3">Free. No spam. One-click unsubscribe.</p>
+      </div>
+
+      <div data-subscribe-success class="hidden text-center py-4">
+        <div class="mx-auto mb-4 w-12 h-12 rounded-full bg-emerald-50 ring-8 ring-emerald-50/50 flex items-center justify-center">
+          <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <p class="text-lg font-semibold text-text">Almost there — check your inbox</p>
+        <p class="mt-1 text-sm text-text-secondary">Click the confirmation link we just sent to finish subscribing.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .popup-grid {
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 28px 28px;
+    mask-image: radial-gradient(ellipse at top right, black 20%, transparent 75%);
+  }
+  #subscribe-popup.flex .popup-backdrop { animation: popupFade 0.3s ease-out; }
+  #subscribe-popup.flex .popup-card { animation: popupIn 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+  @keyframes popupFade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes popupIn { from { opacity: 0; transform: translateY(16px) scale(0.97); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    #subscribe-popup.flex .popup-backdrop, #subscribe-popup.flex .popup-card { animation: none; }
+  }
+</style>
+
+<script>
+  const DISMISS_KEY = 'subscribePopupDismissedAt';
+  const SUBSCRIBED_KEY = 'subscribePopupSubscribed';
+  const DISMISS_DAYS = 7;
+  const DELAY_MS = 6000;
+  const SCROLL_RATIO = 0.35;
+
+  const popup = document.getElementById('subscribe-popup');
+
+  function read(key: string) {
+    try { return localStorage.getItem(key); } catch { return null; }
+  }
+  function write(key: string, value: string) {
+    try { localStorage.setItem(key, value); } catch {}
+  }
+
+  // Submit every subscribe form on the site in place, then swap in its success message
+  document.querySelectorAll<HTMLFormElement>('form[data-subscribe-form]').forEach(form => {
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const button = form.querySelector<HTMLButtonElement>('button[type=submit]');
+      if (button) { button.disabled = true; button.textContent = 'Subscribing…'; }
+      try {
+        await fetch(form.action, { method: 'POST', body: new FormData(form), mode: 'no-cors' });
+      } catch {
+        // Network or blocker issue: fall back to a normal submit in a new tab
+        form.submit();
+      }
+      write(SUBSCRIBED_KEY, '1');
+      const scope = form.closest('[data-subscribe-scope]') ?? form.parentElement?.parentElement;
+      scope?.querySelector('[data-subscribe-view]')?.classList.add('hidden');
+      scope?.querySelector('[data-subscribe-success]')?.classList.remove('hidden');
+    });
+  });
+
+  function shouldShow() {
+    if (location.pathname.startsWith('/newsletter')) return false;
+    if (new URLSearchParams(location.search).has('subscribe')) return true;
+    if (read(SUBSCRIBED_KEY)) return false;
+    const dismissedAt = Number(read(DISMISS_KEY));
+    return !dismissedAt || Date.now() - dismissedAt > DISMISS_DAYS * 864e5;
+  }
+
+  let shown = false;
+  function open() {
+    if (shown || !popup) return;
+    shown = true;
+    popup.classList.remove('hidden');
+    popup.classList.add('flex');
+    window.removeEventListener('scroll', onScroll);
+  }
+  function close() {
+    popup?.classList.add('hidden');
+    popup?.classList.remove('flex');
+    write(DISMISS_KEY, String(Date.now()));
+  }
+  function onScroll() {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    if (max > 0 && scrollY / max >= SCROLL_RATIO) open();
+  }
+
+  if (popup && shouldShow()) {
+    setTimeout(open, DELAY_MS);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    popup.querySelectorAll('[data-popup-close]').forEach(el => el.addEventListener('click', close));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && shown) close(); });
+  }
+</script>
