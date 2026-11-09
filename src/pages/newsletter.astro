@@ -4,13 +4,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const benefits = [
   { title: "Architecture Deep Dives", desc: "Detailed analysis of enterprise AI architecture patterns, system design decisions, and trade-offs." },
-  { title: "Implementation Guides", desc: "Step-by-step guides for deploying AI systems in production — RAG, agents, serving, and more." },
+  { title: "Implementation Guides", desc: "Step by step guides for putting AI into production, covering RAG, agents, serving, and more." },
   { title: "Landscape Analysis", desc: "Curated analysis of emerging tools, frameworks, and platforms in the AI ecosystem." },
   { title: "Engineering Leadership", desc: "Insights on building AI teams, managing technical debt, and driving AI transformation." },
 ];
 ---
 
-<BaseLayout title="Newsletter — Anup Sahoo" description="Insights on AI validation, evals, enterprise AI architecture, implementation patterns, and engineering leadership.">
+<BaseLayout title="Newsletter by Anup Sahoo" description="Insights on AI validation, evals, enterprise AI architecture, implementation patterns, and engineering leadership.">
 
   <!-- Hero -->
   <section class="relative overflow-hidden">
@@ -20,7 +20,7 @@ const benefits = [
       <div class="max-w-2xl mx-auto text-center" data-subscribe-scope>
         <p class="section-label mb-4">Newsletter</p>
         <h1 class="text-display font-extrabold text-text mb-6">Stay ahead in<br/><span class="gradient-text">AI engineering</span></h1>
-        <p class="text-lg text-text-secondary leading-relaxed mb-10">Insights on AI validation, evals, enterprise AI architecture, implementation patterns, and engineering leadership. No fluff — only actionable knowledge from real-world experience.</p>
+        <p class="text-lg text-text-secondary leading-relaxed mb-10">Practical writing on agent validation, evals, and enterprise AI architecture. No fluff, just what I've learned shipping real systems.</p>
         <form data-subscribe-form data-subscribe-view class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" action={SUBSCRIBE_ACTION} method="post" target="_blank">
           <input type="hidden" name="embed" value="1" />
           <input type="email" name="email" placeholder="your@email.com" required class="flex-1 px-4 py-3.5 bg-white border border-border rounded-lg text-text placeholder:text-text-muted focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all text-center sm:text-left" />
@@ -54,8 +54,8 @@ const benefits = [
     <div class="max-w-content mx-auto px-6 py-20">
       <div class="max-w-2xl mx-auto text-center">
         <p class="section-label">Cadence</p>
-        <h2 class="text-headline font-bold text-text mb-4">2–3 deep dives a month</h2>
-        <p class="text-text-secondary leading-relaxed">You get an email whenever a new post is published. Each one is focused on one topic in depth — not a link dump. Expect structured analysis, code examples, and actionable takeaways you can apply immediately.</p>
+        <h2 class="text-headline font-bold text-text mb-4">Four pieces a month</h2>
+        <p class="text-text-secondary leading-relaxed">Every time a new piece goes live, it lands in your inbox. Each one goes deep on a single topic instead of being a list of links. You'll get clear analysis, working code, and ideas you can use the same week.</p>
       </div>
     </div>
   </section>

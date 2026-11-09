@@ -12,7 +12,7 @@ const { variant = 'inline' } = Astro.props;
     <div class="relative max-w-xl" data-subscribe-scope>
       <p class="section-label">Newsletter</p>
       <h3 class="text-headline font-bold text-text mb-3">Stay ahead in AI engineering</h3>
-      <p class="text-text-secondary leading-relaxed mb-6">Insights on AI validation, evals, enterprise AI architecture, implementation patterns, and engineering leadership. No fluff — only actionable knowledge.</p>
+      <p class="text-text-secondary leading-relaxed mb-6">Practical writing on agent validation, evals, and enterprise AI architecture. No fluff, just what actually works in production. Four pieces a month.</p>
       <form data-subscribe-form data-subscribe-view class="flex flex-col sm:flex-row gap-3" action={SUBSCRIBE_ACTION} method="post" target="_blank">
         <input type="hidden" name="embed" value="1" />
         <input
@@ -36,7 +36,7 @@ const { variant = 'inline' } = Astro.props;
       </div>
       <div class="flex-1">
         <h4 class="font-semibold text-text mb-1">Get new posts by email</h4>
-        <p class="text-sm text-text-secondary mb-3">Architecture patterns, implementation guides, and engineering leadership — 2–3 posts a month.</p>
+        <p class="text-sm text-text-secondary mb-3">Eval playbooks, architecture patterns, and lessons from real projects. Four pieces a month.</p>
         <a href="/newsletter" class="btn-primary text-sm">Subscribe</a>
       </div>
     </div>

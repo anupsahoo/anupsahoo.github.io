@@ -1,76 +1,140 @@
 ---
 import { SUBSCRIBE_ACTION } from '../data/newsletter';
 
+const audience = ['AI engineers', 'ML leads', 'QA and test teams', 'AI product owners'];
+
 const topics = [
-  'Eval frameworks, benchmarks, and LLM-as-judge patterns',
-  'Validating AI agents before and after they ship',
-  'Hands-on reviews of eval services and tooling',
+  'How to test agents before your users do',
+  'Eval frameworks, benchmarks, and LLM as judge',
+  'Honest reviews of eval tools and services',
+];
+
+// Illustrative scorecard shown as a preview of what readers learn to build
+const metrics = [
+  { label: 'Task success', value: 94, tone: 'from-emerald-400 to-cyan-400' },
+  { label: 'Tool call accuracy', value: 89, tone: 'from-cyan-400 to-sky-400' },
+  { label: 'Groundedness', value: 91, tone: 'from-sky-400 to-violet-400' },
+  { label: 'Hallucination rate', value: 3, tone: 'from-rose-400 to-orange-400', invert: true },
 ];
 ---
 
 <!-- Subscribe popup: shown once per visitor after a short delay or scroll, hidden after dismiss/subscribe -->
-<div id="subscribe-popup" class="fixed inset-0 z-[60] hidden items-end sm:items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="subscribe-popup-title">
-  <div data-popup-close class="popup-backdrop absolute inset-0 bg-gray-950/50 backdrop-blur-sm"></div>
+<div id="subscribe-popup" class="fixed inset-0 z-[60] hidden items-center justify-center p-3 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="subscribe-popup-title">
+  <div data-popup-close class="popup-backdrop absolute inset-0 bg-gray-950/70 backdrop-blur-md"></div>
 
-  <div class="popup-card relative w-full max-w-lg overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-black/5">
-    <button type="button" data-popup-close class="absolute top-4 right-4 z-10 p-2 text-white/60 hover:text-white rounded-full hover:bg-white/10 transition-colors" aria-label="Close">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-    </button>
-
-    <!-- Header -->
-    <div class="relative overflow-hidden bg-gray-950 px-8 pt-9 pb-8">
-      <div class="popup-grid absolute inset-0 opacity-40"></div>
-      <div class="absolute -top-24 -right-16 w-72 h-72 rounded-full bg-accent/40 blur-3xl"></div>
-      <div class="absolute -bottom-32 -left-20 w-72 h-72 rounded-full bg-blue-400/20 blur-3xl"></div>
-      <div class="relative">
-        <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-blue-200">
-          <span class="relative flex h-1.5 w-1.5">
-            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-300 opacity-75"></span>
-            <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-blue-300"></span>
-          </span>
-          Beyond Models Newsletter
-        </span>
-        <h3 id="subscribe-popup-title" class="mt-5 text-[1.75rem] leading-tight font-bold tracking-tight text-white">
-          Get the latest on<br/>
-          <span class="bg-gradient-to-r from-blue-300 to-blue-100 bg-clip-text text-transparent">agent validation &amp; evals</span>
-        </h3>
-        <p class="mt-3 text-sm leading-relaxed text-gray-300">Subscribe to this blog and get an email whenever a new post lands — 2–3 deep dives a month.</p>
-      </div>
+  <div class="popup-card relative w-full max-w-5xl max-h-[calc(100dvh-1.5rem)] overflow-y-auto rounded-[2rem] bg-[#070b1a] text-white shadow-[0_0_80px_-10px_rgba(56,189,248,0.45)] ring-1 ring-white/10">
+    <!-- Background glow -->
+    <div class="pointer-events-none absolute inset-0 overflow-hidden rounded-[2rem]">
+      <div class="popup-grid absolute inset-0"></div>
+      <div class="absolute -top-40 -left-24 h-[28rem] w-[28rem] rounded-full bg-violet-600/40 blur-[110px]"></div>
+      <div class="absolute -bottom-40 right-0 h-[30rem] w-[30rem] rounded-full bg-cyan-500/30 blur-[120px]"></div>
+      <div class="absolute top-1/3 left-1/2 h-64 w-64 rounded-full bg-blue-600/30 blur-[100px]"></div>
     </div>
 
-    <!-- Body -->
-    <div class="px-8 pt-6 pb-8">
-      <div data-subscribe-view>
-        <ul class="space-y-2.5 mb-6">
+    <button type="button" data-popup-close class="absolute top-5 right-5 z-10 p-2 text-white/60 hover:text-white rounded-full hover:bg-white/10 transition-colors" aria-label="Close">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+
+    <div class="relative grid lg:grid-cols-[1.15fr_1fr] gap-10 p-7 sm:p-10 lg:p-14">
+      <!-- Pitch + form -->
+      <div data-subscribe-scope>
+        <span class="mr-10 inline-flex items-center gap-2 rounded-full border border-cyan-300/30 bg-cyan-300/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-widest text-cyan-200">
+          <span class="relative flex h-2 w-2">
+            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-300 opacity-75"></span>
+            <span class="relative inline-flex h-2 w-2 rounded-full bg-cyan-300"></span>
+          </span>
+          For people who ship AI agents
+        </span>
+
+        <h3 id="subscribe-popup-title" class="mt-6 text-4xl sm:text-5xl font-extrabold leading-[1.05] tracking-tight">
+          Your agent passed the demo.
+          <span class="block mt-2 bg-gradient-to-r from-cyan-300 via-sky-300 to-violet-300 bg-clip-text text-transparent">Will it pass production?</span>
+        </h3>
+
+        <p class="mt-5 text-base sm:text-lg leading-relaxed text-slate-300">
+          I write four pieces a month on agent validation and evals. Real methods for testing, measuring, and trusting AI before it reaches your users.
+        </p>
+
+        <div class="mt-6 flex flex-wrap gap-2">
+          {audience.map(a => (
+            <span class="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium text-slate-200">{a}</span>
+          ))}
+        </div>
+
+        <div data-subscribe-view class="mt-8">
+          <form data-subscribe-form class="flex flex-col sm:flex-row gap-3" action={SUBSCRIBE_ACTION} method="post" target="_blank">
+            <input type="hidden" name="embed" value="1" />
+            <input type="hidden" name="tag" value="popup" />
+            <input
+              type="email"
+              name="email"
+              placeholder="you@company.com"
+              required
+              aria-label="Email address"
+              class="flex-1 min-w-0 px-5 py-4 text-base bg-white/10 border border-white/20 rounded-2xl text-white placeholder:text-slate-400 focus:outline-none focus:border-cyan-300/70 focus:ring-4 focus:ring-cyan-300/20 transition-all"
+            />
+            <button type="submit" class="popup-cta rounded-2xl px-8 py-4 text-base font-bold text-white whitespace-nowrap bg-gradient-to-r from-cyan-500 via-blue-500 to-violet-500 shadow-[0_8px_30px_-6px_rgba(56,189,248,0.7)] hover:shadow-[0_10px_40px_-4px_rgba(139,92,246,0.8)] hover:brightness-110 transition-all">
+              Send me the next piece
+            </button>
+          </form>
+          <p class="mt-3 text-sm text-slate-400">Free. No spam. Unsubscribe with one click.</p>
+        </div>
+
+        <div data-subscribe-success class="hidden mt-8 rounded-2xl border border-emerald-300/30 bg-emerald-400/10 p-6">
+          <div class="flex items-center gap-4">
+            <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-emerald-400/20">
+              <svg class="w-6 h-6 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <div>
+              <p class="text-lg font-semibold text-white">You're in!</p>
+              <p class="text-sm text-slate-300">The next piece on agent validation and evals will land in your inbox.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Eval scorecard preview -->
+      <div class="hidden lg:flex flex-col justify-center">
+        <div class="rounded-3xl border border-white/10 bg-white/[0.06] p-6 backdrop-blur-xl shadow-2xl">
+          <div class="flex items-center justify-between">
+            <div class="flex gap-1.5">
+              <span class="h-3 w-3 rounded-full bg-rose-400/80"></span>
+              <span class="h-3 w-3 rounded-full bg-amber-300/80"></span>
+              <span class="h-3 w-3 rounded-full bg-emerald-400/80"></span>
+            </div>
+            <span class="font-mono text-xs text-slate-400">eval_run · support-agent</span>
+          </div>
+
+          <div class="mt-6 space-y-4">
+            {metrics.map(m => (
+              <div>
+                <div class="flex justify-between text-sm">
+                  <span class="text-slate-300">{m.label}</span>
+                  <span class="font-mono font-semibold text-white">{m.value}%</span>
+                </div>
+                <div class="mt-1.5 h-2 rounded-full bg-white/10">
+                  <div class={`h-2 rounded-full bg-gradient-to-r ${m.tone}`} style={`width: ${m.invert ? m.value * 4 : m.value}%`}></div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div class="mt-6 flex items-center gap-2 rounded-xl border border-emerald-300/20 bg-emerald-400/10 px-4 py-2.5 font-mono text-sm text-emerald-300">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            All regression checks passed
+          </div>
+        </div>
+
+        <ul class="mt-6 space-y-3">
           {topics.map(t => (
-            <li class="flex items-start gap-3 text-sm text-text-secondary">
-              <svg class="mt-0.5 w-4 h-4 flex-shrink-0 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            <li class="flex items-center gap-3 text-sm text-slate-300">
+              <span class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-cyan-300/15 text-cyan-300">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+              </span>
               {t}
             </li>
           ))}
         </ul>
-        <form data-subscribe-form class="flex flex-col sm:flex-row gap-2.5" action={SUBSCRIBE_ACTION} method="post" target="_blank">
-          <input type="hidden" name="embed" value="1" />
-          <input type="hidden" name="tag" value="popup" />
-          <input
-            type="email"
-            name="email"
-            placeholder="you@company.com"
-            required
-            aria-label="Email address"
-            class="flex-1 min-w-0 px-4 py-3 bg-surface-50 border border-border rounded-xl text-text placeholder:text-text-muted focus:outline-none focus:bg-white focus:border-accent/50 focus:ring-4 focus:ring-accent/10 transition-all"
-          />
-          <button type="submit" class="btn-primary !rounded-xl !py-3 !px-6 whitespace-nowrap">Subscribe</button>
-        </form>
-        <p class="text-xs text-text-muted mt-3">Free. No spam. One-click unsubscribe.</p>
-      </div>
-
-      <div data-subscribe-success class="hidden text-center py-4">
-        <div class="mx-auto mb-4 w-12 h-12 rounded-full bg-emerald-50 ring-8 ring-emerald-50/50 flex items-center justify-center">
-          <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-        </div>
-        <p class="text-lg font-semibold text-text">You're subscribed!</p>
-        <p class="mt-1 text-sm text-text-secondary">You'll get an email whenever a new post on agent validation &amp; evals goes live.</p>
       </div>
     </div>
   </div>
@@ -79,17 +143,19 @@ const topics = [
 <style>
   .popup-grid {
     background-image:
-      linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px);
-    background-size: 28px 28px;
-    mask-image: radial-gradient(ellipse at top right, black 20%, transparent 75%);
+      linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
   }
-  #subscribe-popup.flex .popup-backdrop { animation: popupFade 0.3s ease-out; }
-  #subscribe-popup.flex .popup-card { animation: popupIn 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+  #subscribe-popup.flex .popup-backdrop { animation: popupFade 0.35s ease-out; }
+  #subscribe-popup.flex .popup-card { animation: popupIn 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+  .popup-cta { background-size: 200% 100%; animation: ctaShift 4s ease-in-out infinite alternate; }
   @keyframes popupFade { from { opacity: 0; } to { opacity: 1; } }
-  @keyframes popupIn { from { opacity: 0; transform: translateY(16px) scale(0.97); } to { opacity: 1; transform: none; } }
+  @keyframes popupIn { from { opacity: 0; transform: translateY(24px) scale(0.96); } to { opacity: 1; transform: none; } }
+  @keyframes ctaShift { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
   @media (prefers-reduced-motion: reduce) {
-    #subscribe-popup.flex .popup-backdrop, #subscribe-popup.flex .popup-card { animation: none; }
+    #subscribe-popup.flex .popup-backdrop, #subscribe-popup.flex .popup-card, .popup-cta { animation: none; }
   }
 </style>
 
@@ -97,8 +163,8 @@ const topics = [
   const DISMISS_KEY = 'subscribePopupDismissedAt';
   const SUBSCRIBED_KEY = 'subscribePopupSubscribed';
   const DISMISS_DAYS = 7;
-  const DELAY_MS = 6000;
-  const SCROLL_RATIO = 0.35;
+  const DELAY_MS = 4000;
+  const SCROLL_RATIO = 0.3;
 
   const popup = document.getElementById('subscribe-popup');
 
