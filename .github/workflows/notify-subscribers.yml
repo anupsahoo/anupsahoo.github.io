@@ -1,0 +1,27 @@
+name: Notify Subscribers
+
+on:
+  push:
+    branches: ["master"]
+    paths: ["src/data/article-index.json"]
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Create Buttondown email for new posts
+        env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+          BUTTONDOWN_STATUS: ${{ vars.BUTTONDOWN_STATUS || 'draft' }}
+        run: node scripts/notify-new-posts.cjs "${{ github.event.before }}" "${{ github.sha }}"
