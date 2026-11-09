@@ -1,5 +1,22 @@
 [
   {
+    "category": "Newsletter",
+    "description": "Fifteen attacks hidden in tool output. One guard that checks the action. The Trust Layer, issue 16, with every step runnable in your browser.",
+    "difficulty": "intermediate",
+    "href": "/trust-layer/16",
+    "publishDate": "2026-11-12",
+    "readTime": "7 min read",
+    "section": "trust-layer",
+    "slug": "16",
+    "tags": [
+      "PromptInjection",
+      "AISecurity",
+      "Agent Evals",
+      "The Trust Layer"
+    ],
+    "title": "One Paragraph. That Is All It Took to Hack My Agent."
+  },
+  {
     "slug": "advisory-ai",
     "title": "Advisory AI: Get Brutally Honest Feedback on Your Ideas",
     "description": "5 AI agents inspired by legendary thinkers provide structured critique on your business ideas. Runs locally with Ollama - no API keys required.",
