@@ -9,6 +9,7 @@ const { execSync } = require("child_process");
 
 const INDEX_PATH = "src/data/article-index.json";
 const SITE = "https://anupsahoo.github.io";
+const MAX_POSTS = 5;
 
 function readIndex(sha) {
   try {
@@ -33,13 +34,16 @@ async function main() {
   if (!before || /^0+$/.test(before)) return console.log("No previous commit to compare against; skipping.");
   if (!apiKey) throw new Error("BUTTONDOWN_API_KEY is not set.");
 
-  const oldIndex = readIndex(before) || [];
+  // A missing previous index (e.g. after a force push) would make every post look new
+  const oldIndex = readIndex(before);
+  if (!oldIndex) return console.log(`Could not read ${INDEX_PATH} at ${before}; skipping.`);
   const newIndex = readIndex(after);
   if (!newIndex) throw new Error(`Could not read ${INDEX_PATH} at ${after}.`);
 
   const known = new Set(oldIndex.map(a => a.href));
   const added = newIndex.filter(a => !known.has(a.href));
   if (!added.length) return console.log("No new posts.");
+  if (added.length > MAX_POSTS) return console.log(`${added.length} new posts looks like a bulk change, not a release; skipping.`);
 
   const { subject, body } = buildEmail(added);
   const res = await fetch("https://api.buttondown.com/v1/emails", {
